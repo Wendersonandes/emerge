@@ -96,18 +96,22 @@ ActiveAdmin.register Opportunity do
 					column span: 2 do
 					f.inputs  do
 						f.input :title
+						f.input :url_source
 						f.input :content
 						f.input :featured_image,:as => :file, :hint => image_tag(f.object.featured_image_url(:thumb))
 						f.input :category_list, :as => :select2_multiple,
 																		:collection => ActsAsTaggableOn::Tagging.where(:context => :categories).joins(:tag).select('DISTINCT tags.name').map{ |x| x.name},
 																		:input_html => { :class => "select2-input chosen", :style => "width:80% height:200px"}
+
 										
 					end
 				end
 				column do
 					f.has_many :entry_manners, :allow_destroy => true do |entry_manner|
-						entry_manner.inputs :entry_type
-						entry_manner.inputs :content
+						entry_manner.inputs do
+							entry_manner.input :entry_type
+							entry_manner.input :content, :as => :text, :input_html => { :class => 'autogrow', :rows => 5 }
+						end
 					end
 				end
 			end
@@ -131,11 +135,12 @@ ActiveAdmin.register Opportunity do
 						prize.inputs do
 							prize.input :exact_value
 
-							prize.input :description, :as => :select2,
+							prize.input :prize_type_list, :as => :select2,
 							:collection => ActsAsTaggableOn::Tagging.where(:context => :prize_types).joins(:tag).select('DISTINCT tags.name').map{ |x| x.name},
 							:input_html => { :class => "select2-input chosen", :style => "width:20%"}
-							prize.input :value,
-							:input_html => {:style => "width:20%"}
+							prize.input :value, :input_html => {:style => "width:20%"}
+							prize.input :description
+
 
 						end
 						    
