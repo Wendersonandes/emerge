@@ -5,11 +5,10 @@
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 				<h4 class="modal-title">Ajude-nos a tornar nosso Catálogo melhor</h4>
 			</div>
-			<div class="modal-body">
-				<%= simple_form_for @opportunity, remote: true, :validate => true do |f| %>
+			<%= simple_form_for @opportunity, remote: true, :validate => true do |f| %>
+				<div class="modal-body">
 					<%= f.input :title %>
 					<%= f.input :url_source %>
-
 					<div class="row">
 						<div class="col-sm-6">
 							<%= f.input :beginning, as: :date, html5: true %>
@@ -17,17 +16,14 @@
 						<div class="col-sm-6">
 							<%= f.input :end_subscription, as: :date, html5: true %>
 						</div>
-
 					</div>
-
 					<%= f.input :content, :as => :text, :input_html => { 'rows' => 8 } %>
-
+				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
 					<%= f.button :submit, class: 'submit btn btn-primary' %>
 				</div>
 			<% end %>
-
 		</div><!-- /.modal-content -->
 	</div><!-- /.modal-dialog -->
 </div>
