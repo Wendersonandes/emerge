@@ -11,11 +11,37 @@ ActiveAdmin.register Opportunity do
 		:extended, 
 		:content, 
 		:category_list => [],
-		:entry_manners_attributes => [:id, :opportunity_id, :content, :entry_type],
-		:docs_attributes => [:id, :opportunity_id, :language, :doc_type, :doc, :doc_remote_url, :description, :_destroy],
-		:taxes_attributes => [:id, :opportunity_id, :value, :value_currency, :description, :_destroy], 
-		:grants_attributes => [:id, :name, :description, :quantity, :opportunity_id, :_destroy, 
-												 :prizes_attributes => [:id ,:opportunity_id, :grant_id, :value, :value_currency, :description, :prize_type_list , :exact_value, :_destroy]]
+		:entry_manners_attributes => [:id, :opportunity_id, :content, :entry_type, :_destroy],
+		:docs_attributes => [	:id, 
+													:opportunity_id, 
+													:language, 
+													:doc_type, 
+													:doc, 
+													:doc_remote_url, 
+													:description, 
+													:_destroy],
+		:taxes_attributes => [ :id, 
+													 :opportunity_id, 
+													 :value, 
+													 :value_currency, 
+													 :description, 
+													 :tax_type, 
+													 :_destroy], 
+		:grants_attributes => [ :id, 
+														:name, 
+														:description, 
+														:quantity, 
+														:opportunity_id, 
+														:_destroy, 
+														:prizes_attributes => [	:id, 
+																										:opportunity_id, 
+																										:grant_id, 
+																										:value, 
+																										:value_currency, 
+																										:description, 
+																										:prize_type_list , 
+																										:exact_value, 
+																										:_destroy]]
 
 	menu :priority => 1
 	scope :all, :default => true
@@ -96,18 +122,22 @@ ActiveAdmin.register Opportunity do
 					column span: 2 do
 					f.inputs  do
 						f.input :title
+						f.input :url_source
 						f.input :content
 						f.input :featured_image,:as => :file, :hint => image_tag(f.object.featured_image_url(:thumb))
 						f.input :category_list, :as => :select2_multiple,
 																		:collection => ActsAsTaggableOn::Tagging.where(:context => :categories).joins(:tag).select('DISTINCT tags.name').map{ |x| x.name},
 																		:input_html => { :class => "select2-input chosen", :style => "width:80% height:200px"}
+
 										
 					end
 				end
 				column do
 					f.has_many :entry_manners, :allow_destroy => true do |entry_manner|
-						entry_manner.inputs :entry_type
-						entry_manner.inputs :content
+						entry_manner.inputs do
+							entry_manner.input :entry_type
+							entry_manner.input :content, :as => :text, :input_html => { :class => 'autogrow', :rows => 5 }
+						end
 					end
 				end
 			end
@@ -131,15 +161,22 @@ ActiveAdmin.register Opportunity do
 						prize.inputs do
 							prize.input :exact_value
 
-							prize.input :description, :as => :select2,
+							prize.input :prize_type_list, :as => :select2,
 							:collection => ActsAsTaggableOn::Tagging.where(:context => :prize_types).joins(:tag).select('DISTINCT tags.name').map{ |x| x.name},
 							:input_html => { :class => "select2-input chosen", :style => "width:20%"}
-							prize.input :value,
-							:input_html => {:style => "width:20%"}
+							prize.input :value, :input_html => {:style => "width:20%"}
+							prize.input :description
+
 
 						end
 						    
 					end
+				end
+
+				f.has_many :taxes, :allow_destroy => true do |tax|
+					tax.inputs :tax_type
+					tax.inputs :description
+					tax.inputs :value
 				end
 			end
 			tab "Documentos" do

@@ -22,13 +22,16 @@
 //= require rails_confirm_dialog
 //= require jquery.scrollto
 //= require local_time
-//= require rails.validations
-//= require rails.validations.simple_form
 // Add error class to .avatar images if they fail to load
 // See avatar.scss and _avatar.html.haml
 //= require imagesloaded
 //= require avatar.errors
+//= require moment
+//= require moment-with-locales
+//= require opportunity/header
 
+//= require rails.validations
+//= require rails.validations.simple_form
 window.ClientSideValidations.callbacks.element.fail = function(element, message, callback) {
   $('.submit').prop("disabled",true);
   callback();

@@ -21,8 +21,18 @@
 			<div class="errors__container">
 				<%= render 'layouts/messages' %>
 			</div>
-      <div id="app"></div>
-			<%= yield %>
+			<div class="row">
+				<div class="col-md-4 col-sm-12">
+					<div class="bg-light-gray pa3 ba b--black-10 hidden-xs"> 
+						<%= cell(LeftbarCell::ContributionsCell)%>
+						<%= cell(LeftbarCell::AddsCell)%>
+						<%= cell(LeftbarCell::OpportunitiesCell).(:index)%>
+					</div>
+				</div>
+
+				<%= yield %>
+			</div>
+
       <footer class="page__footer">
         <% if content_for? :footer %>
           <%= yield :footer %>

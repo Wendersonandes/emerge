@@ -1,0 +1,9 @@
+<li class="list-group-item pb0">
+	<h3 class="f4 fw3 ma0"><%= name %></h3>
+	<span class="f5">
+	<%= description %>
+	</span>
+
+	<%= cell(OpportunityCell::PrizesCell, :collection => model.prizes) %>
+</li>
+

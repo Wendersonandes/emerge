@@ -154,6 +154,11 @@ pt-BR:
         edit:
           password: 'Leave blank unless updating password'
 
+  date:
+    formats:
+      default: "%Y-%m-%d"
+      long: "%B %d, %Y"
+      short: "%b %d"
     # Labels and hints examples
     # labels:
     #   defaults:

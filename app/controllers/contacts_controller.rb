@@ -2,6 +2,8 @@ class ContactsController < ApplicationController
   skip_authorization_check
   skip_before_action :authenticate_user!
 
+	layout "wide"
+
   def new
     @contact = Contact.new
     prepare_meta_tags title: "Contato", description: view_context.t(:short_description, scope: :app)

@@ -103,6 +103,11 @@ gem 'rolify', '~> 5.0'
 gem 'sucker_punch', '~> 2.0'
 gem 'ranked-model'
 
+gem 'trailblazer-cells'
+gem 'cells-erb'
+gem 'cells-rails'
+
+
 group :development do
   # Docs
   gem 'sdoc', require: false    # bundle exec rake doc:rails

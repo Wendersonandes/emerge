@@ -128,6 +128,17 @@ GEM
       json
     case_transform (0.2)
       activesupport
+    cells (4.1.7)
+      declarative-builder (< 0.2.0)
+      declarative-option (< 0.2.0)
+      tilt (>= 1.4, < 3)
+      uber (< 0.2.0)
+    cells-erb (0.1.0)
+      cells (~> 4.0)
+      erbse (>= 0.1.1)
+    cells-rails (0.0.8)
+      actionpack (>= 3.0)
+      cells (>= 4.1.6, < 5.0.0)
     client_side_validations (4.2.12)
       jquery-rails (>= 3.1.2, < 5.0.0)
       js_regex (~> 1.0, >= 1.0.19)
@@ -150,6 +161,9 @@ GEM
     dalli (2.7.6)
     database_cleaner (1.5.3)
     debug_inspector (0.0.2)
+    declarative-builder (0.1.0)
+      declarative-option (< 0.2.0)
+    declarative-option (0.1.0)
     devise (3.5.10)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -167,6 +181,8 @@ GEM
       activemodel (>= 3.0)
       activesupport (>= 3.0)
       request_store (~> 1.0)
+    erbse (0.1.1)
+      temple
     erubis (2.7.0)
     execjs (2.7.0)
     factory_girl (4.8.0)
@@ -516,16 +532,20 @@ GEM
       sprockets (>= 3.0.0)
     sucker_punch (2.0.2)
       concurrent-ruby (~> 1.0.0)
+    temple (0.8.0)
     terminal-notifier (1.7.1)
     terminal-notifier-guard (1.7.0)
     thor (0.19.4)
     thread_safe (0.3.6)
     tilt (2.0.7)
+    trailblazer-cells (0.0.3)
+      cells (>= 4.1.0.rc1, < 5.0.0)
     turbolinks (5.0.1)
       turbolinks-source (~> 5)
     turbolinks-source (5.0.0)
     tzinfo (1.2.3)
       thread_safe (~> 0.1)
+    uber (0.1.0)
     uglifier (3.2.0)
       execjs (>= 0.3.0, < 3)
     unicorn (5.3.0)
@@ -553,6 +573,8 @@ DEPENDENCIES
   bootstrap-sass
   cancancan (~> 1.9)
   capybara-webkit
+  cells-erb
+  cells-rails
   client_side_validations (~> 4.2, >= 4.2.3)
   client_side_validations-formtastic!
   client_side_validations-simple_form (~> 3.4)
@@ -625,6 +647,7 @@ DEPENDENCIES
   sucker_punch (~> 2.0)
   terminal-notifier
   terminal-notifier-guard
+  trailblazer-cells
   turbolinks
   uglifier
   unicorn

@@ -14,8 +14,10 @@
 #
 
 class Prize < ActiveRecord::Base
+
 	belongs_to :grant, :inverse_of => :prizes
 	belongs_to :opportunity, :inverse_of => :prizes
+
 	register_currency :brl
  	monetize :value_centavos, with_model_currency: :value_currency
 
