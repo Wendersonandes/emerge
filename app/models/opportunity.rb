@@ -35,10 +35,13 @@ class Opportunity < ActiveRecord::Base
 
 	monetize :value_of_awards_centavos
 
+  # days a opportunity is considered recent, for resubmitting
+  RECENT_DAYS = 300
+  attr_accessor :already_posted_opportunity
   
   scope :published, -> { where("published_at IS NOT NULL") }
   scope :draft, -> { where("published_at IS NULL") }
-  scope :open,              ->{ where("end_subscription >= ? or extended >= ?", Date.today, Date.today).published }
+  scope :open,              ->{ where("end_subscription >= ?", Date.today).published }
   scope :last_days,         ->{ where(end_subscription: Date.current..(1.week.from_now)) }
   scope :result_near,       ->{ where(result: Date.today..1.week.from_now) }
   scope :without_selecteds,  ->{ where("(select count(*) from opportunity_selecteds where opportunity_id=opportunities.id) = 0").where("result < ?", Date.today) }
@@ -57,7 +60,28 @@ class Opportunity < ActiveRecord::Base
 
 	validates :title, :presence => true, length: { in: 5..250 }
 	validates :content, :presence => true
+	validates :url_source, :presence => true
 	validates :end_subscription, :presence => true
+
+  validate do
+    if self.url_source.present?
+      # URI.parse is not very lenient, so we can't use it
+
+      if self.url_source.match(/\Ahttps?:\/\/([^\.]+\.)+[a-z]+(\/|\z)/i)
+        if self.new_record? && (s = Opportunity.find_similar_by_url(self.url_source))
+          self.already_posted_opportunity = s
+          if s.is_recent?
+            errors.add(:url_source, "has already been submitted within the past " <<
+              "#{RECENT_DAYS} days")
+          end
+        end
+      else
+        errors.add(:url_source, "is not valid")
+      end
+    end
+  end
+
+
 
 	include PgSearch
 	pg_search_scope :search,
@@ -115,6 +139,45 @@ class Opportunity < ActiveRecord::Base
   enum local_restriction: { nenhuma: 0, país: 1, estado: 2, município: 3}
 
   is_impressionable :counter_cache => true, :column_name => :opportunity_views_counter_cache, :unique => true
+
+  def self.find_similar_by_url(url)
+    urls = [ url.to_s ]
+    urls2 = [ url.to_s ]
+
+    # https
+    urls.each do |u|
+      urls2.push u.gsub(/^http:\/\//i, "https://")
+      urls2.push u.gsub(/^https:\/\//i, "http://")
+    end
+    urls = urls2.clone
+
+    # trailing slash
+    urls.each do |u|
+      urls2.push u.gsub(/\/+\z/, "")
+      urls2.push (u + "/")
+    end
+    urls = urls2.clone
+
+    # www prefix
+    urls.each do |u|
+      urls2.push u.gsub(/^(https?:\/\/)www\d*\./i) {|_| $1 }
+      urls2.push u.gsub(/^(https?:\/\/)/i) {|_| "#{$1}www." }
+    end
+    urls = urls2.clone
+
+    # if a previous submission was moderated, return it to block it from being
+    # submitted again
+    if s = Opportunity.where(:url_source => urls).
+    order("id DESC").first
+      return s
+    end
+
+    false
+  end
+
+	def is_recent?
+    self.created_at >= RECENT_DAYS.days.ago
+  end
 
 
   def create_summary
