@@ -1,8 +1,6 @@
 module OpportunityCell
 	class EntryCell < Cell::ViewModel
 
-		include ApplicationHelper
-
 		property :entry_type
 		property :content
 
@@ -10,9 +8,5 @@ module OpportunityCell
 			render
 		end
 
-		def content_formatted
-			markdown(content)
-		end
-		
 	end
 end

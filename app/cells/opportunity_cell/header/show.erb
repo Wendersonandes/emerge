@@ -1,4 +1,4 @@
-<div class="header__opportunity relative h8 h7-l bg-top cover bg-black mb3 shadow-1" style="background-image: url(<%= image_path(featured_image_url(:thumb) || "alone-clouds-hills-1909-527x350.jpg")%>);">
+<div class="header__opportunity relative h8 h7-l bg-top cover bg-black mb3 shadow-1" style="background-image: url(<%= background_image_path_large %>);">
 	<div class="overlay__container w-100 h-100 bg-black-70">
 		<div class="info__container white pl4 absolute">
 			<div class="row">
@@ -85,25 +85,11 @@
 						</button>
 					</div>
 					<div class="btn-group" id="follow_opportunity">
-						<% if user_signed_in? %> 
-
-							<% if model.followed_by?(current_user.person) %>
-								<%= link_to opportunity_follow_opportunity_path(model.to_param, current_user.person.get_follow(model).id), :class => "btn btn-sm btn-success", :method => :delete, :remote => true do %>
-									<span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span>
-									Seguindo
-								<% end %>
-							<% else %>
-								<%= link_to opportunity_follow_opportunities_path(model.to_param), :class => "btn btn-sm btn-default", :remote => true, method: :post do %>
-									<span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span>
-									Seguir
-								<% end %>
-							<% end %>
-						<% end %>
+						<%= render_follow_button %>
 					</div>
 					<div class="btn-group hidden-xs">
 						<%= render_docs_button_formatted %>
 						<%= render_docs_button_menu %>
-
 					</div>
 				</div>
 			</div>
