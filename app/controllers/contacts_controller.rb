@@ -1,5 +1,5 @@
 class ContactsController < ApplicationController
-
+	layout "wide"
   def new
     @contact = Contact.new
     prepare_meta_tags title: "Contato", description: view_context.t(:short_description, scope: :app)
