@@ -1,17 +1,12 @@
-<div class="row">
-	<div class="col-sm-4">
-		<%= cell(:leftbar)%>
+<div class="col-sm-8">
+	<div class="row">
+		<div class="col-md-12">
+			<% @tags.each do |tag|%>
+				<%= link_to tag.name, opportunities_path(tag: tag.name), :class => "btn btn-sm btn-default mb2"%>
+			<% end %>
+		</div>
 	</div>
-	<div class="col-sm-8">
-		<div class="row">
-			<div class="col-md-12">
-				<% @tags.each do |tag|%>
-					<%= link_to tag.name, opportunities_path(tag: tag.name), :class => "btn btn-sm btn-default mb2"%>
-				<% end %>
-			</div>
-		</div>
-		<div class="row card__container">
-			<%= cell(OpportunityCell::CardCell, :collection => @opportunities) %>
-		</div>
+	<div class="row card__container">
+		<%= cell(OpportunityCell::CardCell, :collection => @opportunities) %>
 	</div>
 </div>

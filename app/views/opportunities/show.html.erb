@@ -1,24 +1,23 @@
-<div class="row">
-	<div class="col-md-4 col-sm-12">
-		<%= cell(LeftbarCell)%>
-	</div>
-	<div class="col-md-8 col-sm-12">
-		<%= cell(OpportunityCell::HeaderCell, @opportunity) %>
-		<div class="row">
-			<div class="col-sm-8 opportunity__text__container f4">
-				<div class="well well-sm">
-					<%= cell(OpportunityCell::BodyCell, @opportunity) %>
-				</div>
-			</div>
-			<div class="col-sm-4">
-				<ul class="list-group">
-					<%= cell(OpportunityCell::EntryCell, :collection => @opportunity.entry_manners) %>
-				</ul>
+<div class="col-md-8 col-sm-12">
+	<%= cell(OpportunityCell::HeaderCell, @opportunity) %>
+	<div class="row">
+		<div class="col-sm-8 opportunity__text__container f4">
+			<div class="well well-sm">
+				<%= cell(OpportunityCell::BodyCell, @opportunity) %>
 			</div>
 		</div>
-		<div class="row comment_container">
-			<div class="comment_container col-sm-8">
-			</div>
+		<div class="col-sm-4">
+			<ul class="list-group">
+				<%= cell(OpportunityCell::EntryCell, :collection => @opportunity.entry_manners) %>
+				<%= cell(OpportunityCell::GrantsCell, @opportunity.grants).(:index) %>
+				<li class="list-group-item">
+					<%= cell(LeftbarCell::AddsCell)%>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="row comment_container">
+		<div class="comment_container col-sm-8">
 		</div>
 	</div>
 </div>
