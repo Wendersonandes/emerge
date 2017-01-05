@@ -41,6 +41,10 @@
   }
 }
 
+.user__form{
+	@extend .auth__form;
+  margin: 0;
+}
 .auth__or {
   position: relative;
   font-size: $font-size-h4;
