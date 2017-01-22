@@ -37,11 +37,11 @@ defaults: &defaults
       key: <%= ENV['AUTH_TWITTER_KEY'] %>
       secret: <%= ENV['AUTH_TWITTER_SECRET'] %>
 
-    # linkedin:
-    #   name: LinkedIn
-    #   logout: 'https://www.linkedin.com'
-    #   key: <%= ENV['AUTH_LINKEDIN_KEY'] %>
-    #   secret: <%= ENV['AUTH_LINKEDIN_SECRET'] %>
+    linkedin:
+      name: LinkedIn
+      logout: 'https://www.linkedin.com'
+      key: <%= ENV['AUTH_LINKEDIN_KEY'] %>
+      secret: <%= ENV['AUTH_LINKEDIN_SECRET'] %>
     #
     # google:
     #   name: Google

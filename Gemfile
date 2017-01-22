@@ -35,6 +35,8 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'headjs-rails'
 
+gem 'rails-assets-vide', source: 'https://rails-assets.org'
+
 # Javascript
 gem 'jquery-rails'
 gem 'turbolinks'
@@ -64,7 +66,7 @@ gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 # gem 'omniauth-persona'
 # gem 'omniauth-google-oauth2'
-# gem 'omniauth-linkedin'
+gem 'omniauth-linkedin'
 
 # Admin
 gem 'rails_admin'

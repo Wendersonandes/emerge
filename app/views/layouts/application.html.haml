@@ -15,7 +15,7 @@
     = render 'layouts/airbrake'
   %body{class: "controller__#{controller_name} action__#{action_name}"}
     = render 'layouts/navigation'
-    .container
+    .container.vide-hero
       .errors__container
         = render 'layouts/messages'
       = yield
