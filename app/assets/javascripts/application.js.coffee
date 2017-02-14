@@ -18,6 +18,7 @@
 #= require turbolinks
 #= require nprogress
 #= require nprogress-turbolinks
+#= require social-share-button
 #= require rails_confirm_dialog
 #= require jquery.scrollto
 

@@ -34,9 +34,8 @@ gem 'haml-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'headjs-rails'
-
+gem 'social-share-button'
 gem 'rails-assets-vide', source: 'https://rails-assets.org'
-
 # Javascript
 gem 'jquery-rails'
 gem 'turbolinks'

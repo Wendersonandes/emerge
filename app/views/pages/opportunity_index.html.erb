@@ -1,0 +1,16 @@
+<div class="row">
+	<div class="col-sm-4">
+		<%= render 'elements/left_bar'%>
+	</div>
+	<div class="col-sm-8">
+		<div class="row">
+			<%= render 'elements/search_form' %>
+		</div>
+		<div class="row card__container">
+			<% 5.times do %>
+				<%= render 'card'%>
+			<% end%>
+
+		</div>
+		</div>
+</div>

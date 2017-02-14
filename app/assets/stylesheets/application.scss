@@ -7,19 +7,22 @@
 
 // Core
 @import "variables";
+@import"modules/buttons";
 @import "bootstrap";
+@import "tachyons/tachyons";
+@import "tachyons/heights";
 @import "icons_social";
 @import "auth";
 @import "avatar";
 @import "cards";
 @import "footer";
 @import "hacks";
+@import "modules/card";
 
 // Plugins
 @import 'nprogress';
 @import 'nprogress-bootstrap';
-
-
+@import "social-share-button";
 
 //
 // Minor Tweaks
@@ -29,7 +32,14 @@
 body {
   padding-top: 70px;
 }
-
+@font-face {
+	font-family: 'Glyphicons Halflings';
+	src: url("bootstrap/glyphicons-halflings-regular.eot");
+	src: url("bootstrap/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"),       
+	url("bootstrap/glyphicons-halflings-regular.woff") format("woff"),
+	url("bootstrap/glyphicons-halflings-regular.ttf") format("truetype"),
+	url("bootstrap/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg");
+}
 // Make sure alerts are nicely formatted
 .alert {
   a {

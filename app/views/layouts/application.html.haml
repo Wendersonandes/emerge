@@ -14,8 +14,8 @@
     = yield :head
     = render 'layouts/airbrake'
   %body{class: "controller__#{controller_name} action__#{action_name}"}
-    = render 'layouts/navigation'
-    .container.vide-hero
+    .container
+      = render 'layouts/navigation'
       .errors__container
         = render 'layouts/messages'
       = yield
