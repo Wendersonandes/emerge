@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   # Static pages
   match '/error' => 'pages#error', via: [:get, :post], as: 'error_page'
   get '/terms' => 'pages#terms', as: 'terms'
+  get '/about' => 'pages#about', as: 'about'
+  get '/adds' => 'pages#adds', as: 'adds'
   get '/privacy' => 'pages#privacy', as: 'privacy'
   get '/opportunity' => 'pages#opportunity', as: 'opportunity'
   get '/opportunity_index' => 'pages#opportunity_index', as: 'opportunity_index'

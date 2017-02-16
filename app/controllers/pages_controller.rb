@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
   skip_authorization_check
   skip_before_action :authenticate_user!
-
+	layout "wide", :only => [:about, :adds]
   # Preview html email template
   def email
     tpl = (params[:layout] || 'hero').to_sym
