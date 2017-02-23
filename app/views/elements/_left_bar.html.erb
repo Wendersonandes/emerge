@@ -1,13 +1,19 @@
 <div class="well well-sm"> 
-	<h3 class="f3">Mais Recomendados</h3>
-	<div class="row">
+	<h3 class="f3 mt0">Adds</h3>
+	<div class="row pb2">
 		<div class="col-sm-4">
-			<img src="//placehold.it/140x140" class="img-responsive">
+			<%= link_to image_tag("tipografiaWorkshopThumb.png", :alt => "Image Description"), "https://www.sympla.com.br/colapso---workshop-de-experimentacao-tipografica__38534", :class => "img-responsive" %>
 		</div>
 		<div class="col-sm-8">
-			<h6 class="f5">Bolsa Pampulha 2017</h6>
-			<p class ="f5">O objeto do XV Prêmio FCW de Arte é a Fotografia, profissão e atividade empresarial do Instituidor Ubaldo Augusto Conrado Wess
-			</p>
+			<a href="https://www.sympla.com.br/colapso---workshop-de-experimentacao-tipografica__38534" class="f5 ma0 mb1 mt2">
+				Colapso - Workshop de Experimentação Tipográfica
+			</a>
+			<p class ="f5">COLAPSO objetiva a exposição de 4 famílias tipográficas e sua posterior fragmentação, retirando sua função primeira de leitura e instaurando o sentido de textura.</p>
 		</div>
 	</div>
+
+	<h3 class="f3 mt0">Mais Recomendados</h3>
+	<% 5.times do %>
+		<%= render 'elements/adds'%>
+	<% end %>
 </div>
