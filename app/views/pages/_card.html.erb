@@ -1,6 +1,9 @@
 <div class="col-sm-12 col-md-6 col-lg-4">
 	<div class="thumbnail pa0">
-		<%= link_to image_tag("http://placehold.it/500x250/EEE", :alt => "Image Description"), opportunity_path %>
+		<%= link_to(opportunity_path) do %>
+			<div class="card__opportunities relative h5 h5-l bg-top cover bg-black" style="background-image: url(<%= image_path("tipografiaWorkshopThumb.png")%>);">
+			</div>
+		<% end %>
 		<div class="caption">
 			<%= link_to(opportunity_path) do %>
 				<h4 class="f3">Level 6 Heading</h4>

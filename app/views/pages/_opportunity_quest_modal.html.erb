@@ -3,13 +3,13 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title">Notificar problema com esta oportunidade</h4>
+				<h4 class="modal-title">Ajude a manter esta oportunidade atualizada</h4>
 			</div>
 			<div class="modal-body">
 				<form>
 					<div class="form-group">
-						<label for="exampleInputEmail1">Email address</label>
-						<select class="form-control">
+						<label for="emailSubject">Assunto</label>
+						<select class="form-control" id="emailSubject">
 							<option>Escolha uma categoria</option>
 							<option>Edital adiado</option>
 							<option>Falta informação</option>
@@ -19,12 +19,7 @@
 					</div>
 					<div class="form-group">
 						<label for="exampleInputPassword1">Mensagem</label>
-						<textarea class="form-control" rows="4"></textarea>
-					</div>
-					<div class="form-group">
-						<label for="exampleInputFile">File input</label>
-						<input type="file" id="exampleInputFile">
-						<p class="help-block">Example block-level help text here.</p>
+						<textarea class="form-control" rows="4" placeholder="Use este campo para incluir alguma observação sobre este edital"></textarea>
 					</div>
 				</form>
 			</div>
