@@ -1,22 +1,22 @@
 @import 'tachyons/scss/media-queries';
 
 .h-15{height: 15%;}
-.h6{ 
-	height: 24rem; 
+.h6{
+	height: 24rem;
 	margin-top: 0;
 }
-.h7{ 
-	height: 32rem; 
+.h7{
+	height: 32rem;
 	margin-top: 0;
 }
 
 @media #{$breakpoint-not-small}{
-	.h6-ns{ 
-		height: 24rem; 
+	.h6-ns{
+		height: 24rem;
 		margin-top: 0;
 	}
-	.h7-ns{ 
-		height: 32rem; 
+	.h7-ns{
+		height: 32rem;
 		margin-top: 0;
 	}
 	.h-15-ns{height: 15%;}
@@ -27,12 +27,13 @@
 
 @media #{$breakpoint-large}{
 	.h-15-l{height: 15%;}
-	.h6-l{ 
-		height: 24rem; 
+	.h6-l{
+		height: 24rem;
 		margin-top: 0;
 	}
-	.h7-l{ 
-		height: 32rem; 
+	.h7-l{
+		height: 32rem;
 		margin-top: 0;
 	}
 }
+
