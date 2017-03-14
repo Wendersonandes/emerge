@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   match '/error' => 'pages#error', via: [:get, :post], as: 'error_page'
   get '/terms' => 'pages#terms', as: 'terms'
   get '/about' => 'pages#about', as: 'about'
+  get '/contact' => 'pages#contact', as: 'contact'
   get '/adds' => 'pages#adds', as: 'adds'
   get '/privacy' => 'pages#privacy', as: 'privacy'
   get '/opportunity' => 'pages#opportunity', as: 'opportunity'

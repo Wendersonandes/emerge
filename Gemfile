@@ -25,8 +25,6 @@ gem 'airbrake', '~> 3.2.1'         # use with airbrake.io or errbit
 # Data
 gem 'pg'
 gem 'dalli'                     # memcached
-# gem 'schema_plus'             # add better index and foreign key support
-# gem 'jbuilder'
 
 # Assets
 gem 'sass-rails'
@@ -50,8 +48,6 @@ gem 'coffee-rails'
 
 # Design
 gem 'bootstrap-sass'
-# gem 'bourbon'
-# gem 'neat'
 # gem 'country_select'
 
 # Email
@@ -84,7 +80,7 @@ group :development do
   gem 'sdoc', require: false    # bundle exec rake doc:rails
 
   # Errors
-  # gem 'better_errors'
+	gem 'better_errors'
   # gem 'binding_of_caller'     # extra features for better_errors
   # gem 'meta_request'          # for rails_panel chrome extension
 
