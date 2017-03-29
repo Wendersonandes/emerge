@@ -11,7 +11,7 @@
 # about supported directives.
 #
 #= require jquery_2
-#= require jquery_ujs
+# require jquery_ujs
 #= require bootstrap
 
 #= require jquery.turbolinks
@@ -27,3 +27,6 @@
 # See avatar.scss and _avatar.html.haml
 #= require imagesloaded
 #= require avatar.errors
+
+# React
+#= require bundle

@@ -13,7 +13,6 @@
 			<%= javascript_include_tag 'ie', 'data-turbolinks-track' => true %>
 		-->
 		<%= javascript_include_tag 'head', 'data-turbolinks-track' => true %>
-		<%= headjs_include_tag 'application', 'data-turbolinks-track' => true %>
 		<%= csrf_meta_tags %>
 		<%= yield :head %>
 		<%= render 'layouts/airbrake' %>
@@ -22,17 +21,19 @@
 		<%= render 'layouts/navigation' %>
 		<div class="container pt6">
 			<div class="errors__container">
-					<%= render 'layouts/messages' %>
-				</div>
-				<%= yield %>
-				<footer class="page__footer">
-					<% if content_for? :footer %>
-						<%= yield :footer %>
-					<% else %>
-						<%= render 'layouts/footer' %>
-					<% end %>
-				</footer>
-		</div>
+				<%= render 'layouts/messages' %>
+      </div>
+      <div id="app"></div>
+			<%= yield %>
+      <footer class="page__footer">
+        <% if content_for? :footer %>
+          <%= yield :footer %>
+        <% else %>
+          <%= render 'layouts/footer' %>
+        <% end %>
+      </footer>
+    </div>
+    <%= javascript_include_tag 'application'  %>
 		<%= render 'layouts/analytics' %>
 		<%= render 'layouts/javascripts' %>
 	</body>
