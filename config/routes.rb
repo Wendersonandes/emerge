@@ -21,8 +21,6 @@ Rails.application.routes.draw do
 
   resources :opportunities, only: [:index, :show]
 
-
-
   # OAuth
   oauth_prefix = Rails.application.config.auth.omniauth.path_prefix
   get "#{oauth_prefix}/:provider/callback" => 'users/oauth#create'
