@@ -16,8 +16,12 @@ Rails.application.routes.draw do
   get '/contact' => 'pages#contact', as: 'contact'
   get '/adds' => 'pages#adds', as: 'adds'
   get '/privacy' => 'pages#privacy', as: 'privacy'
-  get '/opportunity' => 'pages#opportunity', as: 'opportunity'
-  get '/opportunity_index' => 'pages#opportunity_index', as: 'opportunity_index'
+  # get '/opportunity' => 'pages#opportunity', as: 'opportunity'
+  # get '/opportunity_index' => 'pages#opportunity_index', as: 'opportunity_index'
+
+  resources :opportunities, only: [:index, :show]
+
+
 
   # OAuth
   oauth_prefix = Rails.application.config.auth.omniauth.path_prefix
