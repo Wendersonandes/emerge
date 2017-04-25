@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.2.6'
 
-gem 'rails', '~> 4.1.6'
+gem 'rails', '~> 4.2.8'
 
 #
 # PLATFORM SPECIFIC
@@ -74,6 +74,29 @@ gem 'sinatra', require: false
 # Utils
 gem 'addressable'
 gem 'settingslogic'
+
+gem 'impressionist', '<= 1.5.1'
+
+gem 'pg_search', '~> 0.7.8'
+
+gem 'fastimage'
+gem 'image_processing'
+gem 'mini_magick'
+gem 'shrine'
+gem 'aws-sdk', '~> 2.1'
+gem 'roda'
+
+gem 'acts_as_follower', '~> 0.2.1'
+gem 'acts-as-taggable-on', '~> 3.4.2'
+
+gem 'responders', '~> 2.3'
+gem 'active_model_serializers', '~> 0.10.5'
+gem 'money-rails'
+
+gem 'figaro', '~> 1.0.0'
+gem 'rolify', '~> 5.0'
+gem 'sucker_punch', '~> 2.0'
+gem 'ranked-model'
 
 group :development do
   # Docs

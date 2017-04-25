@@ -14,15 +14,13 @@
 			<%= f.input :remember_me, as: :hidden, input_html: {value: true} %>
 		<% end %>
 		<%= f.input :email, autofocus: true, required: true %>
-		<div class="<%= resource.email.blank? ? "collapse fade" : "" %>">
-			<%= f.input :password, required: true do |input| %>
-				<% if devise_mapping.recoverable? %>
-					<%= link_to I18n.t('auth.forgot.prompt'), new_password_path(resource_name), class: 'pull-right small' %>
-				<% end %>
-				<%= f.input_field :password, required: true, autocomplete: 'off' %>
-			<% end %>
-			<%= f.button :submit, I18n.t('auth.login.link'), class: 'btn-primary' %>
-		</div>
+    <%= f.input :password, required: true do |input| %>
+      <% if devise_mapping.recoverable? %>
+        <%= link_to I18n.t('auth.forgot.prompt'), new_password_path(resource_name), class: 'pull-right small' %>
+      <% end %>
+      <%= f.input_field :password, required: true, autocomplete: 'off' %>
+    <% end %>
+    <%= f.button :submit, I18n.t('auth.login.link'), class: 'btn-primary' %>
 	<% end %>
 	<%= render 'users/shared/links', disable_signup: true %>
 </div>
