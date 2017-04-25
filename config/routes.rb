@@ -16,8 +16,14 @@ Rails.application.routes.draw do
   get '/contact' => 'pages#contact', as: 'contact'
   get '/adds' => 'pages#adds', as: 'adds'
   get '/privacy' => 'pages#privacy', as: 'privacy'
-  get '/opportunity' => 'pages#opportunity', as: 'opportunity'
-  get '/opportunity_index' => 'pages#opportunity_index', as: 'opportunity_index'
+  # get '/opportunity' => 'pages#opportunity', as: 'opportunity'
+  # get '/opportunity_index' => 'pages#opportunity_index', as: 'opportunity_index'
+
+  resources :opportunities do
+    resources :follow_opportunities, :only => [:create, :destroy]
+    resources :likes, only: [:create, :destroy]
+  end
+
 
   # OAuth
   oauth_prefix = Rails.application.config.auth.omniauth.path_prefix
@@ -42,6 +48,8 @@ Rails.application.routes.draw do
     resources :authentications, path: 'accounts'
   end
   get '/home' => 'users#show', as: 'user_home'
+
+  get '/following' => 'collection#person_following_opportunities', as: 'following'
 
   # Dummy preview pages for testing.
   get '/p/test' => 'pages#test', as: 'test'
