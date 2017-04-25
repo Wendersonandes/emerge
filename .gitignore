@@ -23,3 +23,6 @@
 /*.sublime-workspace
 
 .swp
+
+/assets/javascripts/bundle.js
+
