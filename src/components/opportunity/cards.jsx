@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchOpportunities } from '../../actions/index';
+import { fetchOpportunities, addLikes, fetchLikes } from '../../actions/index';
 import { Link } from 'react-router';
 
 let imgUrl = '/assets/tipografiaWorkshopThumb.png';
@@ -9,14 +9,52 @@ let divStyle = {
 };
 
 class Cards extends Component{
+  constructor(props) {
+    super(props);
+    this.state = {
+      likes: [],
+      valLikes: 0
+    };
+  }
+
   componentDidMount() {
     this.props.fetchOpportunities();
   }
 
-  onLikesClick(event) {
-    console.log(event.target);
-
+  updateLikes11(id) {
+    let countLikes = this.props.fetchLikes(id);
+    countLikes.then(function(result) {
+      console.log(result.payload.data.likes_count);
+      this.setState({likes: result.payload.data})
+    }.bind(this));
   }
+
+  updateLikes(id) {
+    return this.props.fetchLikes(id).then(result => {
+      this.setState({ valLikes: 34 });
+    });
+    console.log('claudiney');
+  }
+
+
+
+
+  //  axios.get("/yourURL").then(function(response) {
+  // this.setState({ events: response.data });
+  //}.bind(this));
+
+  onLikesClick(event, id) {
+    console.log(`O valor do ID é de:${event}`)
+    let recommendOpportunity = document.querySelector("#recommend_opportunity");
+    if (recommendOpportunity.classList.contains('glyphicon-heart-empty')) {
+      recommendOpportunity.classList.remove("glyphicon-heart-empty");
+      recommendOpportunity.classList.add("glyphicon-heart");
+    }else{
+      recommendOpportunity.classList.add("glyphicon-heart-empty");
+      recommendOpportunity.classList.remove("glyphicon-heart");
+    }
+    this.props.addLikes(event);
+	}
 
   renderOpportunities() {
     return this.props.opportunities.map((opportunity) => {
@@ -28,6 +66,15 @@ class Cards extends Component{
               </div>
             </Link>
             <div className="caption">
+              <a href={`/opportunities/${opportunity.id}`} >
+                <h4 className="f3">{opportunity.title}</h4>
+              </a>
+              <p className="f4 measure avenir">{opportunity.summary}</p>
+              <button value={opportunity.id} className="btn btn-default btn-xs"  onClick={this.onLikesClick.bind(this, opportunity.id)}>
+                <i id="recommend_opportunity" className="glyphicon glyphicon-heart-empty"></i>
+                {this.updateLikes(opportunity.id)}
+
+              </button>
               <Link to={`opportunities/${opportunity.id}`}>
                 <h4 className="f3">{opportunity.title}</h4>
               </Link>
@@ -64,5 +111,4 @@ function mapStateToProps(state) {
   return { opportunities: state.opportunities.all }
 }
 
-export default connect(mapStateToProps, { fetchOpportunities })(Cards);
-
+export default connect(mapStateToProps, { fetchOpportunities, addLikes, fetchLikes })(Cards);

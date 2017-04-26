@@ -72,3 +72,7 @@ class Person < ActiveRecord::Base
 
 
 end
+<<<<<<< HEAD
+
+=======
+>>>>>>> 6994ff6f1422d2c923e04ee309b097f09ef708df

@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.2.6'
 
-gem 'rails', '~> 4.1.6'
+gem 'rails', '~> 4.2.8'
 
 #
 # PLATFORM SPECIFIC
@@ -71,16 +71,31 @@ gem 'omniauth-linkedin'
 gem 'rails_admin'
 
 # Workers
-gem 'sidekiq'
 gem 'devise-async'
 gem 'sinatra', require: false
+gem 'sidekiq'
 
 # Utils
 gem 'addressable'
 gem 'settingslogic'
 
+gem 'pg_search', '~> 0.7.8'
+
+gem 'fastimage'
+gem 'image_processing'
+gem 'mini_magick'
+gem 'shrine'
+gem 'aws-sdk', '~> 2.1'
+gem 'roda'
+
+gem 'responders', '~> 2.3'
 gem 'active_model_serializers', '~> 0.10.5'
 gem 'money-rails'
+
+gem 'figaro', '~> 1.0.0'
+gem 'rolify', '~> 5.0'
+gem 'sucker_punch', '~> 2.0'
+gem 'ranked-model'
 
 group :development do
   # Docs

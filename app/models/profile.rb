@@ -54,5 +54,11 @@ class Profile < ActiveRecord::Base
 
 	acts_as_taggable
   acts_as_taggable_on :profile_type
+<<<<<<< HEAD
+
+end
+
+=======
   
 end
+>>>>>>> 6994ff6f1422d2c923e04ee309b097f09ef708df

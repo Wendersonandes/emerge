@@ -56,6 +56,7 @@ class OpportunityShow extends Component {
   }
 }
 
+
 function mapStateToProps(state) {
   return { opportunity: state.opportunities.opportunity};
 }

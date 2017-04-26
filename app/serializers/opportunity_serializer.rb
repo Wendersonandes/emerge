@@ -8,13 +8,22 @@ class OpportunitySerializer < ActiveModel::Serializer
   has_one :address_subscription
   has_one :opportunity_email_notification
   has_many :extended_subscriptions
+<<<<<<< HEAD
+	has_many :grants
+  has_many :prizes
+  has_many :docs, :inverse_of => :opportunity, :dependent => :delete_all
+=======
 	# has_many :grants
   has_many :prizes
   # has_many :docs, :inverse_of => :opportunity, :dependent => :delete_all
+>>>>>>> 6994ff6f1422d2c923e04ee309b097f09ef708df
 	has_many :taxes
   has_many :likes, as: :likeable, dependent: :destroy
   # has_many :likers, through: :likes, source: :user
 
+<<<<<<< HEAD
+=======
 
 
+>>>>>>> 6994ff6f1422d2c923e04ee309b097f09ef708df
 end

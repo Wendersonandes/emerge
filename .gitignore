@@ -7,10 +7,8 @@
 # Ignore bundler config.
 /.bundle
 
-# Ignore the default SQLite database.
-/db/*.sqlite3
-/db/*.sqlite3-journal
-
+#Ignore database settings
+/config/database.yml
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
@@ -22,7 +20,11 @@
 # Ignore Sublime Text workspace files
 /*.sublime-workspace
 
-.swp
+#Ignore vim backup files
+*.swp
+*.swo
 
 /assets/javascripts/bundle.js
+
+/node_modules
 

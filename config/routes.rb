@@ -19,6 +19,11 @@ Rails.application.routes.draw do
   # get '/opportunity' => 'pages#opportunity', as: 'opportunity'
   # get '/opportunity_index' => 'pages#opportunity_index', as: 'opportunity_index'
 
+  resources :opportunities do
+    resources :follow_opportunities, :only => [:create, :destroy]
+    resources :likes, only: [:create, :destroy]
+  end
+
   resources :opportunities, only: [:index, :show]
 
   # OAuth
@@ -44,6 +49,8 @@ Rails.application.routes.draw do
     resources :authentications, path: 'accounts'
   end
   get '/home' => 'users#show', as: 'user_home'
+
+  get '/following' => 'collection#person_following_opportunities', as: 'following'
 
   # Dummy preview pages for testing.
   get '/p/test' => 'pages#test', as: 'test'

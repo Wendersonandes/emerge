@@ -1,4 +1,8 @@
 class OpportunitiesController < ApplicationController
+  skip_authorization_check
+  skip_before_action :authenticate_user!
+  before_action :set_opportunity, only: [:show, :edit, :update, :destroy, :publish]
+  impressionist :actions=>[:show]
   before_action :set_opportunity, only: [:show, :edit, :update, :destroy, :publish]
   skip_authorization_check
   skip_before_action :authenticate_user!
@@ -33,6 +37,10 @@ class OpportunitiesController < ApplicationController
 
 
   def show
+    @opportunity = Opportunity.find(params[:id])
+    impressionist(@opportunity)
+    # prepare_meta_tags title: @opportunity.title, description: @opportunity.summary || view_context.truncate_html(@opportunity.content, length: 150, omission: "..."), image: @opportunity.featured_image_url(:original) || view_context.image_url("alone-clouds-hills-1909-527x350.jpg"), og: {title: @opportunity.title, description: @opportunity.summary || view_context.truncate_html(@opportunity.content, length: 150, omission: "..."), image: @opportunity.featured_image_url(:original) || view_context.image_url("alone-clouds-hills-1909-527x350.jpg")}
+    @opportunity_categories = @opportunity.category_list.map{|tagging|{:name => tagging }}.to_json
 
     @opportunity = Opportunity.find(params[:id])
     #impressionist(@opportunity)

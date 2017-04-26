@@ -17,6 +17,9 @@ Bundler.require(*Rails.groups)
 
 module StarterKit
   class Application < Rails::Application
+    # Use the responders controller from the responders gem
+    config.app_generators.scaffold_controller :responders_controller
+
     # Use sql instead of ruby to support case insensitive indices for postgres
     config.active_record.schema_format = :sql
 
