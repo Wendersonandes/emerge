@@ -4,9 +4,19 @@ MoneyRails.configure do |config|
 
   # To set the default currency
   #
+<<<<<<< HEAD
   config.default_currency = :BRL
   config.no_cents_if_whole = false
 
+=======
+
+  config.default_currency = :BRL
+  config.no_cents_if_whole = false
+
+
+  # config.default_currency = :usd
+
+>>>>>>> 6994ff6f1422d2c923e04ee309b097f09ef708df
   # Set default bank object
   #
   # Example:
@@ -16,6 +26,11 @@ MoneyRails.configure do |config|
   # (The conversion rate refers to one direction only)
   #
   # Example:
+<<<<<<< HEAD
+=======
+  # config.add_rate "USD", "CAD", 1.24515
+  # config.add_rate "CAD", "USD", 0.803115
+>>>>>>> 6994ff6f1422d2c923e04ee309b097f09ef708df
   config.add_rate "BRL", "ARS", 0.223151671
   config.add_rate "ARS", "BRL", 0.223151671
   config.add_rate "BRL", "EUR", 0.223151671

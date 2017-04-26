@@ -40,6 +40,10 @@ gem 'turbolinks'
 gem 'jquery-turbolinks'
 gem 'nprogress-rails'
 
+gem 'impressionist', '<= 1.5.1'
+gem 'acts-as-taggable-on', '~> 3.4.2'
+gem 'acts_as_follower', '~> 0.2.1'
+
 # CoffeeScript
 # Not needed in production if precompiling assets
 gem 'coffee-rails'
@@ -97,6 +101,10 @@ gem 'figaro', '~> 1.0.0'
 gem 'rolify', '~> 5.0'
 gem 'sucker_punch', '~> 2.0'
 gem 'ranked-model'
+
+gem 'active_model_serializers', '~> 0.10.5'
+gem 'money-rails'
+
 
 group :development do
   # Docs

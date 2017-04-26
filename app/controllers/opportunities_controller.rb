@@ -1,8 +1,15 @@
 class OpportunitiesController < ApplicationController
+<<<<<<< HEAD
   skip_authorization_check
   skip_before_action :authenticate_user!
   before_action :set_opportunity, only: [:show, :edit, :update, :destroy, :publish]
   impressionist :actions=>[:show]
+=======
+  before_action :set_opportunity, only: [:show, :edit, :update, :destroy, :publish]
+  skip_authorization_check
+  skip_before_action :authenticate_user!
+  # impressionist :actions=>[:show]
+>>>>>>> 6994ff6f1422d2c923e04ee309b097f09ef708df
 
   def index
 
@@ -25,6 +32,10 @@ class OpportunitiesController < ApplicationController
       @opportunities_counter = Opportunity.open.count
     end
 
+<<<<<<< HEAD
+=======
+    # @opportunities = Opportunity.all
+>>>>>>> 6994ff6f1422d2c923e04ee309b097f09ef708df
     respond_with(@opportunities)
 
     # prepare_meta_tags title: "Oportunidades abertas para artistas", image: view_context.asset_url("facebookShareImage.png"), og: { image: view_context.image_url("facebookShareImage.png"),title: "Oportunidades abertas para artistas", description: "Conecte-se a infinitas possibilidades em Artes Visuais."}
@@ -32,10 +43,18 @@ class OpportunitiesController < ApplicationController
 
 
   def show
+<<<<<<< HEAD
     @opportunity = Opportunity.find(params[:id])
     impressionist(@opportunity)
     # prepare_meta_tags title: @opportunity.title, description: @opportunity.summary || view_context.truncate_html(@opportunity.content, length: 150, omission: "..."), image: @opportunity.featured_image_url(:original) || view_context.image_url("alone-clouds-hills-1909-527x350.jpg"), og: {title: @opportunity.title, description: @opportunity.summary || view_context.truncate_html(@opportunity.content, length: 150, omission: "..."), image: @opportunity.featured_image_url(:original) || view_context.image_url("alone-clouds-hills-1909-527x350.jpg")}
     @opportunity_categories = @opportunity.category_list.map{|tagging|{:name => tagging }}.to_json
+=======
+
+    @opportunity = Opportunity.find(params[:id])
+    #impressionist(@opportunity)
+    #prepare_meta_tags title: @opportunity.title, description: @opportunity.summary || view_context.truncate_html(@opportunity.content, length: 150, omission: "..."), image: @opportunity.featured_image_url(:original) || view_context.image_url("alone-clouds-hills-1909-527x350.jpg"), og: {title: @opportunity.title, description: @opportunity.summary || view_context.truncate_html(@opportunity.content, length: 150, omission: "..."), image: @opportunity.featured_image_url(:original) || view_context.image_url("alone-clouds-hills-1909-527x350.jpg")}
+    #@opportunity_categories = @opportunity.category_list.map{|tagging|{:name => tagging }}.to_json
+>>>>>>> 6994ff6f1422d2c923e04ee309b097f09ef708df
     respond_with(@opportunity)
   end
 

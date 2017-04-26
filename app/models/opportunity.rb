@@ -56,6 +56,7 @@ class Opportunity < ActiveRecord::Base
   scope :already_sent, -> (opportunity_id) {open.where(id: opportunity_id, notification_already_sent: true)}
 
 
+<<<<<<< HEAD
 	include PgSearch
 	pg_search_scope :search,
 	:against => [:title, :content],
@@ -78,6 +79,30 @@ class Opportunity < ActiveRecord::Base
   :ignoring => :accents
 
   include FeaturedImageUploader[:featured_image]
+=======
+	# include PgSearch
+#	pg_search_scope :search,
+#	:against => [:title, :content],
+#  :associated_against => {
+#    :categories => [:name],
+#    :tags => [:name]
+#  },
+#	:using => {
+#		tsearch: {
+#    dictionary: 'portuguese',
+#    :prefix => true,
+#    :any_word => true,
+#    },
+#
+#    :trigram => {
+#      :only => [:title, :categories],
+#      :threshold => 0.1
+#      }
+#    },
+#  :ignoring => :accents
+#
+#  include FeaturedImageUploader[:featured_image]
+>>>>>>> 6994ff6f1422d2c923e04ee309b097f09ef708df
 
 	acts_as_followable
 
@@ -121,7 +146,11 @@ class Opportunity < ActiveRecord::Base
   enum entry_manner: { correios: 0, online: 1, email: 2, indicação: 3, não_definido: 4, correios_ou_internet: 5 }
   enum local_restriction: { nenhuma: 0, país: 1, estado: 2, município: 3}
 
+<<<<<<< HEAD
   is_impressionable :counter_cache => true, :column_name => :opportunity_views_counter_cache, :unique => true
+=======
+  # is_impressionable :counter_cache => true, :column_name => :opportunity_views_counter_cache, :unique => true
+>>>>>>> 6994ff6f1422d2c923e04ee309b097f09ef708df
 
 
   def list_categories

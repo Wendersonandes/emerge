@@ -2,6 +2,13 @@ class PagesController < ApplicationController
   skip_authorization_check
   skip_before_action :authenticate_user!
 	layout "wide", :only => [:about, :adds]
+
+  def opportunity_index
+    @opportunities = Opportunity.order(:id).all
+    respond_with(@opportunities)
+  end
+
+
   # Preview html email template
   def email
     tpl = (params[:layout] || 'hero').to_sym

@@ -19,11 +19,15 @@ Rails.application.routes.draw do
   # get '/opportunity' => 'pages#opportunity', as: 'opportunity'
   # get '/opportunity_index' => 'pages#opportunity_index', as: 'opportunity_index'
 
+<<<<<<< HEAD
   resources :opportunities do
     resources :follow_opportunities, :only => [:create, :destroy]
     resources :likes, only: [:create, :destroy]
   end
 
+=======
+  resources :opportunities, only: [:index, :show]
+>>>>>>> 6994ff6f1422d2c923e04ee309b097f09ef708df
 
   # OAuth
   oauth_prefix = Rails.application.config.auth.omniauth.path_prefix

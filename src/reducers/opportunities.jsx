@@ -1,4 +1,5 @@
 import { FETCH_OPPORTUNITIES, FETCH_OPPORTUNITY, FETCH_LIKES } from '../actions/index';
+import { FETCH_OPPORTUNITIES, FETCH_OPPORTUNITY } from '../actions/index';
 
 const INITIAL_STATE = { all: [], opportunity: null };
 
@@ -15,5 +16,4 @@ export default function(state = INITIAL_STATE, action) {
       return state;
   }
 }
-
 

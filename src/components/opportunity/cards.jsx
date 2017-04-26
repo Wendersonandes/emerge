@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+<<<<<<< HEAD
 import { fetchOpportunities, addLikes, fetchLikes } from '../../actions/index';
+=======
+import { fetchOpportunities } from '../../actions/index';
+>>>>>>> 6994ff6f1422d2c923e04ee309b097f09ef708df
 import { Link } from 'react-router';
 
 let imgUrl = '/assets/tipografiaWorkshopThumb.png';
@@ -9,6 +13,7 @@ let divStyle = {
 };
 
 class Cards extends Component{
+<<<<<<< HEAD
   constructor(props) {
     super(props);
     this.state = {
@@ -17,10 +22,13 @@ class Cards extends Component{
     };
   }
 
+=======
+>>>>>>> 6994ff6f1422d2c923e04ee309b097f09ef708df
   componentDidMount() {
     this.props.fetchOpportunities();
   }
 
+<<<<<<< HEAD
   updateLikes11(id) {
     let countLikes = this.props.fetchLikes(id);
     countLikes.then(function(result) {
@@ -54,6 +62,11 @@ class Cards extends Component{
       recommendOpportunity.classList.remove("glyphicon-heart");
     }
     this.props.addLikes(event);
+=======
+  onLikesClick(event) {
+    console.log(event.target);
+
+>>>>>>> 6994ff6f1422d2c923e04ee309b097f09ef708df
   }
 
   renderOpportunities() {
@@ -66,6 +79,7 @@ class Cards extends Component{
               </div>
             </Link>
             <div className="caption">
+<<<<<<< HEAD
               <a href={`/opportunities/${opportunity.id}`} >
                 <h4 className="f3">{opportunity.title}</h4>
               </a>
@@ -75,6 +89,16 @@ class Cards extends Component{
                 {this.updateLikes(opportunity.id)}
 
               </button>
+=======
+              <Link to={`opportunities/${opportunity.id}`}>
+                <h4 className="f3">{opportunity.title}</h4>
+              </Link>
+              <p className="f4 measure avenir">{opportunity.summary}</p>
+              <Link value={opportunity.id} className="btn btn-default btn-xs" role={"button"} onClick={this.onLikesClick.bind(this)}>
+                <i className="glyphicon glyphicon-heart-empty"></i>
+                {opportunity.likes_count}
+              </Link>
+>>>>>>> 6994ff6f1422d2c923e04ee309b097f09ef708df
               <Link className="btn btn-primary btn-xs" role={"button"}>
                 <i className="glyphicon glyphicon-bookmark"></i>
                 33
@@ -103,6 +127,10 @@ function mapStateToProps(state) {
   return { opportunities: state.opportunities.all }
 }
 
+<<<<<<< HEAD
 export default connect(mapStateToProps, { fetchOpportunities, addLikes, fetchLikes })(Cards);
 
+=======
+export default connect(mapStateToProps, { fetchOpportunities })(Cards);
+>>>>>>> 6994ff6f1422d2c923e04ee309b097f09ef708df
 

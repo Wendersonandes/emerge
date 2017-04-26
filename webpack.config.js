@@ -10,6 +10,10 @@ module.exports = {
     loaders: [
       {
         loader: 'babel-loader',
+<<<<<<< HEAD
+=======
+        test: /\.(png|jpg)$/,
+>>>>>>> 6994ff6f1422d2c923e04ee309b097f09ef708df
         query: {
           presets: ['react', 'es2015', 'stage-1']
         },

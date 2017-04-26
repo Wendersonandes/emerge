@@ -11,20 +11,25 @@
 		<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
 		<!--[if lt IE 9]
 			<%= javascript_include_tag 'ie', 'data-turbolinks-track' => true %>
-		-->
-		<%= javascript_include_tag 'head', 'data-turbolinks-track' => true %>
-		<%= headjs_include_tag 'application', 'data-turbolinks-track' => true %>
+    -->
+    <!-- Aqui -->
 		<%= csrf_meta_tags %>
 		<%= yield :head %>
 		<%= render 'layouts/airbrake' %>
 	</head>
-	<body class="controller__<%= controller_name %> action__<%= action_name %>">
-		<%= render 'layouts/navigation' %>
+  <body class="controller__<%= controller_name %> action__<%= action_name %>">
+    <div id="menu"></div>
 		<div class="container pt6">
 			<div class="errors__container">
 				<%= render 'layouts/messages' %>
+<<<<<<< HEAD
 			</div>
       <%= yield %>
+=======
+      </div>
+      <div id="app"></div>
+			<%= yield %>
+>>>>>>> 6994ff6f1422d2c923e04ee309b097f09ef708df
       <footer class="page__footer">
         <% if content_for? :footer %>
           <%= yield :footer %>
@@ -32,9 +37,15 @@
           <%= render 'layouts/footer' %>
         <% end %>
       </footer>
+<<<<<<< HEAD
 		</div>
 		<%= render 'layouts/analytics' %>
     <%= render 'layouts/javascripts' %>
     <%= javascript_include_tag 'bundle-react', 'data-turbolinks-track' => true %>
+=======
+    </div>
+    <%= javascript_include_tag 'application'  %>
+		<%= render 'layouts/analytics' %>
+>>>>>>> 6994ff6f1422d2c923e04ee309b097f09ef708df
 	</body>
 </html>
