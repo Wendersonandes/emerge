@@ -24,7 +24,6 @@ Rails.application.routes.draw do
     resources :likes, only: [:create, :destroy]
   end
 
-
   # OAuth
   oauth_prefix = Rails.application.config.auth.omniauth.path_prefix
   get "#{oauth_prefix}/:provider/callback" => 'users/oauth#create'

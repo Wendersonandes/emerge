@@ -9,9 +9,10 @@ let divStyle = {
 };
 
 class Cards extends Component{
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
+      likes: [],
       valLikes: 0
     };
   }
@@ -30,6 +31,28 @@ class Cards extends Component{
     //console.log(this.state.valLikes)
     return 0;
   }
+
+  updateLikes11(id) {
+    let countLikes = this.props.fetchLikes(id);
+    countLikes.then(function(result) {
+      console.log(result.payload.data.likes_count);
+      this.setState({likes: result.payload.data})
+    }.bind(this));
+  }
+
+  updateLikes(id) {
+    return this.props.fetchLikes(id).then(result => {
+      this.setState({ valLikes: 34 });
+    });
+    console.log('claudiney');
+  }
+
+
+
+
+  //  axios.get("/yourURL").then(function(response) {
+  // this.setState({ events: response.data });
+  //}.bind(this));
 
   onLikesClick(event, id) {
     console.log(`O valor do ID é de:${event}`)
@@ -63,6 +86,14 @@ class Cards extends Component{
                 {this.updateLikes(opportunity.id)}
 
               </button>
+              <Link to={`opportunities/${opportunity.id}`}>
+                <h4 className="f3">{opportunity.title}</h4>
+              </Link>
+              <p className="f4 measure avenir">{opportunity.summary}</p>
+              <Link value={opportunity.id} className="btn btn-default btn-xs" role={"button"} onClick={this.onLikesClick.bind(this)}>
+                <i className="glyphicon glyphicon-heart-empty"></i>
+                {opportunity.likes_count}
+              </Link>
               <Link className="btn btn-primary btn-xs" role={"button"}>
                 <i className="glyphicon glyphicon-bookmark"></i>
                 33
@@ -92,5 +123,4 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps, { fetchOpportunities, addLikes, fetchLikes })(Cards);
-
 

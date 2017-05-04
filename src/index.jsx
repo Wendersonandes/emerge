@@ -11,9 +11,12 @@ const createStoreWithMiddleware = applyMiddleware(
   promise
 )(createStore);
 
-ReactDOM.render(
-  <Provider store={createStoreWithMiddleware(reducers)}>
-    <Router history={browserHistory} routes={routes} />
-  </Provider>
-  , document.querySelector('#app'));
+let element =  document.querySelector('#app');
+if (typeof(element) != 'undefined' && element != null) {
+  ReactDOM.render(
+    <Provider store={createStoreWithMiddleware(reducers)}>
+      <Router history={browserHistory} routes={routes} />
+    </Provider>
+    , document.querySelector('#app'));
+}
 

@@ -1,21 +1,10 @@
 # encoding : utf-8
 
 MoneyRails.configure do |config|
-
-  # To set the default currency
-  #
   config.default_currency = :BRL
   config.no_cents_if_whole = false
-
-  # Set default bank object
-  #
-  # Example:
-  # config.default_bank = EuCentralBank.new
-
-  # Add exchange rates to current money bank object.
-  # (The conversion rate refers to one direction only)
-  #
-  # Example:
+  config.default_currency = :BRL
+  config.no_cents_if_whole = false
   config.add_rate "BRL", "ARS", 0.223151671
   config.add_rate "ARS", "BRL", 0.223151671
   config.add_rate "BRL", "EUR", 0.223151671

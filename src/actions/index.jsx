@@ -5,8 +5,14 @@ export const FETCH_OPPORTUNITY = 'FETCH_OPPORTUNITY';
 export const ADD_LIKES = 'ADD_LIKES';
 export const FETCH_LIKES = 'FETCH_LIKES';
 
-
 const ROOT_URL_OPPORTUNITIES = '/opportunities';
+
+export function fetchHome() {
+  return {
+    type: FETCH_HOME,
+    payload: ''
+  };
+}
 
 export function fetchOpportunities() {
   const request = axios.get(`${ROOT_URL_OPPORTUNITIES}.json`);
@@ -31,7 +37,6 @@ export function addLikes(opportunity_id) {
     payload: request
   };
 }
-
 
 export function fetchLikes(opportunity_id) {
   const request = axios.get(`${ROOT_URL_OPPORTUNITIES}/${opportunity_id}.json`);

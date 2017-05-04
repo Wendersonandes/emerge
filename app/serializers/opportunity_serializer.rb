@@ -11,8 +11,10 @@ class OpportunitySerializer < ActiveModel::Serializer
 	has_many :grants
   has_many :prizes
   has_many :docs, :inverse_of => :opportunity, :dependent => :delete_all
+	# has_many :grants
+  has_many :prizes
+  # has_many :docs, :inverse_of => :opportunity, :dependent => :delete_all
 	has_many :taxes
   has_many :likes, as: :likeable, dependent: :destroy
   # has_many :likers, through: :likes, source: :user
-
 end

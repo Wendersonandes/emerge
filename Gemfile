@@ -40,6 +40,10 @@ gem 'turbolinks'
 gem 'jquery-turbolinks'
 gem 'nprogress-rails'
 
+gem 'impressionist', '<= 1.5.1'
+gem 'acts-as-taggable-on', '~> 3.4.2'
+gem 'acts_as_follower', '~> 0.2.1'
+
 # CoffeeScript
 # Not needed in production if precompiling assets
 gem 'coffee-rails'
@@ -67,9 +71,9 @@ gem 'omniauth-linkedin'
 gem 'rails_admin'
 
 # Workers
-gem 'sidekiq'
 gem 'devise-async'
 gem 'sinatra', require: false
+gem 'sidekiq'
 
 # Utils
 gem 'addressable'

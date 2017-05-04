@@ -25,6 +25,7 @@ class OpportunitiesController < ApplicationController
       @opportunities_counter = Opportunity.open.count
     end
 
+    # @opportunities = Opportunity.all
     respond_with(@opportunities)
 
     # prepare_meta_tags title: "Oportunidades abertas para artistas", image: view_context.asset_url("facebookShareImage.png"), og: { image: view_context.image_url("facebookShareImage.png"),title: "Oportunidades abertas para artistas", description: "Conecte-se a infinitas possibilidades em Artes Visuais."}
@@ -33,9 +34,9 @@ class OpportunitiesController < ApplicationController
 
   def show
     @opportunity = Opportunity.find(params[:id])
-    impressionist(@opportunity)
-    # prepare_meta_tags title: @opportunity.title, description: @opportunity.summary || view_context.truncate_html(@opportunity.content, length: 150, omission: "..."), image: @opportunity.featured_image_url(:original) || view_context.image_url("alone-clouds-hills-1909-527x350.jpg"), og: {title: @opportunity.title, description: @opportunity.summary || view_context.truncate_html(@opportunity.content, length: 150, omission: "..."), image: @opportunity.featured_image_url(:original) || view_context.image_url("alone-clouds-hills-1909-527x350.jpg")}
-    @opportunity_categories = @opportunity.category_list.map{|tagging|{:name => tagging }}.to_json
+    #impressionist(@opportunity)
+    #prepare_meta_tags title: @opportunity.title, description: @opportunity.summary || view_context.truncate_html(@opportunity.content, length: 150, omission: "..."), image: @opportunity.featured_image_url(:original) || view_context.image_url("alone-clouds-hills-1909-527x350.jpg"), og: {title: @opportunity.title, description: @opportunity.summary || view_context.truncate_html(@opportunity.content, length: 150, omission: "..."), image: @opportunity.featured_image_url(:original) || view_context.image_url("alone-clouds-hills-1909-527x350.jpg")}
+    #@opportunity_categories = @opportunity.category_list.map{|tagging|{:name => tagging }}.to_json
     respond_with(@opportunity)
   end
 
