@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-
 export default class OpportunitiesList extends Component {
   render() {
     return (

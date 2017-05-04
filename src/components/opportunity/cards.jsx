@@ -32,23 +32,14 @@ class Cards extends Component{
               </div>
             </Link>
             <div className="caption">
-              <a href={`/opportunities/${opportunity.id}`} >
-                <h4 className="f3">{opportunity.title}</h4>
-              </a>
-              <p className="f4 measure avenir">{opportunity.summary}</p>
-              <button value={opportunity.id} className="btn btn-default btn-xs"  onClick={this.onLikesClick.bind(this, opportunity.id)}>
-                <i id="recommend_opportunity" className="glyphicon glyphicon-heart-empty"></i>
-                {this.updateLikes(opportunity.id)}
-
-              </button>
               <Link to={`opportunities/${opportunity.id}`}>
                 <h4 className="f3">{opportunity.title}</h4>
               </Link>
               <p className="f4 measure avenir">{opportunity.summary}</p>
-              <Link value={opportunity.id} className="btn btn-default btn-xs" role={"button"} onClick={this.onLikesClick.bind(this)}>
-                <i className="glyphicon glyphicon-heart-empty"></i>
+              <button value={opportunity.id} className="btn btn-default btn-xs"  onClick={this.onLikesClick.bind(this, opportunity.id)}>
+                <i id="recommend_opportunity" className="glyphicon glyphicon-heart-empty"></i>
                 77
-              </Link>
+              </button>
               <Link className="btn btn-primary btn-xs" role={"button"}>
                 <i className="glyphicon glyphicon-bookmark"></i>
                 33
@@ -60,6 +51,7 @@ class Cards extends Component{
             </div>
           </div>
         </div>
+
       );
     });
   }

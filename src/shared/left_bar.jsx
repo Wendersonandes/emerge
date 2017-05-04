@@ -7,7 +7,6 @@ class LeftBar extends Component {
   render() {
     return (
       <div>
-        <p>Left Bar</p>
         <div className="well well-sm hidden-xs">
           <h3 className="f4 fw3 mt0">Não encontrou alguma oportunidade?</h3>
           <div className="row pb2">
