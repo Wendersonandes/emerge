@@ -24,7 +24,8 @@
 *.swp
 *.swo
 
-/assets/javascripts/bundle.js
+/app/assets/javascripts/bundle.js
+
 
 /node_modules
 

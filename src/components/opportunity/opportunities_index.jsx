@@ -7,7 +7,6 @@ class OpportunitiesIndex extends Component {
   render() {
     return (
       <div>
-        <Cards />
         <div className="row">
           <div className="col-sm-6 col-md-4">
             <LeftBar />
