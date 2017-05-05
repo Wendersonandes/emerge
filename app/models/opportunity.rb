@@ -101,6 +101,7 @@ class Opportunity < ActiveRecord::Base
 #
 #  include FeaturedImageUploader[:featured_image]
 
+  acts_as_follower
 	acts_as_followable
 
 	acts_as_taggable
@@ -143,8 +144,7 @@ class Opportunity < ActiveRecord::Base
   enum entry_manner: { correios: 0, online: 1, email: 2, indicação: 3, não_definido: 4, correios_ou_internet: 5 }
   enum local_restriction: { nenhuma: 0, país: 1, estado: 2, município: 3}
 
-  # is_impressionable :counter_cache => true, :column_name => :opportunity_views_counter_cache, :unique => true
-
+  is_impressionable :counter_cache => true, :column_name => :opportunity_views_counter_cache, :unique => true
 
   def list_categories
     self.category_list.present? ? self.category_list.take(4) : 'Categoria não informada'

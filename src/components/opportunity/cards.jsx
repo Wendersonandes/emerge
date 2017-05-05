@@ -38,11 +38,15 @@ class Cards extends Component{
               <p className="f4 measure avenir">{opportunity.summary}</p>
               <button value={opportunity.id} className="btn btn-default btn-xs"  onClick={this.onLikesClick.bind(this, opportunity.id)}>
                 <i id="recommend_opportunity" className="glyphicon glyphicon-heart-empty"></i>
-                77
+                <span className="ml1">
+                  {opportunity.likes_count}
+                </span>
               </button>
               <Link className="btn btn-primary btn-xs" role={"button"}>
                 <i className="glyphicon glyphicon-bookmark"></i>
-                33
+                <span className="ml1">
+                  {opportunity.followers_count}
+                </span>
               </Link>
               <Link to={"#"} className="btn btn-default btn-xs pull-right" role={"button"}>
                 <i className="glyphicon glyphicon-eye-open"></i>
