@@ -24,7 +24,8 @@ class OpportunitySerializer < ActiveModel::Serializer
 							:summary,
 							:raw_page_source,
 							:notification_already_sent,
-							:likes_count
+							:likes_count,
+              :followers_count
 
   has_one		:url_subscription
   has_one		:email_subscription
