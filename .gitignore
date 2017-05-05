@@ -4,8 +4,6 @@
 # or operating system, you probably want to add a global ignore instead:
 #   git config --global core.excludesfile '~/.gitignore_global'
 
-# Ignore bundler config.
-/.bundle
 
 #Ignore database settings
 /config/database.yml
@@ -24,7 +22,8 @@
 *.swp
 *.swo
 
-/app/assets/javascripts/bundle.js
+# Ignore bundler config.
+app/assets/javascripts/bundle.js
 
 
 /node_modules
