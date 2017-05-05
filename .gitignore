@@ -5,7 +5,7 @@
 #   git config --global core.excludesfile '~/.gitignore_global'
 
 # Ignore bundler config.
-/.bundle
+#/.bundle
 
 #Ignore database settings
 /config/database.yml
@@ -24,7 +24,7 @@
 *.swp
 *.swo
 
-/app/assets/javascripts/bundle.js
+app/assets/javascripts/bundle.js
 
 
 /node_modules
