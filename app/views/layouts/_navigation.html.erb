@@ -35,11 +35,6 @@
 						<b class="caret"></b>
 					</a>
 					<ul class="dropdown-menu">
-						<% if current_user.is_admin? %>
-							<li>
-								<%= link_to I18n.t('admin.link'), rails_admin_path, data: {"no-turbolink" => true} %>
-							</li>
-						<% end %>
 						<li>
 							<%= link_to I18n.t('account.edit.link'), edit_user_registration_path %>
 						</li>
