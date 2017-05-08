@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
   before_filter :authenticate_user!
 
   # CanCan, check authorization unless authorizing with devise
-  check_authorization unless: :skip_check_authorization?
+  #check_authorization unless: :skip_check_authorization?
 
   # Special handling for ajax requests.
   # Must appear before other rescue_from statements.

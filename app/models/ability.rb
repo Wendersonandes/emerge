@@ -10,9 +10,9 @@ class Ability
     can :manage, User, id: user.id
     can :manage, Authentication, user_id: user.id
 
-    if user.is_admin? && defined? RailsAdmin
+    #if user.is_admin? && defined? RailsAdmin
       # Allow everything
-      can :manage, :all
+      #can :manage, :all
 
       # RailsAdmin
       # https://github.com/sferik/rails_admin/wiki/CanCan
@@ -32,6 +32,6 @@ class Ability
       # can :destroy, Model, object   # for Delete
       # can :history, Model, object   # for HistoryShow
       # can :show_in_app, Model, object
-    end
+    #end
   end
 end

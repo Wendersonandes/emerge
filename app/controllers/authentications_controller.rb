@@ -1,5 +1,5 @@
 class AuthenticationsController < ApplicationController
-  load_and_authorize_resource :user
+	load_and_authorize_resource :user
   load_and_authorize_resource only: :destroy
 
   def index
