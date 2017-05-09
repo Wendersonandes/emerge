@@ -1656,7 +1656,8 @@ CREATE TABLE users (
     unconfirmed_email character varying,
     failed_attempts integer DEFAULT 0 NOT NULL,
     unlock_token character varying,
-    locked_at timestamp without time zone
+    locked_at timestamp without time zone,
+    image_url character varying
 );
 
 
@@ -3566,4 +3567,6 @@ INSERT INTO schema_migrations (version) VALUES ('20170311052847');
 INSERT INTO schema_migrations (version) VALUES ('20170314190700');
 
 INSERT INTO schema_migrations (version) VALUES ('20170410141611');
+
+INSERT INTO schema_migrations (version) VALUES ('20170508182547');
 
