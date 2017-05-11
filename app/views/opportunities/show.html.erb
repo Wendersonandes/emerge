@@ -3,19 +3,11 @@
 		<%= render 'elements/left_bar'%>
 	</div>
 	<div class="col-md-8 col-sm-12">
-		<%= render 'opportunity_header'%>
+		<%= render 'opportunity_header', :opportunity => @opportunity %>
 		<div class="row">
 			<div class="col-sm-8 opportunity__text__container f4">
 				<div class="well well-sm">
-					<p>
-						O objeto do XV Prêmio FCW de Arte é a Fotografia, profissão e atividade empresarial do Instituidor Ubaldo Augusto Conrado Wessel.
-					</p>
-					<p>
-						Nesta décima quinta edição o Prêmio privilegia o Ensaio Fotográfico e é aberto somente para fotógrafos brasileiros natos e brasileiros naturalizados. O Ensaio Fotográfico deve ter sua produção realizada e comprovada entre 1° de janeiro de 2015 e 31 de dezembro de 2016.
-					</p>
-					<p>
-						Entende-se por Ensaio Fotográfico um conjunto de no mínimo 10 (dez) fotografias de uma só temática, de conteúdo etnográfico, paisagístico, ecológico, socioambiental, entre outros desenvolvido em território brasileiro. O portfolio encaminhado para avaliação deverá conter fotografias de um mesmo trabalho e não fotografias avulsas e sem conexão.
-					</p>
+					<%= @opportunity.content %>	
 
 				</div>
 			</div>
@@ -38,5 +30,4 @@
 		</div>
 	</div>
 </div>
-
-
+<%= render 'opportunity_quest_modal'%>

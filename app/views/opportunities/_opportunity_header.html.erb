@@ -1,10 +1,11 @@
-<div class="header__opportunity relative h8 h7-l bg-top cover bg-black mb3 shadow-1" style="background-image: url(<%= image_path("tipografiaWorkshopThumb.png")%>);">
+<div class="header__opportunity relative h8 h7-l bg-top cover bg-black mb3 shadow-1" style="background-image: url(<%= image_path(opportunity.featured_image_url(:thumb) || "alone-clouds-hills-1909-527x350.jpg")%>);">
 	<div class="overlay__container w-100 h-100 bg-black-60">
-
 		<div class="info__container pl4 absolute">
 			<div class="row">
-				<div class="col-sm-9">
-					<h3 class="white fw4">Prêmio Fundação Conrado Wessel de Arte – Ensaio Fotográfico</h3>
+				<div class="col-sm-10">
+					<h3 class="white fw4">
+						<%= opportunity.title %>
+					</h3>
 				</div>
 			</div>
 			<div class="row">
@@ -20,27 +21,43 @@
 				</div>
 			</div>
 
-			<h6 class="white-90 fw4">
+			<h6 class="white fw2">
 				<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-				Início das inscrições: 25/03/2017 (em 21 dias)
+				Início das inscrições:
+				<%= opportunity.beginning %>
 			</h6>
 
-			<h6 class="white-90 fw4">
+			<h6 class="white fw2">
 				<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-				Encerramento das inscrições: 25/03/2017 (em 21 dias)
+				Encerramento das inscrições: 
+				<%= opportunity.end_subscription %>
 			</h6>
 
-			<h6 class="white-90 fw4">
+			<h6 class="white fw2">
+				<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+				Anúncio do resultado: 
+				<%= opportunity.result %>
+			</h6>
+
+			<h6 class="white fw2">
 				<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
-				Forma de Inscrição: Correios
+				Forma de Inscrição: 
+				<%= opportunity.entry_manner %>
 			</h6>
+			
+			<h6 class="white fw2">
+				<span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
 				Premiação total: R$ 5.000,00
 			</h6>
-			<h6 class="white-90 fw4">
+
+			</h6>
+
+			<h6 class="white fw2">
 				<span class="glyphicon glyphicon-link" aria-hidden="true"></span>
 				<a href="#">Fonte online</a>
 			</h6>
-			<h6 class="white-90 fw4">
+
+			<h6 class="white fw2">
 				<span class="glyphicon glyphicon-send" aria-hidden="true"></span>
 				Email contato:
 				<a href="mailto:#">first.last@example.com</a>
@@ -79,21 +96,14 @@
 						<button type="button" class="btn btn-sm btn-primary dropdown-toggle"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >Downloads
 							<span class="caret"></span>
 						</button>
-						<ul class="dropdown-menu">
-						</button>
-							<li><a href="#">Regulamento</a></li>
-							<li role="separator" class="divider"></li>
-							<li><a href="#">Ficha de Inscrição</a></li>
-							<li role="separator" class="divider"></li>
-							<li><a href="#">Anexo</a></li>
-							<li role="separator" class="divider"></li>
-							<li><a href="#">Modelo currículo</a></li>
-						</ul>
+
+						<%= content_tag(:ul, :class => "dropdown-menu") do %>
+							<%= opportunity.downloads %>
+						<% end %>
+
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
-
-
