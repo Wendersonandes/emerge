@@ -33,7 +33,7 @@ class OpportunitiesController < ApplicationController
 
 
   def show
-    @opportunity = Opportunity.find(params[:id])
+		@opportunity = Opportunity.find(params[:id]).decorate
     #impressionist(@opportunity)
     #prepare_meta_tags title: @opportunity.title, description: @opportunity.summary || view_context.truncate_html(@opportunity.content, length: 150, omission: "..."), image: @opportunity.featured_image_url(:original) || view_context.image_url("alone-clouds-hills-1909-527x350.jpg"), og: {title: @opportunity.title, description: @opportunity.summary || view_context.truncate_html(@opportunity.content, length: 150, omission: "..."), image: @opportunity.featured_image_url(:original) || view_context.image_url("alone-clouds-hills-1909-527x350.jpg")}
     #@opportunity_categories = @opportunity.category_list.map{|tagging|{:name => tagging }}.to_json
