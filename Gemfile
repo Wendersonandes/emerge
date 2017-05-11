@@ -43,6 +43,10 @@ gem 'nprogress-rails'
 gem 'impressionist', '<= 1.5.1'
 gem 'acts-as-taggable-on', '~> 3.4.2'
 gem 'acts_as_follower', '~> 0.2.1'
+gem 'local_time', '~> 1.0', '>= 1.0.3'
+gem 'redcarpet', '~> 3.3', '>= 3.3.4'
+
+gem 'draper', '~> 2.1'
 
 # CoffeeScript
 # Not needed in production if precompiling assets
