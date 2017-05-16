@@ -36,25 +36,20 @@ class Opportunity < ActiveRecord::Base
   scope :published, -> { where("published_at IS NOT NULL") }
   scope :draft, -> { where("published_at IS NULL") }
   scope :open,              ->{ where("end_subscription >= ? or extended >= ?", Date.today, Date.today).published }
-  scope :without_program,   ->{ where("program_id IS NULL") }
   scope :last_days,         ->{ where(end_subscription: Date.current..(1.week.from_now)) }
   scope :result_near,       ->{ where(result: Date.today..1.week.from_now) }
   scope :without_selecteds,  ->{ where("(select count(*) from opportunity_selecteds where opportunity_id=opportunities.id) = 0").where("result < ?", Date.today) }
-
   scope :recents,         -> { open.last(5).reverse }
   scope :short_recents,   -> { open.last(2).reverse }
   scope :closures,        -> { open.where(end_subscription: Date.today..Date.today + 7)}
   scope :short_closures,  -> { open.where(end_subscription: Date.today..Date.today + 5).limit(2)}
   scope :most_viewed,     -> { open.order('opportunity_views_counter_cache DESC').limit(20)}
-
   scope :closing_in_1_day, -> { where("end_subscription = ? or extended = ?", Date.today + 1.days, Date.today + 1.days)}
   scope :closing_in_2_day, -> { where("end_subscription = ? or extended = ?", Date.today + 2.days, Date.today + 2.days)}
   scope :closing_in_3_day, -> { where("end_subscription = ? or extended = ?", Date.today + 3.days, Date.today + 3.days)}
   scope :closing_in_5_day, -> { where("end_subscription = ? or extended = ?", Date.today + 5.days, Date.today + 5.days)}
   scope :closing_in_7_day, -> { where("end_subscription = ? or extended = ?", Date.today + 7.days, Date.today + 7.days)}
-
   scope :already_sent, -> (opportunity_id) {open.where(id: opportunity_id, notification_already_sent: true)}
-
 
 	include PgSearch
 	pg_search_scope :search,
@@ -78,28 +73,6 @@ class Opportunity < ActiveRecord::Base
   :ignoring => :accents
 
   include FeaturedImageUploader[:featured_image]
-	# include PgSearch
-#	pg_search_scope :search,
-#	:against => [:title, :content],
-#  :associated_against => {
-#    :categories => [:name],
-#    :tags => [:name]
-#  },
-#	:using => {
-#		tsearch: {
-#    dictionary: 'portuguese',
-#    :prefix => true,
-#    :any_word => true,
-#    },
-#
-#    :trigram => {
-#      :only => [:title, :categories],
-#      :threshold => 0.1
-#      }
-#    },
-#  :ignoring => :accents
-#
-#  include FeaturedImageUploader[:featured_image]
 
   acts_as_follower
 	acts_as_followable
@@ -108,8 +81,6 @@ class Opportunity < ActiveRecord::Base
   acts_as_taggable_on :categories
 
 	belongs_to :author, :class_name => "User", :foreign_key => "author_id"
-
-	belongs_to :program
 
   has_one :url_subscription, :dependent => :destroy
   accepts_nested_attributes_for :url_subscription, :reject_if => :all_blank, :allow_destroy => true
@@ -129,7 +100,7 @@ class Opportunity < ActiveRecord::Base
 	has_many :grants, :inverse_of => :opportunity, :dependent => :delete_all
 	accepts_nested_attributes_for :grants, :reject_if => :all_blank, :allow_destroy => true
 
-  has_many :prizes, :inverse_of => :opportunity, :dependent => :delete_all
+  has_many :prizes, :through => :grants, :source => :prizes, :inverse_of => :opportunity, :dependent => :delete_all
   accepts_nested_attributes_for :prizes, :reject_if => :all_blank, :allow_destroy => true
 
   has_many :docs, :inverse_of => :opportunity, :dependent => :delete_all
@@ -139,7 +110,7 @@ class Opportunity < ActiveRecord::Base
 	accepts_nested_attributes_for :taxes, :reject_if => :all_blank, :allow_destroy => true
 
   has_many :likes, as: :likeable, dependent: :destroy
-  has_many :likers, through: :likes, source: :user
+  #has_many :likers, through: :likes, source: :user
 
   enum entry_manner: { correios: 0, online: 1, email: 2, indicação: 3, não_definido: 4, correios_ou_internet: 5 }
   enum local_restriction: { nenhuma: 0, país: 1, estado: 2, município: 3}
