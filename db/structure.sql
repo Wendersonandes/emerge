@@ -72,6 +72,42 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
+-- Name: active_admin_comments; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE active_admin_comments (
+    id integer NOT NULL,
+    namespace character varying,
+    body text,
+    resource_id integer,
+    resource_type character varying,
+    author_id integer,
+    author_type character varying,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: active_admin_comments_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE active_admin_comments_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: active_admin_comments_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE active_admin_comments_id_seq OWNED BY active_admin_comments.id;
+
+
+--
 -- Name: address_subscriptions; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -1694,6 +1730,13 @@ CREATE TABLE users_roles (
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY active_admin_comments ALTER COLUMN id SET DEFAULT nextval('active_admin_comments_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY address_subscriptions ALTER COLUMN id SET DEFAULT nextval('address_subscriptions_id_seq'::regclass);
 
 
@@ -2003,6 +2046,14 @@ ALTER TABLE ONLY user_preferences ALTER COLUMN id SET DEFAULT nextval('user_pref
 --
 
 ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regclass);
+
+
+--
+-- Name: active_admin_comments_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY active_admin_comments
+    ADD CONSTRAINT active_admin_comments_pkey PRIMARY KEY (id);
 
 
 --
@@ -2405,6 +2456,27 @@ CREATE INDEX fk_follows ON follows USING btree (follower_id, follower_type);
 --
 
 CREATE INDEX impressionable_type_message_index ON impressions USING btree (impressionable_type, message, impressionable_id);
+
+
+--
+-- Name: index_active_admin_comments_on_author_type_and_author_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_active_admin_comments_on_author_type_and_author_id ON active_admin_comments USING btree (author_type, author_id);
+
+
+--
+-- Name: index_active_admin_comments_on_namespace; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_active_admin_comments_on_namespace ON active_admin_comments USING btree (namespace);
+
+
+--
+-- Name: index_active_admin_comments_on_resource_type_and_resource_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_active_admin_comments_on_resource_type_and_resource_id ON active_admin_comments USING btree (resource_type, resource_id);
 
 
 --
@@ -3569,4 +3641,6 @@ INSERT INTO schema_migrations (version) VALUES ('20170314190700');
 INSERT INTO schema_migrations (version) VALUES ('20170410141611');
 
 INSERT INTO schema_migrations (version) VALUES ('20170508182547');
+
+INSERT INTO schema_migrations (version) VALUES ('20170511223137');
 
