@@ -45,7 +45,7 @@ gem 'acts-as-taggable-on', '~> 3.4.2'
 gem 'acts_as_follower', '~> 0.2.1'
 gem 'local_time', '~> 1.0', '>= 1.0.3'
 gem 'redcarpet', '~> 3.3', '>= 3.3.4'
-
+gem 'activeadmin', '~> 1.0'
 gem 'draper', '~> 2.1'
 
 # CoffeeScript
@@ -83,8 +83,6 @@ gem 'sidekiq'
 gem 'addressable'
 gem 'settingslogic'
 
-gem 'impressionist', '<= 1.5.1'
-
 gem 'pg_search', '~> 0.7.8'
 
 gem 'fastimage'
@@ -93,9 +91,6 @@ gem 'mini_magick'
 gem 'shrine'
 gem 'aws-sdk', '~> 2.1'
 gem 'roda'
-
-gem 'acts_as_follower', '~> 0.2.1'
-gem 'acts-as-taggable-on', '~> 3.4.2'
 
 gem 'responders', '~> 2.3'
 gem 'active_model_serializers', '~> 0.10.5'
