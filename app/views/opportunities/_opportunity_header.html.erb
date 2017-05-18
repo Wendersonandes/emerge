@@ -51,7 +51,8 @@
 			
 			<h6 class="white fw2">
 				<span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
-				Premiação total: R$ 5.000,00
+				Premiação total:
+				<%= humanized_money_with_symbol(opportunity.value_of_awards) %>
 			</h6>
 
 			</h6>
