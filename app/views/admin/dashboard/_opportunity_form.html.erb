@@ -1,0 +1,14 @@
+<%= semantic_form_for :opportunity, builder: ActiveAdmin::FormBuilder,action:"new" do |f| %>
+	<%= f.inputs do %>
+		<%= f.input :title%>
+		<%= f.input :url_source %>
+	<%end%>
+	<%= f.inputs :class => "as_inline_form" do %>
+		<%= f.input :beginning, :as => :string, :input_html => {:class => 'datepicker hasDatePicker'}%>
+		<%= f.input :end_subscription, :as => :string, :input_html => {:class => 'datepicker hasDatePicker'}%>
+	<%end%>
+	<%= f.inputs do %>
+		<%= f.input :content, :as => :text, :input_html => { :rows => 10, :cols => 20 } %>
+	<%end%>
+	<%= f.actions :submit %>
+<%end%>
