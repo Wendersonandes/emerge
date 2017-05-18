@@ -354,6 +354,37 @@ ALTER SEQUENCE email_subscriptions_id_seq OWNED BY email_subscriptions.id;
 
 
 --
+-- Name: entry_manners; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE entry_manners (
+    id integer NOT NULL,
+    entry_type integer,
+    opportunity_id integer,
+    content character varying
+);
+
+
+--
+-- Name: entry_manners_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE entry_manners_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: entry_manners_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE entry_manners_id_seq OWNED BY entry_manners.id;
+
+
+--
 -- Name: extended_subscriptions; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -1786,6 +1817,13 @@ ALTER TABLE ONLY email_subscriptions ALTER COLUMN id SET DEFAULT nextval('email_
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY entry_manners ALTER COLUMN id SET DEFAULT nextval('entry_manners_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY extended_subscriptions ALTER COLUMN id SET DEFAULT nextval('extended_subscriptions_id_seq'::regclass);
 
 
@@ -2110,6 +2148,14 @@ ALTER TABLE ONLY docs
 
 ALTER TABLE ONLY email_subscriptions
     ADD CONSTRAINT email_subscriptions_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: entry_manners_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY entry_manners
+    ADD CONSTRAINT entry_manners_pkey PRIMARY KEY (id);
 
 
 --
@@ -2547,6 +2593,13 @@ CREATE INDEX index_docs_on_opportunity_id ON docs USING btree (opportunity_id);
 --
 
 CREATE INDEX index_email_subscriptions_on_opportunity_id ON email_subscriptions USING btree (opportunity_id);
+
+
+--
+-- Name: index_entry_manners_on_opportunity_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_entry_manners_on_opportunity_id ON entry_manners USING btree (opportunity_id);
 
 
 --
@@ -3129,6 +3182,14 @@ ALTER TABLE ONLY docs
 
 
 --
+-- Name: fk_rails_f1e79eaa00; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY entry_manners
+    ADD CONSTRAINT fk_rails_f1e79eaa00 FOREIGN KEY (opportunity_id) REFERENCES opportunities(id);
+
+
+--
 -- PostgreSQL database dump complete
 --
 
@@ -3643,4 +3704,6 @@ INSERT INTO schema_migrations (version) VALUES ('20170410141611');
 INSERT INTO schema_migrations (version) VALUES ('20170508182547');
 
 INSERT INTO schema_migrations (version) VALUES ('20170511223137');
+
+INSERT INTO schema_migrations (version) VALUES ('20170516185117');
 
