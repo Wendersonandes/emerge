@@ -30,8 +30,8 @@
 
 class Opportunity < ActiveRecord::Base
 
-  before_create :create_summary, :build_default_opportunity_email_notification
-  before_update :create_summary
+  before_create :build_default_opportunity_email_notification
+  before_save :create_summary, :publish_post
 
   scope :published, -> { where("published_at IS NOT NULL") }
   scope :draft, -> { where("published_at IS NULL") }
@@ -131,6 +131,11 @@ class Opportunity < ActiveRecord::Base
     return val
   end
 
+	def publish_post
+		if self.publish_at == true
+			publish
+		end
+	end
 	def publish
 		self.published_at = Time.zone.now
 	end
