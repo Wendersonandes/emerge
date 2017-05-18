@@ -26,15 +26,12 @@ class OpportunityDecorator < ApplicationDecorator
 		markdown(object.content)
 	end
 
-	def entry_manner 
-		object.entry_manner.present? ? object.entry_manner.humanize : "Forma de inscrição não informada"
-	end
-
 	def downloads
 		object.docs.each do |doc|
 			concat h.content_tag(:li, h.link_to(doc.doc_url))
 		end	
 	end
+
 
 	private
 
