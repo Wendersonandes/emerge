@@ -1,11 +1,38 @@
 ActiveAdmin.register Opportunity do
-	permit_params :title, :content, :beginning, :end_subscription, :result
+	permit_params :id,
+		:author_id,
+		:url_source, 
+		:featured_image, 
+		:featured_image_remote_url, 
+		:title, 
+		:beginning, 
+		:end_subscription, 
+		:result, 
+		:extended, 
+		:content, 
+		:entry_manners_attributes => [:id, :opportunity_id, :content, :entry_type],
+		:docs_attributes => [:id, :opportunity_id, :language, :doc_type, :doc, :doc_remote_url, :description, :_destroy],
+		:taxes_attributes => [:id, :opportunity_id, :value, :value_currency, :description, :_destroy], 
+		:grants_attributes => [:id, :name, :description, :quantity, :opportunity_id, :_destroy, 
+												 :prizes_attributes => [:id ,:opportunity_id, :grant_id, :value, :value_currency, :description, :prize_type_list , :exact_value, :_destroy]]
 	menu :priority => 1
 	scope :all, :default => true
 
 	filter :title
 	filter :end_subscription
 	filter :beginning
+
+	controller do
+		def save_and_edit	
+			@opportunity = Opportunity.new(permitted_params[:opportunity])
+			@opportunity.save
+			redirect_to edit_admin_opportunity(@opportunity), :notice=>'Imported'
+		end
+	end
+
+	member_action :save_and_edit, :method => :post do
+
+	end
 
 	index do
 		column :title do |opportunity|
@@ -38,13 +65,22 @@ ActiveAdmin.register Opportunity do
 	form html: { multipart: true } do |f|
 		tabs do
 			tab "Basic Details" do
-				f.inputs 'Basic Details' do
-					f.input :title
-					f.input :content
-					f.input :entry_manner
-					f.input :featured_image,:as => :file, :hint => image_tag(f.object.featured_image_url(:thumb))
+				columns do
+					column span: 2 do
+					f.inputs  do
+						f.input :title
+						f.input :content
+						f.input :featured_image,:as => :file, :hint => image_tag(f.object.featured_image_url(:thumb))
+					end
+				end
+				column do
+					f.has_many :entry_manners do |entry_manner|
+						entry_manner.inputs :entry_type
+						entry_manner.inputs :content
+					end
 				end
 			end
+		end
 			tab "Cronograma" do
 				panel 'Markup' do
 					"The following can be used in the content below..."
