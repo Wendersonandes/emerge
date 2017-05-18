@@ -36,6 +36,6 @@ class OpportunityDecorator < ApplicationDecorator
 	private
 
 	def handle_date(value, message="Data não informada")
-		value.present? ? h.local_time_ago(value) : message
+		value.present? ? h.local_time_ago(value) + h.content_tag(:span, "(#{value})", :class => "ml3") : message
 	end
 end
