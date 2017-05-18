@@ -42,7 +42,11 @@
 			<h6 class="white fw2">
 				<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
 				Forma de Inscrição: 
-				<%= opportunity.entry_manner %>
+				<% if opportunity.entry_manners.present? %>
+					<% opportunity.entry_manners.each  do |entry_manner| %>
+						<%= entry_manner.entry_type.humanize %>
+					<% end %>
+				<% end %>
 			</h6>
 			
 			<h6 class="white fw2">
