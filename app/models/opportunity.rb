@@ -82,15 +82,6 @@ class Opportunity < ActiveRecord::Base
 
 	belongs_to :author, :class_name => "User", :foreign_key => "author_id"
 
-  has_one :url_subscription, :dependent => :destroy
-  accepts_nested_attributes_for :url_subscription, :reject_if => :all_blank, :allow_destroy => true
-
-  has_one :email_subscription, :dependent => :destroy
-  accepts_nested_attributes_for :email_subscription, :reject_if => :all_blank, :allow_destroy => true
-
-  has_one :address_subscription, :dependent => :destroy
-  accepts_nested_attributes_for :address_subscription, :reject_if => :all_blank, :allow_destroy => true
-
   has_one :opportunity_email_notification, :dependent => :destroy
   accepts_nested_attributes_for :opportunity_email_notification, :reject_if => :all_blank, :allow_destroy => true
 
@@ -100,19 +91,19 @@ class Opportunity < ActiveRecord::Base
 	has_many :grants, :inverse_of => :opportunity, :dependent => :delete_all
 	accepts_nested_attributes_for :grants, :reject_if => :all_blank, :allow_destroy => true
 
-  has_many :prizes, :through => :grants, :source => :prizes, :inverse_of => :opportunity, :dependent => :delete_all
-  accepts_nested_attributes_for :prizes, :reject_if => :all_blank, :allow_destroy => true
-
   has_many :docs, :inverse_of => :opportunity, :dependent => :delete_all
   accepts_nested_attributes_for :docs, :reject_if => :all_blank, :allow_destroy => true
 
 	has_many :taxes, :dependent => :delete_all
 	accepts_nested_attributes_for :taxes, :reject_if => :all_blank, :allow_destroy => true
 
+	has_many :entry_manners, :dependent => :delete_all
+	accepts_nested_attributes_for :entry_manners, :reject_if => :all_blank, :allow_destroy => true
+
   has_many :likes, as: :likeable, dependent: :destroy
   #has_many :likers, through: :likes, source: :user
 
-  enum entry_manner: { correios: 0, online: 1, email: 2, indicação: 3, não_definido: 4, correios_ou_internet: 5 }
+  
   enum local_restriction: { nenhuma: 0, país: 1, estado: 2, município: 3}
 
   is_impressionable :counter_cache => true, :column_name => :opportunity_views_counter_cache, :unique => true
