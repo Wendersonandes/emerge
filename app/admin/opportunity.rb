@@ -28,6 +28,28 @@ ActiveAdmin.register Opportunity do
 			@opportunity.save
 			redirect_to edit_admin_opportunity(@opportunity), :notice=>'Imported'
 		end
+
+		def create
+			submit_status = permitted_params[:commit].downcase
+
+			if submit_status.include?('featured')
+				@opportunity = Opportunity.new(permitted_params[:opportunity])
+				@opportunity.publish
+			end
+
+			super
+		end
+
+		def update
+      submit_status = permitted_params[:commit].downcase
+
+      if resource.errors.empty? && submit_status.include?('publish')
+				resource.publish
+        @opportunity = resource
+      end
+
+      super
+    end
 	end
 
 	member_action :save_and_edit, :method => :post do
@@ -112,6 +134,10 @@ ActiveAdmin.register Opportunity do
 			end
 
 		end
-		f.actions
+		f.actions do
+			f.action  :submit
+			f.action :submit, label: "Publish"
+			f.action  :cancel, :wrapper_html => { :class => 'cancel'}
+		end
 	end
 end
