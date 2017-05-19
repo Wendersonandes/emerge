@@ -15,6 +15,7 @@ ActiveAdmin.register Opportunity do
 		:taxes_attributes => [:id, :opportunity_id, :value, :value_currency, :description, :_destroy], 
 		:grants_attributes => [:id, :name, :description, :quantity, :opportunity_id, :_destroy, 
 												 :prizes_attributes => [:id ,:opportunity_id, :grant_id, :value, :value_currency, :description, :prize_type_list , :exact_value, :_destroy]]
+
 	menu :priority => 1
 	scope :all, :default => true
 
@@ -30,14 +31,17 @@ ActiveAdmin.register Opportunity do
 		end
 
 		def create
-			submit_status = permitted_params[:commit].downcase
-
-			if submit_status.include?('featured')
-				@opportunity = Opportunity.new(permitted_params[:opportunity])
+			submit_status = permitted_params[:commit].parameterize.underscore
+			@opportunity = Opportunity.new(permitted_params[:opportunity])
+			if submit_status.include?('publish')
 				@opportunity.publish
 			end
+			super do |format|
+				if submit_status.include?('save_and_edit')
+					redirect_to edit_admin_opportunity_path(resource) and return if resource.valid?
+				end
+      end
 
-			super
 		end
 
 		def update
