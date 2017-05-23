@@ -38,6 +38,10 @@ class OpportunityDecorator < ApplicationDecorator
 		end
 	end
 
+  def list_categories
+    object.category_list.present? ? object.category_list.take(4) : 'Categoria não informada'
+  end
+
 	def download_list
 		if object.docs.present?
 			h.content_tag(:div) do
