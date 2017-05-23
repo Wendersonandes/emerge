@@ -30,6 +30,7 @@
 
 class Opportunity < ActiveRecord::Base
 
+	monetize :value_of_awards_centavos
   before_create :create_summary, :build_default_opportunity_email_notification
   before_update :create_summary
 
@@ -108,9 +109,6 @@ class Opportunity < ActiveRecord::Base
 
   is_impressionable :counter_cache => true, :column_name => :opportunity_views_counter_cache, :unique => true
 
-  def list_categories
-    self.category_list.present? ? self.category_list.take(4) : 'Categoria não informada'
-  end
 
   def create_summary
     if self.content.present?
@@ -122,13 +120,8 @@ class Opportunity < ActiveRecord::Base
     build_opportunity_email_notification
   end
 
-  def value_of_awards
-    val = 0
-    grants = self.grants
-    grants.each do |grant|
-      val += grant.prizes.map(&:value).inject(0, :+) * grant.quantity  unless grant.quantity.nil?
-    end
-    return val
+  def value_of_awards_centavos
+		self.grants.joins(:prizes).sum(:value_centavos)
   end
 
 	def publish

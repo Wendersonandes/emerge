@@ -10,6 +10,7 @@ ActiveAdmin.register Opportunity do
 		:result, 
 		:extended, 
 		:content, 
+		:category_list,
 		:entry_manners_attributes => [:id, :opportunity_id, :content, :entry_type],
 		:docs_attributes => [:id, :opportunity_id, :language, :doc_type, :doc, :doc_remote_url, :description, :_destroy],
 		:taxes_attributes => [:id, :opportunity_id, :value, :value_currency, :description, :_destroy], 
@@ -100,7 +101,7 @@ ActiveAdmin.register Opportunity do
 					end
 				end
 				column do
-					f.has_many :entry_manners do |entry_manner|
+					f.has_many :entry_manners, :allow_destroy => true do |entry_manner|
 						entry_manner.inputs :entry_type
 						entry_manner.inputs :content
 					end
@@ -119,10 +120,10 @@ ActiveAdmin.register Opportunity do
 			end
 
 			tab "Prêmios e Taxas" do
-				f.has_many :grants do |grant|
+				f.has_many :grants, :allow_destroy => true do |grant|
 					grant.inputs :name
 					grant.inputs :description
-					grant.has_many :prizes do |prize|
+					grant.has_many :prizes, :allow_destroy => true do |prize|
 						prize.inputs :exact_value
 						prize.inputs :description    
 						prize.inputs :value    
