@@ -31,6 +31,7 @@
 class Opportunity < ActiveRecord::Base
 
 	monetize :value_of_awards_centavos
+
   before_create :create_summary, :build_default_opportunity_email_notification
   before_update :create_summary
 
@@ -51,6 +52,11 @@ class Opportunity < ActiveRecord::Base
   scope :closing_in_5_day, -> { where("end_subscription = ? or extended = ?", Date.today + 5.days, Date.today + 5.days)}
   scope :closing_in_7_day, -> { where("end_subscription = ? or extended = ?", Date.today + 7.days, Date.today + 7.days)}
   scope :already_sent, -> (opportunity_id) {open.where(id: opportunity_id, notification_already_sent: true)}
+
+
+	validates :title, :presence => true, length: { in: 5..250 }
+	validates :content, :presence => true
+	validates :end_subscription, :presence => true
 
 	include PgSearch
 	pg_search_scope :search,
