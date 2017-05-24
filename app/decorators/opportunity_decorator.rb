@@ -26,6 +26,10 @@ class OpportunityDecorator < ApplicationDecorator
 		markdown(object.content)
 	end
 
+	def summary
+		markdown(object.summary)
+	end
+
 	def downloads
 		object.docs.each do |doc|
 			concat h.content_tag(:li, h.link_to(doc.doc_url))
