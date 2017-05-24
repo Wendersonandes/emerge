@@ -22,7 +22,8 @@
 #= require rails_confirm_dialog
 #= require jquery.scrollto
 #= require local_time
-
+#= require rails.validations
+#= require rails.validations.simple_form
 # Add error class to .avatar images if they fail to load
 # See avatar.scss and _avatar.html.haml
 #= require imagesloaded
