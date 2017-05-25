@@ -23,4 +23,6 @@ class Grant < ActiveRecord::Base
 	has_many :prizes, :inverse_of => :grant, :dependent => :delete_all
 	accepts_nested_attributes_for :prizes, :reject_if => :all_blank, :allow_destroy => true
 
+	validates :name, :presence => true
+
 end

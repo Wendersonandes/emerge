@@ -1,4 +1,4 @@
-<%= semantic_form_for :opportunity, builder: ActiveAdmin::FormBuilder,action:"new" do |f| %>
+<%= semantic_form_for Opportunity.new, :url => admin_opportunities_path, builder: ActiveAdmin::FormBuilder,action:"new" do |f| %>
 	<%= f.inputs do %>
 		<%= f.input :title%>
 		<%= f.input :url_source %>
@@ -10,5 +10,8 @@
 	<%= f.inputs do %>
 		<%= f.input :content, :as => :text, :input_html => { :rows => 10, :cols => 20 } %>
 	<%end%>
-	<%= f.actions :submit %>
-<%end%>
+	<%= f.actions do %>
+		<%= f.action :submit%>
+		<%= f.action :submit, label: "Save and Edit" %>
+	<% end %>
+<% end %>

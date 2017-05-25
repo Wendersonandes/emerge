@@ -19,6 +19,9 @@ class Prize < ActiveRecord::Base
 	register_currency :brl
  	monetize :value_centavos, with_model_currency: :value_currency
 
+	validates :value_centavos, :presence => true
+	validates :description, :presence => true
+
  	acts_as_taggable
   acts_as_taggable_on :prize_types
   

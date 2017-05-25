@@ -30,8 +30,15 @@
 
 class Opportunity < ActiveRecord::Base
 
+<<<<<<< HEAD
   before_create :build_default_opportunity_email_notification
   before_save :create_summary, :publish_post
+=======
+	monetize :value_of_awards_centavos
+
+  before_create :create_summary, :build_default_opportunity_email_notification
+  before_update :create_summary
+>>>>>>> working_on_opportunity_header
 
   scope :published, -> { where("published_at IS NOT NULL") }
   scope :draft, -> { where("published_at IS NULL") }
@@ -50,6 +57,11 @@ class Opportunity < ActiveRecord::Base
   scope :closing_in_5_day, -> { where("end_subscription = ? or extended = ?", Date.today + 5.days, Date.today + 5.days)}
   scope :closing_in_7_day, -> { where("end_subscription = ? or extended = ?", Date.today + 7.days, Date.today + 7.days)}
   scope :already_sent, -> (opportunity_id) {open.where(id: opportunity_id, notification_already_sent: true)}
+
+
+	validates :title, :presence => true, length: { in: 5..250 }
+	validates :content, :presence => true
+	validates :end_subscription, :presence => true
 
 	include PgSearch
 	pg_search_scope :search,
@@ -108,9 +120,6 @@ class Opportunity < ActiveRecord::Base
 
   is_impressionable :counter_cache => true, :column_name => :opportunity_views_counter_cache, :unique => true
 
-  def list_categories
-    self.category_list.present? ? self.category_list.take(4) : 'Categoria não informada'
-  end
 
   def create_summary
     if self.content.present?
@@ -122,13 +131,8 @@ class Opportunity < ActiveRecord::Base
     build_opportunity_email_notification
   end
 
-  def value_of_awards
-    val = 0
-    grants = self.grants
-    grants.each do |grant|
-      val += grant.prizes.map(&:value).inject(0, :+) * grant.quantity  unless grant.quantity.nil?
-    end
-    return val
+  def value_of_awards_centavos
+		self.grants.joins(:prizes).sum(:value_centavos)
   end
 
 	def publish_post

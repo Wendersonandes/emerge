@@ -10,11 +10,13 @@ ActiveAdmin.register Opportunity do
 		:result, 
 		:extended, 
 		:content, 
+		:category_list,
 		:entry_manners_attributes => [:id, :opportunity_id, :content, :entry_type],
 		:docs_attributes => [:id, :opportunity_id, :language, :doc_type, :doc, :doc_remote_url, :description, :_destroy],
 		:taxes_attributes => [:id, :opportunity_id, :value, :value_currency, :description, :_destroy], 
 		:grants_attributes => [:id, :name, :description, :quantity, :opportunity_id, :_destroy, 
 												 :prizes_attributes => [:id ,:opportunity_id, :grant_id, :value, :value_currency, :description, :prize_type_list , :exact_value, :_destroy]]
+
 	menu :priority => 1
 	scope :all, :default => true
 
@@ -28,6 +30,31 @@ ActiveAdmin.register Opportunity do
 			@opportunity.save
 			redirect_to edit_admin_opportunity(@opportunity), :notice=>'Imported'
 		end
+
+		def create
+			submit_status = permitted_params[:commit].parameterize.underscore
+			@opportunity = Opportunity.new(permitted_params[:opportunity])
+			if submit_status.include?('publish')
+				@opportunity.publish
+			end
+			super do |format|
+				if submit_status.include?('save_and_edit')
+					redirect_to edit_admin_opportunity_path(resource) and return if resource.valid?
+				end
+      end
+
+		end
+
+		def update
+      submit_status = permitted_params[:commit].downcase
+
+      if resource.errors.empty? && submit_status.include?('publish')
+				resource.publish
+        @opportunity = resource
+      end
+
+      super
+    end
 	end
 
 	member_action :save_and_edit, :method => :post do
@@ -74,7 +101,7 @@ ActiveAdmin.register Opportunity do
 					end
 				end
 				column do
-					f.has_many :entry_manners do |entry_manner|
+					f.has_many :entry_manners, :allow_destroy => true do |entry_manner|
 						entry_manner.inputs :entry_type
 						entry_manner.inputs :content
 					end
@@ -93,10 +120,10 @@ ActiveAdmin.register Opportunity do
 			end
 
 			tab "Prêmios e Taxas" do
-				f.has_many :grants do |grant|
+				f.has_many :grants, :allow_destroy => true do |grant|
 					grant.inputs :name
 					grant.inputs :description
-					grant.has_many :prizes do |prize|
+					grant.has_many :prizes, :allow_destroy => true do |prize|
 						prize.inputs :exact_value
 						prize.inputs :description    
 						prize.inputs :value    
@@ -112,6 +139,10 @@ ActiveAdmin.register Opportunity do
 			end
 
 		end
-		f.actions
+		f.actions do
+			f.action  :submit
+			f.action :submit, label: "Publish"
+			f.action  :cancel, :wrapper_html => { :class => 'cancel'}
+		end
 	end
 end
