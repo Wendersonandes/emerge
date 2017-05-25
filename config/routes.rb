@@ -8,11 +8,19 @@ Rails.application.routes.draw do
     end
   end
 
+	root 'pages#home'
+  authenticated :user do
+    root to: 'opportunities#index', as: :authenticated_root
+  end
+
+	#Shrine uploader endpoints
+  mount AvatarUploader::UploadEndpoint, at: "/attachments/avatars"
+  mount DocUploader::UploadEndpoint, at: "/attachments/docs"
+
   # Static pages
   match '/error' => 'pages#error', via: [:get, :post], as: 'error_page'
   get '/terms' => 'pages#terms', as: 'terms'
   get '/about' => 'pages#about', as: 'about'
-  get '/contact' => 'pages#contact', as: 'contact'
   get '/adds' => 'pages#adds', as: 'adds'
   get '/privacy' => 'pages#privacy', as: 'privacy'
   # get '/opportunity' => 'pages#opportunity', as: 'opportunity'
@@ -22,6 +30,8 @@ Rails.application.routes.draw do
     resources :follow_opportunities, :only => [:create, :destroy]
     resources :likes, only: [:create, :destroy]
   end
+
+  resources :contacts, only: [:new, :create]
 
   # OAuth
   oauth_prefix = Rails.application.config.auth.omniauth.path_prefix
@@ -55,5 +65,5 @@ Rails.application.routes.draw do
 
   get 'robots.:format' => 'robots#index'
 
-  root 'pages#home'
+
 end

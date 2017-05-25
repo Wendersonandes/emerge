@@ -1,0 +1,10 @@
+<div class="row">
+	<div class="col-md-4 col-md-offset-8">
+		<%= simple_form_for @contact, :validate => true do |f| %>
+			<%= f.input  :first_name %>
+			<%= f.input  :message_subject, collection: ["Sugerir oportunidade", "Solicitar informação", "Dificuldades para criar conta", "Outros"], :prompt => "Escolha o assunto da sua mensagem" %>
+			<%= f.input  :message, as: :text,:input_html => {:rows => "5"} %>
+			<%= f.button :submit %>
+		<% end %>
+	</div>
+</div>

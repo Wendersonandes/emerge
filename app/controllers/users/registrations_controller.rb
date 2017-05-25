@@ -12,6 +12,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/sign_up
   def new
+		prepare_meta_tags
     check_for_existing_account
     super
   end

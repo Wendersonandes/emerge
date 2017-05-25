@@ -8,6 +8,10 @@ class PagesController < ApplicationController
     respond_with(@opportunities)
   end
 
+	def home
+		prepare_meta_tags
+	end
+
 
   # Preview html email template
   def email
