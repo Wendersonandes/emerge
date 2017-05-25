@@ -30,16 +30,12 @@
 
 class Opportunity < ActiveRecord::Base
 
-<<<<<<< HEAD
   before_create :build_default_opportunity_email_notification
   before_save :create_summary, :publish_post
-=======
+
 	monetize :value_of_awards_centavos
 
-  before_create :create_summary, :build_default_opportunity_email_notification
-  before_update :create_summary
->>>>>>> working_on_opportunity_header
-
+  
   scope :published, -> { where("published_at IS NOT NULL") }
   scope :draft, -> { where("published_at IS NULL") }
   scope :open,              ->{ where("end_subscription >= ? or extended >= ?", Date.today, Date.today).published }
