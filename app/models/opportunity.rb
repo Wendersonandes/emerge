@@ -31,7 +31,7 @@
 class Opportunity < ActiveRecord::Base
 
   before_create :build_default_opportunity_email_notification
-  before_save :create_summary, :publish_post
+  before_save :create_summary
 
 	monetize :value_of_awards_centavos
 
@@ -131,11 +131,6 @@ class Opportunity < ActiveRecord::Base
 		self.grants.joins(:prizes).sum(:value_centavos)
   end
 
-	def publish_post
-		if self.publish_at == true
-			publish
-		end
-	end
 	def publish
 		self.published_at = Time.zone.now
 	end
