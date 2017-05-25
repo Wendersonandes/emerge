@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
-ruby '2.2.6'
 
+ruby '2.2.6'
 gem 'rails', '~> 4.2.8'
 
 #
@@ -10,9 +10,6 @@ gem 'rails', '~> 4.2.8'
 gem 'rb-fsevent', group: [:development, :test]        # monitor file changes without hammering the disk
 gem 'terminal-notifier-guard', group: [:development]  # notify terminal when specs run
 gem 'terminal-notifier', group: [:development]
-# LINUX
-# gem 'rb-inotify', :group => [:development, :test]   # monitor file changes without hammering the disk
-
 
 
 # Monitoring
@@ -49,18 +46,19 @@ gem 'redcarpet', '~> 3.3', '>= 3.3.4'
 gem 'activeadmin', '~> 1.0'
 gem 'draper', '~> 2.1'
 
-# CoffeeScript
-# Not needed in production if precompiling assets
+#SEO stuff
+gem 'meta-tags'
+
 gem 'coffee-rails'
-# Uncomment if node.js is not installed
-# gem 'therubyracer', platforms: :ruby
 
 # Design
 gem 'bootstrap-sass'
-# gem 'country_select'
 
 # Email
 gem 'premailer-rails'
+gem 'mail_form', '~> 1.5.0'
+gem 'gibbon', github: "amro/gibbon"
+gem 'sendgrid', '~> 1.2', '>= 1.2.4'
 
 # Authentication
 gem 'devise'
