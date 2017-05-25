@@ -28,6 +28,36 @@ class ApplicationController < ActionController::Base
   include ErrorReportingConcern
   include AuthorizationErrorsConcern
 
+  def prepare_meta_tags(options={})
+    site        = "EMERGE"
+    title       = [controller_name, action_name].join(" ")
+    description = view_context.t(:short_description, scope: :app)
+    current_url = request.url
+
+    # Let's prepare a nice set of defaults
+
+    defaults = {
+      site:        site,
+      title:       title,
+      description: description,
+      keywords:    %w[arte contemporaneo artista editais edital residencia visual editais premios oportunidades artes plásticas salões bolsa],
+
+      og:          {url: current_url,
+                    site_name: site,
+                    title: title,
+                    description: description,
+                    type: 'website'}
+    }
+
+
+    options.reverse_merge!(defaults)
+
+
+    set_meta_tags options
+
+  end
+
+
   protected
 
   def skip_check_authorization?
