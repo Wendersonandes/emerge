@@ -1,5 +1,6 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   include DeviseReturnToConcern
+	respond_to :html, :js
 
   before_action :set_vars
   before_action :permit_params, only: [:create, :update]
@@ -8,7 +9,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # Additional resource fields to permit
   # Devise already permits email, password, etc.
-  SANITIZED_PARAMS = [:first_name, :last_name].freeze
+  SANITIZED_PARAMS = [:first_name, 
+											:last_name, 
+											:user_preferences_attributes => [:notify_on_new_opportunity, 
+																						:notify_on_closing_opportunities, 
+																						:send_weekly_email, 
+																						:send_monthly_email, 
+																						:never_notify_me ]].freeze
 
   # GET /resource/sign_up
   def new
