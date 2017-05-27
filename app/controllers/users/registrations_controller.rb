@@ -77,6 +77,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
     super
   end
 
+	def user_preferences
+		@user = User.find(current_user.id)
+	end
+
   # GET /resource/cancel
   # Forces the session data which is usually expired after sign
   # in to be expired now. This is useful if the user wants to

@@ -48,8 +48,10 @@ Rails.application.routes.draw do
     path_names: {sign_up: 'signup', sign_in: 'login', sign_out: 'logout'}
   devise_scope :user do
     get "#{devise_prefix}/after" => 'users/registrations#after_auth', as: 'user_root'
+		get '/preferences' => 'users/registrations#user_preferences', as: 'user_preferences'
   end
   get devise_prefix => redirect('/a/signup')
+
 
   # User
   resources :users, path: 'u', only: :show do
