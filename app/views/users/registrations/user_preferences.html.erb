@@ -1,6 +1,6 @@
 <div class="user__form">
 	<%= render 'layouts/account_tabs' %>
-	<%= simple_form_for @user, url: registration_path(@user) do |f| %>
+	<%= simple_form_for @user, :remote => true, url: registration_path(@user), :html => { :multipart => true}, :authenticity_token => true do |f| %>
 		<%= f.simple_fields_for :user_preferences do |f| %>
 			<div class="row">
 				<div class="col-md-12">
@@ -23,6 +23,10 @@
 					<span>Por favor, não me envie nenhuma notificação:</span>
 					<%= f.collection_radio_buttons :never_notify_me, [[true, 'Yes'] ,[false, 'No']], :first, :last %>
 				</div>
+				<div class="col-md-12">
+					<%= f.submit "Atualizar Preferencias" %>
+				</div>
+
 			</div>
 		<% end %>
 	<% end %>
