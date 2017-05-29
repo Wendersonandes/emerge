@@ -6,6 +6,21 @@ GIT
       faraday (>= 0.9.1)
       multi_json (>= 1.11.0)
 
+GIT
+  remote: git://github.com/mfairburn/activeadmin-select2.git
+  revision: f35b0367cca61266737c94ca9a94cd142c95b763
+  specs:
+    activeadmin-select2 (0.1.8)
+      activeadmin
+      jquery-rails
+      select2-rails
+
+GIT
+  remote: git://github.com/runtastic/client_side_validations-formtastic.git
+  revision: 9d76d759f89cf53defae279819f246956bfa171d
+  specs:
+    client_side_validations-formtastic (2.2.0)
+
 GEM
   remote: https://rubygems.org/
   remote: https://rails-assets.org/
@@ -456,6 +471,8 @@ GEM
     sdoc (0.4.2)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    select2-rails (4.0.3)
+      thor (~> 0.14)
     sendgrid (1.2.4)
       json
     settingslogic (2.0.9)
@@ -525,6 +542,7 @@ PLATFORMS
 DEPENDENCIES
   active_model_serializers (~> 0.10.5)
   activeadmin (~> 1.0)
+  activeadmin-select2!
   acts-as-taggable-on (~> 3.4.2)
   acts_as_follower (~> 0.2.1)
   addressable
@@ -536,6 +554,7 @@ DEPENDENCIES
   cancancan (~> 1.9)
   capybara-webkit
   client_side_validations (~> 4.2, >= 4.2.3)
+  client_side_validations-formtastic!
   client_side_validations-simple_form (~> 3.4)
   coffee-rails
   dalli
@@ -591,6 +610,7 @@ DEPENDENCIES
   rspec-sidekiq
   sass-rails
   sdoc
+  select2-rails
   sendgrid (~> 1.2, >= 1.2.4)
   settingslogic
   shoulda-matchers

@@ -31,6 +31,7 @@ gem 'uglifier'
 gem 'headjs-rails'
 gem 'social-share-button'
 gem 'rails-assets-vide', source: 'https://rails-assets.org'
+gem 'select2-rails'
 # Javascript
 gem 'jquery-rails'
 gem 'turbolinks'
@@ -38,12 +39,14 @@ gem 'jquery-turbolinks'
 gem 'nprogress-rails'
 gem 'client_side_validations', '~> 4.2', '>= 4.2.3'
 gem 'client_side_validations-simple_form', '~> 3.4'
+gem 'client_side_validations-formtastic', :github => "runtastic/client_side_validations-formtastic"
 gem 'impressionist', '<= 1.5.1'
 gem 'acts-as-taggable-on', '~> 3.4.2'
 gem 'acts_as_follower', '~> 0.2.1'
 gem 'local_time', '~> 1.0', '>= 1.0.3'
 gem 'redcarpet', '~> 3.3', '>= 3.3.4'
 gem 'activeadmin', '~> 1.0'
+gem 'activeadmin-select2', github: 'mfairburn/activeadmin-select2'
 gem 'draper', '~> 2.1'
 
 #SEO stuff
