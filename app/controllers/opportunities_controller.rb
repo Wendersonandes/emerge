@@ -8,7 +8,6 @@ class OpportunitiesController < ApplicationController
 		@tags = ActsAsTaggableOn::Tagging.where(:context => :categories).joins(:tag).select('DISTINCT tags.name')
     if params[:tag].present?
       @opportunities = Opportunity.open.tagged_with(params[:tag]).page(params[:page]).per(5)
-      @opportunities_counter = Opportunity.open.tagged_with(params[:tag]).count
 		else
 			@opportunities = Opportunity.open.order('created_at DESC').page(params[:page]).per(5)
 		end
