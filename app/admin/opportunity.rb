@@ -10,7 +10,7 @@ ActiveAdmin.register Opportunity do
 		:result, 
 		:extended, 
 		:content, 
-		:category_list,
+		:category_list => [],
 		:entry_manners_attributes => [:id, :opportunity_id, :content, :entry_type],
 		:docs_attributes => [:id, :opportunity_id, :language, :doc_type, :doc, :doc_remote_url, :description, :_destroy],
 		:taxes_attributes => [:id, :opportunity_id, :value, :value_currency, :description, :_destroy], 
@@ -98,6 +98,10 @@ ActiveAdmin.register Opportunity do
 						f.input :title
 						f.input :content
 						f.input :featured_image,:as => :file, :hint => image_tag(f.object.featured_image_url(:thumb))
+						f.input :category_list, :as => :select2_multiple,
+																		:collection => ActsAsTaggableOn::Tagging.where(:context => :categories).joins(:tag).select('DISTINCT tags.name').map{ |x| x.name},
+																		:input_html => { :class => "select2-input chosen", :style => "width:80% height:200px"}
+										
 					end
 				end
 				column do
@@ -124,9 +128,17 @@ ActiveAdmin.register Opportunity do
 					grant.inputs :name
 					grant.inputs :description
 					grant.has_many :prizes, :allow_destroy => true do |prize|
-						prize.inputs :exact_value
-						prize.inputs :description    
-						prize.inputs :value    
+						prize.inputs do
+							prize.input :exact_value
+
+							prize.input :description, :as => :select2,
+							:collection => ActsAsTaggableOn::Tagging.where(:context => :prize_types).joins(:tag).select('DISTINCT tags.name').map{ |x| x.name},
+							:input_html => { :class => "select2-input chosen", :style => "width:20%"}
+							prize.input :value,
+							:input_html => {:style => "width:20%"}
+
+						end
+						    
 					end
 				end
 			end
