@@ -1,4 +1,4 @@
-<%= semantic_form_for Opportunity.new, :url => admin_opportunities_path, builder: ActiveAdmin::FormBuilder,action:"new" do |f| %>
+<%= semantic_form_for Opportunity.new, :url => admin_opportunities_path, :builder =>  ActiveAdmin::FormBuilder, :action => "new", :validate => true do |f| %>
 	<%= f.inputs do %>
 		<%= f.input :title%>
 		<%= f.input :url_source %>
@@ -9,6 +9,9 @@
 	<%end%>
 	<%= f.inputs do %>
 		<%= f.input :content, :as => :text, :input_html => { :rows => 10, :cols => 20 } %>
+		<%=	f.input :category_list, :as => :select2_multiple,
+																:collection => ActsAsTaggableOn::Tagging.where(:context => :categories).joins(:tag).select('DISTINCT tags.name').map{ |x| x.name},
+																:input_html => { :class => "select2-input chosen", :style => "width:80% height:200px"} %>
 	<%end%>
 	<%= f.actions do %>
 		<%= f.action :submit%>
