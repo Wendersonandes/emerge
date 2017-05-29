@@ -4,7 +4,9 @@
 	</div>
 	<div class="col-sm-8">
 		<div class="row">
-			<%= render 'elements/search_form' %>
+			<% @tags.each do |tag|%>
+				<%= link_to tag.name, opportunities_path(tag: tag.name), :class => "label label-info"%>
+			<% end %>
 		</div>
 		<div class="row card__container">
 			<% @opportunities.each do |opportunity| %>
