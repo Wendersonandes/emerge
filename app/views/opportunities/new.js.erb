@@ -1,0 +1,4 @@
+$('#remote_container').html('<%= j render "opportunity_sugest_modal"%> ');
+$('#opportunitySugestModal').on('shown.bs.modal', function(){
+	$('form[data-validate]').enableClientSideValidations();
+}).modal('show')
