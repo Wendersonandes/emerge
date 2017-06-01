@@ -46,17 +46,15 @@ class OpportunitiesController < ApplicationController
     @opportunity.author = current_user
 
     if params[:publish]
-      @opportunity.updated_at = Time.zone.now
-      @opportunity.created_at ||= @opportunity.updated_at
-      @opportunity.published_at = @opportunity.updated_at
-    end
+      @opportunity.publish
+		end
     #@opportunity.create_activity :new_opportunity_added_to_program
 
     respond_to do |format|
       if @opportunity.save
-        format.html { redirect_to @opportunity, notice: "Obrigado por compartilhar! Sua colaboração em breve estará disponível para outros usuários." }
         format.js { flash[:notice] = "Obrigado por compartilhar! Sua colaboração em breve estará disponível para outros usuários." }
-        format.json { render :show, status: :created, location: @opportunity }
+				format.html { render :nothing => true } 
+        format.json { head :ok }
       else
         format.html { render :new }
         format.json { render json: @opportunity.errors, status: :unprocessable_entity }
