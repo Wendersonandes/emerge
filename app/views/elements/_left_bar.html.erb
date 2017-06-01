@@ -6,10 +6,7 @@
 		</div>
 		<div class="col-sm-8">
 			<h3 class="f4 fw3 mt0 mb1">Ajude-nos a tornar o Emerge melhor e mais completo 				Se encontrou por aí alguma oportunidade que ainda não está cadastrada no Emerge use nosso formulário</h3>
-
-			<button class="btn btn-xs btn-default" data-toggle="modal" data-target="#opportunitySugestModal">
-				Contribuir
-			</button>
+			<%= link_to "Contribuir", new_opportunity_path, :remote => true, :class => "btn btn-xs btn-default" %>
 
 		</div>
 	</div>
@@ -48,5 +45,3 @@
 		<%= render 'elements/adds'%>
 	<% end %>
 </div>
-
-<%= render 'opportunities/opportunity_sugest_modal'%>
