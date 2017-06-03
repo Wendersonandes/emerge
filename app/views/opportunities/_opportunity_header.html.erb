@@ -84,11 +84,10 @@
 							Recomendar
 						</button>
 					</div>
-					<div class="btn-group">
-						<button class="btn btn-sm btn-default">
-							<span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span>
-							Seguir
-						</button>
+					<div class="btn-group" id="follow_opportunity">
+						<% if user_signed_in? %> 
+							<%= render partial: 'follow_opportunities/follow_opportunity_button', :locals => { :opportunity => @opportunity_raw } %> 
+						<% end %>
 					</div>
 					<div class="btn-group hidden-xs">
 

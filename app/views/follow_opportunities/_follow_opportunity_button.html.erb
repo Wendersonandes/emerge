@@ -1,0 +1,12 @@
+<% if opportunity.followed_by?(current_user.person) %>
+	<%= link_to  opportunity_follow_opportunity_path(opportunity.to_param, current_user.person.get_follow(opportunity).id), :class => "btn btn-sm btn-success", :method => :delete, :remote => true do %>
+		<span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span>
+		Seguindo
+	<% end %>
+<% else %>
+	<%= link_to  opportunity_follow_opportunities_path(opportunity.to_param), :class => "btn btn-sm btn-default", :remote => true, method: :post do %>
+		<span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span>
+		Seguir
+	<% end %>
+<% end %>
+

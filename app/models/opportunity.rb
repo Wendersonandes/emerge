@@ -82,8 +82,8 @@ class Opportunity < ActiveRecord::Base
 
   include FeaturedImageUploader[:featured_image]
 
-  acts_as_follower
 	acts_as_followable
+	acts_as_follower
 
 	acts_as_taggable
   acts_as_taggable_on :categories
