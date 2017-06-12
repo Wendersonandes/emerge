@@ -1,0 +1,47 @@
+<div class="well well-sm hidden-xs"> 
+	<h3 class="f4 fw3 mt0">Não encontrou alguma oportunidade?</h3>
+	<div class="row pb2">
+		<div class="col-sm-4">
+			<%= link_to image_tag("tipografiaWorkshopThumb.png", :alt => "Image Description"), "https://www.sympla.com.br/colapso---workshop-de-experimentacao-tipografica__38534", :class => "img-responsive" %>
+		</div>
+		<div class="col-sm-8">
+			<h3 class="f4 fw3 mt0 mb1">Ajude-nos a tornar o Emerge melhor e mais completo 				Se encontrou por aí alguma oportunidade que ainda não está cadastrada no Emerge use nosso formulário</h3>
+			<%= link_to "Contribuir", new_opportunity_path, :remote => true, :class => "btn btn-xs btn-default" %>
+
+		</div>
+	</div>
+
+	<h3 class="f4 fw3 mt0">Situação Economica de Artistas no Brasil</h3>
+	<div class="row pb2">
+		<div class="col-sm-4">
+			<%= link_to image_tag("tipografiaWorkshopThumb.png", :alt => "Image Description"), "https://www.sympla.com.br/colapso---workshop-de-experimentacao-tipografica__38534", :class => "img-responsive" %>
+		</div>
+		<div class="col-sm-8">
+			<p class ="f5">
+				Participe da nossa pesquisa para compreender melhor a situação economica de artistas e profissionais das artes visuais que atuam no Brasil
+			</p>
+			<button class="btn btn-xs btn-default">
+				Participar da pesquisa	
+			</button>
+
+		</div>
+	</div>
+
+	<h3 class="f4 fw3 mt0">Cursos, Aberturas e Eventos</h3>
+	<div class="row pb2">
+		<div class="col-sm-4">
+			<%= link_to image_tag("tipografiaWorkshopThumb.png", :alt => "Image Description"), "https://www.sympla.com.br/colapso---workshop-de-experimentacao-tipografica__38534", :class => "img-responsive" %>
+		</div>
+		<div class="col-sm-8">
+			<a href="https://www.sympla.com.br/colapso---workshop-de-experimentacao-tipografica__38534" class="f5 ma0 mb1 mt2">
+				Colapso - Workshop de Experimentação Tipográfica
+			</a>
+			<p class ="f5">COLAPSO objetiva a exposição de 4 famílias tipográficas e sua posterior fragmentação, retirando sua função primeira de leitura e instaurando o sentido de textura.</p>
+		</div>
+	</div>
+
+	<h3 class="f4 fw3 mt0">Oportunidades mais recomendadas</h3>
+	<% 5.times do %>
+		<%= cell(:leftbar).(:adds) %>
+	<% end %>
+</div>
