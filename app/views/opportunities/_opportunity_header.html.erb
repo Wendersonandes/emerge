@@ -87,6 +87,12 @@
 					<div class="btn-group" id="follow_opportunity">
 						<% if user_signed_in? %> 
 							<%= render partial: 'follow_opportunities/follow_opportunity_button', :locals => { :opportunity => @opportunity_raw } %> 
+							<% else %>
+							<button class="btn btn-sm btn-default">
+								<span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>
+								Entrar
+							</button>
+
 						<% end %>
 					</div>
 					<div class="btn-group hidden-xs">
