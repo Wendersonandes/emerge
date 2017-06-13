@@ -11,9 +11,7 @@
 			</div>
 		</div>
 		<div class="row card__container">
-			<% @opportunities.each do |opportunity| %>
-				<%= render 'opportunity', :opportunity => opportunity %>
-			<% end%>
+			<%= cell(OpportunityCell::CardCell, :collection => @opportunities) %>
 		</div>
 	</div>
 </div>

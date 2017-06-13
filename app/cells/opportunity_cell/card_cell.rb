@@ -1,15 +1,16 @@
 module OpportunityCell
-	class HeaderCell < Cell::ViewModel
+	class CardCell < Cell::ViewModel
 		include ApplicationHelper
 		include ERB::Util
 		include ActionView::Helpers::TranslationHelper
-		include SocialShareButton::Helper
-		include Devise::Controllers::Helpers
+		include ActsAsFollower::Follower::InstanceMethods
 
 		property :end_subscription
+		property :id
 		property :beginning
 		property :result
 		property :title
+		property :summary
 		property :url_source
 		property :email_contact
 		property :featured_image_url
@@ -18,6 +19,7 @@ module OpportunityCell
 		property :docs
 		property :grants
 		property :entry_manners
+		property :impressionist_count
 
 		def show
 			render
@@ -33,21 +35,16 @@ module OpportunityCell
 			handle_date(end_subscription)
 		end
 
-		def grants_formatted
-			grants.present? ? humanized_money_with_symbol(value_of_awards) : "Não informado"
+		def list_categories
+			category_list.present? ? category_list.take(4) : 'Categoria não informada'
 		end
 
+		def summary_formatted
+			markdown(summary)
+		end
 
-		def category_list_formated
-			if category_list.present?
-				content_tag(:div, :class => "col-sm-12") do
-				category_list.map{ |tag|
-					content_tag(:span, tag, :class => "label label-info mr2")
-				}
-				end
-			else
-				content_tag(:div,"Categoria não informada", :class => "col-sm-12 white")
-			end
+		def grants_formatted
+			grants.present? ? humanized_money_with_symbol(value_of_awards) : "Não informado"
 		end
 
 		def entry_manners_formated
@@ -70,7 +67,11 @@ module OpportunityCell
 		private
 
 		def handle_date(value, message="Data não informada")
-			value.present? ? content_tag(:span, value, :class => "ml3") : content_tag(:span, message, :class => "ml3")
+			value.present? ? content_tag(:span, 
+																	 value, 
+																	 :class => "ml3") : content_tag(:span, 
+																																	message, 
+																																	:class => "ml3")
 		end
 
 		def display_entry_with_icon(icon_class, value)
