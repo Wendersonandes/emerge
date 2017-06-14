@@ -23,30 +23,12 @@ module StarterKit
     # Use sql instead of ruby to support case insensitive indices for postgres
     config.active_record.schema_format = :sql
 
-    # Cache
-    # config.cache_store = :memory_store
-    # config.cache_store = :mem_cache_store, ENV['MEMCACHE_SERVERS].split(','),
-    #   { namespace: Rails.application.config.settings.app_name, expires_in: 30.day, compress: true }
-    # Set cache_store the same for all environments to avoid inconsistency issues
-    #config.cache_store = :dalli_store
-
-    # Settings in config/environments/* take precedence over those specified here.
-    # Application configuration should go into files in config/initializers
-    # -- all .rb files in that directory are automatically loaded.
-
-    # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
-    # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
-    # config.time_zone = 'Central Time (US & Canada)'
-
-    # Disable I18n locale deprecation warning caused by newrelic gem
-    # http://stackoverflow.com/questions/20361428/rails-i18n-validation-deprecation-warning
     I18n.enforce_available_locales = true
+    config.i18n.available_locales = [:en, :"pt-BR"]
 
-    # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
-    # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
-    # config.i18n.default_locale = :de
-
-    # Enable faster precompiles
+    config.i18n.enforce_available_locales = true
+    config.i18n.default_locale = :'pt-BR'
+    config.i18n.locale = :'pt-BR'
     config.assets.initialize_on_precompile = false
 
     # Serve vendor fonts

@@ -1,0 +1,139 @@
+pt-BR:
+  brand:
+    name: 'Emerge'
+
+  emails:
+    welcome:
+      subject: 'Bem vindo ao Emerge'
+
+  auth:
+    login:
+      title: 'Por favor, faça Log In, ou %{signup_link}'
+      link: 'Log In'
+      link_with: 'Log In with %{provider}'
+    signup:
+      title: 'Criar Conta'
+      link: 'Criar Conta'
+      help: 'Já tem uma conta? %{login_link}'
+      email_taken: 'Já existe uma conta registrada com seu email. %{login_link}'
+    logout:
+      link: 'Sair'
+    forgot:
+      link: 'Esqueci minha senha'
+      prompt: 'Esqueceu a senha?'
+      submit: 'Enviar instruções para recuperar minha senha'
+    reset:
+      link: 'Alterar senha'
+      submit: 'Resetar Senha'
+      invalid_title: 'Não foi possível alterar a senha'
+      invalid_message: 'Your account token expired. To protect your security, please resend password instructions and try again.'
+    confirm:
+      link: 'Preciso confirmar minha conta'
+      submit: 'Enviar email com instruções'
+    unlock:
+      link: 'Minha conta está bloqueada'
+      submit: 'Enviar email com instruções para desbloqueio'
+    links:
+      title: 'Precisa de ajuda?'
+    edit:
+      link: 'Social'
+    destroy:
+      link: 'Desconectar'
+      prompt: 'Desconectar esta rede social?'
+      tooltip: 'Desconectar esta rede social e remover dados'
+      warning: ''
+      notice: 'Your social account will be disconnected form your StarterKit account. You can reconnect the social account at any time.'
+      submit: 'Yes, disconnect the account'
+      cancel: 'Cancel'
+    reconnect:
+      link: 'Update'
+      tooltip: 'Update your social data'
+
+  account:
+    edit:
+      link: 'Account'
+    destroy:
+      link: 'Delete my account'
+      prompt: 'Delete your account?'
+      warning: 'Your account will be permanently deleted. This cannot be undone.'
+      notice: ''
+      submit: 'Yes, delete my account'
+      cancel: 'Cancel'
+
+  accounts:
+    connected: 'Success! Your social account is now connected.'
+    updated: 'Success! Your social account is up-to-date.'
+    edit:
+      link: 'Social'
+
+  # See rails_admin locale file for more settings
+  admin:
+    link: 'Admin'           # Name of admin link in application drop down menu
+    home:
+      name: 'Application'   # Name of link back to app in admin dashboard
+    dashboard:
+      name: 'Admin'         # Title of admin dashboard on the left
+
+  errors:
+    unknown: 'Oops! Something went wrong. Please try again.'
+
+  unauthorized:
+    default: 'Sorry, you are not authorized to access the requested page.'
+
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              taken: 'is used by another account'
+
+  helpers:
+    submit:
+      user:
+        # Submit button used by simple_form in users/registrations#edit
+        update: 'Update Account'
+        create: 'Sign Up'
+
+  simple_form:
+    # Collections: selects, radios
+    'yes': 'Yes'
+    'no': 'No'
+
+    required:
+      text: 'required'
+      mark: '*'
+      # You can uncomment the line below if you need to overwrite the whole required html.
+      # When using html, text and mark won't be used.
+      # html: '<abbr title="required">*</abbr>'
+    error_notification:
+      default_message: "Please review the problems below:"
+
+    placeholders:
+      user:
+        email: 'you@example.com'
+        password: 'password'
+
+    labels:
+      user:
+        edit:
+          password: 'New password'
+
+    hints:
+      user:
+        edit:
+          password: 'Leave blank unless updating password'
+
+    # Labels and hints examples
+    # labels:
+    #   defaults:
+    #     password: 'Password'
+    #   user:
+    #     new:
+    #       email: 'E-mail to sign in.'
+    #     edit:
+    #       email: 'E-mail.'
+    # hints:
+    #   defaults:
+    #     username: 'User name to sign in.'
+    #     password: 'No special characters, please.'
