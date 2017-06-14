@@ -9,8 +9,8 @@ pt-BR:
   auth:
     login:
       title: 'Por favor, faça Log In, ou %{signup_link}'
-      link: 'Log In'
-      link_with: 'Log In with %{provider}'
+      link: 'Entrar'
+      link_with: 'Entrar com %{provider}'
     signup:
       title: 'Criar Conta'
       link: 'Criar Conta'
@@ -82,11 +82,24 @@ pt-BR:
 
   activerecord:
     errors:
+      messages:
+        blank: 'O campo %{attribute} não pode ficar vazio'
       models:
         user:
           attributes:
             email:
-              taken: 'is used by another account'
+              taken: 'está sendo usado por outra conta'
+              blank: 'O campo %{attribute} não pode ficar vazio'
+        opportunity:
+          attributes:
+            title: 'título'
+            summary: 'resumo'
+            end_subscription: 'encerramento das inscrições'
+            beginning: 'início'
+            result: 'result'
+            url_source: 'fonte online'
+            email_contact: 'email de contato'
+            content: 'conteúdo'
 
   helpers:
     submit:
