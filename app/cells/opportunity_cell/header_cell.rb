@@ -25,7 +25,7 @@ module OpportunityCell
 		end
 
 		def start_date
-			handle_date(end_subscription)
+			handle_date(beginning)
 		end
 
 		def end_date
@@ -33,7 +33,7 @@ module OpportunityCell
 		end
 
 		def result_date
-			handle_date(end_subscription)
+			handle_date(result)
 		end
 
 		def grants_formatted
@@ -72,13 +72,21 @@ module OpportunityCell
 		private
 
 		def handle_date(value, message="Data não informada")
-			value.present? ? content_tag(:span, value, :class => "ml3") : content_tag(:span, message, :class => "ml3")
+			if value.present? 
+				content_tag(:span, :class => "ml2") do
+					result = ""
+					result << value.to_s
+					result << content_tag(:span,nil, :class => "cronogram ml2", :data => {:datetime => "(#{value})"})
+				end
+			else
+				content_tag(:span, message, :class => "ml2")
+			end
 		end
 
 		def display_entry_with_icon(icon_class, value)
 			content_tag(:h6, :class => "white fw2") do
 			 result = ""
-			 result << content_tag(:span,"",:class => icon_class)
+			 result << content_tag(:span,nil ,:class => icon_class)
 			 result << " Forma de Inscrição: "
 			 result << value
 			 result
