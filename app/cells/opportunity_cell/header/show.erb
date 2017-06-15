@@ -82,7 +82,19 @@
 					</div>
 					<div class="btn-group" id="follow_opportunity">
 						<% if user_signed_in? %> 
-							<%= render partial: 'follow_opportunities/follow_opportunity_button', :locals => { :opportunity => model } %> 
+
+							<% if model.followed_by?(current_user.person) %>
+								<%= link_to opportunity_follow_opportunity_path(model.to_param, current_user.person.get_follow(model).id), :class => "btn btn-sm btn-success", :method => :delete, :remote => true do %>
+									<span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span>
+									Seguindo
+								<% end %>
+							<% else %>
+								<%= link_to opportunity_follow_opportunities_path(model.to_param), :class => "btn btn-sm btn-default", :remote => true, method: :post do %>
+									<span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span>
+									Seguir
+								<% end %>
+							<% end %>
+
 						<% end %>
 					</div>
 					<div class="btn-group hidden-xs">

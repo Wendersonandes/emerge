@@ -7,6 +7,7 @@ module OpportunityCell
 		include Devise::Controllers::Helpers
 
 		property :end_subscription
+		property :id
 		property :beginning
 		property :result
 		property :title
@@ -21,6 +22,10 @@ module OpportunityCell
 
 		def show
 			render
+		end
+
+		def follow_id
+			current_user.person.get_follow(model).id
 		end
 
 		def start_date
