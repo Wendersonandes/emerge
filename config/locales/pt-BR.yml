@@ -16,6 +16,7 @@ pt-BR:
       link: 'Criar Conta'
       help: 'Já tem uma conta? %{login_link}'
       email_taken: 'Já existe uma conta registrada com seu email. %{login_link}'
+      terms_agree_message: 'Quando cria uma conta, você concorda com nossos %{terms_with_link} e %{privacy_with_link}'
     logout:
       link: 'Sair'
     forgot:
@@ -100,6 +101,20 @@ pt-BR:
             url_source: 'fonte online'
             email_contact: 'email de contato'
             content: 'conteúdo'
+  mail_form:
+    errors:
+      messages:
+        blank: 'O campo %{attribute} não pode ficar vazio'
+      models:
+        contact:
+          attributes:
+            first_name:
+            email:
+              blank: 'O campo %{attribute} não pode ficar vazio'
+            message:
+              blank: 'O campo %{attribute} não pode ficar vazio'
+            message_subject:
+              blank: 'O campo %{attribute} não pode ficar vazio'
 
   helpers:
     submit:
@@ -107,6 +122,8 @@ pt-BR:
         # Submit button used by simple_form in users/registrations#edit
         update: 'Update Account'
         create: 'Sign Up'
+      contact:
+        create: 'Enviar mensagem'
 
   simple_form:
     # Collections: selects, radios

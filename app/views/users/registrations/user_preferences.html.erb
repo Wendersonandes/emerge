@@ -1,4 +1,4 @@
-<div class="user__form">
+<div>
 	<%= render 'layouts/account_tabs' %>
 	<%= simple_form_for @user, :remote => true, url: registration_path(@user), :html => { :multipart => true}, :authenticity_token => true do |f| %>
 		<%= f.simple_fields_for :user_preferences do |f| %>

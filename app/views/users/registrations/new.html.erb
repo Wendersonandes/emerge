@@ -57,9 +57,9 @@
 
 			<%= render 'users/registrations/form', hide_password: @auth.present? %>
 			<div class="auth__links">
-				By signing up, you agree to the
-				<%= link_to 'Terms', terms_path %>
-				and
+				<% terms_with_link = link_to 'Termos de Uso', terms_path%>
+				<% privacy_with_link = link_to 'Privacidade', privacy_path%>
+				<%= I18n.t('auth.signup.terms_agree_message', :terms_with_link => terms_with_link,:privacy_with_link => privacy_with_link).html_safe %>
 			</div>
 		<%= render 'users/social/facepile'  %>
 	</div>
