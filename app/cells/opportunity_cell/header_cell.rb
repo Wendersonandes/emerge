@@ -24,16 +24,14 @@ module OpportunityCell
 			render
 		end
 
-		def follow_id
-			current_user.person.get_follow(model).id
-		end
-
 		def start_date
 			handle_date(end_subscription)
 		end
+
 		def end_date
 			handle_date(end_subscription)
 		end
+
 		def result_date
 			handle_date(end_subscription)
 		end
@@ -42,14 +40,11 @@ module OpportunityCell
 			grants.present? ? humanized_money_with_symbol(value_of_awards) : "Não informado"
 		end
 
-
 		def category_list_formated
 			if category_list.present?
-				content_tag(:div, :class => "col-sm-12") do
 				category_list.map{ |tag|
 					content_tag(:span, tag, :class => "label label-info mr2")
 				}
-				end
 			else
 				content_tag(:div,"Categoria não informada", :class => "col-sm-12 white")
 			end
@@ -68,7 +63,9 @@ module OpportunityCell
 					when :correios_ou_internet then "Correios ou internet"
 					end
 				end
-				result.html_safe
+				result
+			else
+				"Forma de Inscrição não informada"
 			end
 		end
 
@@ -80,8 +77,11 @@ module OpportunityCell
 
 		def display_entry_with_icon(icon_class, value)
 			content_tag(:h6, :class => "white fw2") do
-				content_tag(:span,"", :class =>  icon_class)
-				 " Forma de Inscrição: #{value}"
+			 result = ""
+			 result << content_tag(:span,"",:class => icon_class)
+			 result << " Forma de Inscrição: "
+			 result << value
+			 result
 			end
 		end
 

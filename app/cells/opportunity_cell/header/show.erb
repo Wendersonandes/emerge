@@ -9,7 +9,9 @@
 				</div>
 			</div>
 			<div class="row">
-				<%= category_list_formated %>
+				<div class="col-sm-12">
+					<%= category_list_formated %>
+				</div>
 			</div>
 
 			<h6 class="white fw2">
@@ -94,7 +96,6 @@
 									Seguir
 								<% end %>
 							<% end %>
-
 						<% end %>
 					</div>
 					<div class="btn-group hidden-xs">
@@ -107,13 +108,17 @@
 							<ul class="dropdown-menu">
 								<% docs.each do |doc| %>
 									<li>
-										<%= link_to doc.doc_type, doc.doc_url %>
+										<%= link_to doc.doc_url do %>
+											<span class="glyphicon glyphicon-save"></span>
+											<%= doc.doc_type %>
+										<% end %>
 									</li>
 								<% end %>
 							</ul>
 						<% else %>
-							<button type="button" class="btn btn-sm btn-primary">
-								Não existe nenhum documento	
+							<button type="button" class="btn btn-sm btn-warning">
+								<span class="glyphicon glyphicon-folder-open"></span>
+								Não existe documento	
 							</button>
 						<% end %>
 					</div>
