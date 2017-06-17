@@ -1,9 +1,9 @@
 <div class="header__opportunity relative h8 h7-l bg-top cover bg-black mb3 shadow-1" style="background-image: url(<%= image_path(featured_image_url(:thumb) || "alone-clouds-hills-1909-527x350.jpg")%>);">
-	<div class="overlay__container w-100 h-100 bg-black-60">
-		<div class="info__container pl4 absolute">
+	<div class="overlay__container w-100 h-100 bg-black-70">
+		<div class="info__container white pl4 absolute">
 			<div class="row">
 				<div class="col-sm-10">
-					<h3 class="white fw4">
+					<h3 class="fw4">
 						<%= title %>
 					</h3>
 				</div>
@@ -14,19 +14,19 @@
 				</div>
 			</div>
 
-			<h6 class="white fw2">
+			<h6>
 				<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
 				Início das inscrições:
-				<%=start_date%>
+				<%= start_date %>
 			</h6>
 
-			<h6 class="white fw2">
+			<h6>
 				<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
 				Encerramento das inscrições: 
-				<%=end_date%>
+				<%= end_date %>
 			</h6>
 
-			<h6 class="white fw2">
+			<h6>
 				<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
 				Anúncio do resultado: 
 				<%= result_date %>
@@ -34,20 +34,22 @@
 
 			<%= entry_manners_formated %>
 			
-			<h6 class="white fw2">
+			<h6>
 				<span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
 				Premiação total:
-				<%= grants_formatted %>	
+				<%= total_awards_value %>	
 			</h6>
 
-			<% if url_source.present? %>
-				<h6 class="white fw2">
-					<span class="glyphicon glyphicon-link" aria-hidden="true"></span>
-					<a href="<%= url_source %>">Fonte online</a>
-				</h6>
-			<% end %>
+			<h6>
+				<span class="glyphicon glyphicon-link" aria-hidden="true"></span>
+					<% if url_source.present? %>
+						<a href="<%= url_source %>">Fonte online</a>
+					<% else %>
+						Não informado
+				<% end %>
+			</h6>
 
-			<h6 class="white fw2">
+			<h6>
 				<span class="glyphicon glyphicon-send" aria-hidden="true"></span>
 				Email contato:
 				<% if email_contact.present? %>
@@ -99,28 +101,9 @@
 						<% end %>
 					</div>
 					<div class="btn-group hidden-xs">
+						<%= render_docs_button_formatted %>
+						<%= render_docs_button_menu %>
 
-						<% if docs.present? %>
-							<button type="button" class="btn btn-sm btn-primary dropdown-toggle"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-								Downloads
-								<span class="caret"></span>
-							</button>
-							<ul class="dropdown-menu">
-								<% docs.each do |doc| %>
-									<li>
-										<%= link_to doc.doc_url do %>
-											<span class="glyphicon glyphicon-save"></span>
-											<%= doc.doc_type %>
-										<% end %>
-									</li>
-								<% end %>
-							</ul>
-						<% else %>
-							<button type="button" class="btn btn-sm btn-warning">
-								<span class="glyphicon glyphicon-folder-open"></span>
-								Não existe documento	
-							</button>
-						<% end %>
 					</div>
 				</div>
 			</div>

@@ -1,26 +1,18 @@
 <div class="row">
 	<div class="col-md-4 col-sm-12">
-		<%= cell(:leftbar)%>
+		<%= cell(LeftbarCell)%>
 	</div>
 	<div class="col-md-8 col-sm-12">
 		<%= cell(OpportunityCell::HeaderCell, @opportunity) %>
 		<div class="row">
 			<div class="col-sm-8 opportunity__text__container f4">
 				<div class="well well-sm">
-
 					<%= cell(OpportunityCell::BodyCell, @opportunity) %>
 				</div>
 			</div>
 			<div class="col-sm-4">
 				<ul class="list-group">
-					<li class="list-group-item">
-						<address>
-							<strong>Premio FWC de Arte</strong><br>
-							1355 Market Street, Suite 900<br>
-							San Francisco, CA 94103<br>
-							<abbr title="Phone">P:</abbr> (123) 456-7890
-						</address>
-					</li>
+					<%= cell(OpportunityCell::EntryCell, :collection => @opportunity.entry_manners) %>
 				</ul>
 			</div>
 		</div>
