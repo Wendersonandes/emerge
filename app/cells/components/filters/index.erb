@@ -1,0 +1,1 @@
+<%= cell(Components::FiltersCells, :collection => ActsAsTaggableOn::Tagging.where(:context => :categories).joins(:tag).select('DISTINCT tags.name')) %>
