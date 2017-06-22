@@ -9,9 +9,6 @@ Rails.application.routes.draw do
   end
 
 	root 'pages#home'
-  authenticated :user do
-    root to: 'opportunities#index', as: :authenticated_root
-  end
 
 	#Shrine uploader endpoints
   mount AvatarUploader::UploadEndpoint, at: "/attachments/avatars"
