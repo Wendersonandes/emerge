@@ -1,9 +1,7 @@
 <div class="col-sm-8">
 	<div class="row">
 		<div class="col-md-12">
-			<% @tags.each do |tag|%>
-				<%= link_to tag.name, opportunities_path(tag: tag.name), :class => "btn btn-sm btn-default mb2"%>
-			<% end %>
+			<%= cell(Components::FiltersCell) %>
 		</div>
 	</div>
 	<div class="row card__container">
