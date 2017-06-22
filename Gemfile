@@ -51,6 +51,8 @@ gem 'draper', '~> 2.1'
 
 #SEO stuff
 gem 'meta-tags'
+# Pagination
+gem 'kaminari', '~> 1.0', '>= 1.0.1'
 
 gem 'coffee-rails'
 
