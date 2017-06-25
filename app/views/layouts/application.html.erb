@@ -15,7 +15,7 @@
 		<%= yield :head %>
 		<%= render 'layouts/airbrake' %>
 	</head>
-  <body class="controller__<%= controller_name %> action__<%= action_name %> courier">
+  <body class="controller__<%= controller_name %> action__<%= action_name %> courier bg-near-white">
 		<%= render 'layouts/navigation' %>
 		<div class="container pt6">
 			<div class="errors__container">
@@ -23,10 +23,10 @@
 			</div>
 			<div class="row">
 				<div class="col-md-4 col-sm-12">
-					<div class="bg-light-gray pa3 ba b--black-10 hidden-xs"> 
-						<%= cell(LeftbarCell::ContributionsCell)%>
-						<%= cell(LeftbarCell::AddsCell)%>
-						<%= cell(LeftbarCell::OpportunitiesCell).(:index)%>
+					<div class="pa3 ba b--black-10 hidden-xs"> 
+						<%= cell(Components::Leftbar::ContributionsCell)%>
+						<%= cell(Components::Leftbar::AddsCell)%>
+						<%= cell(Components::Leftbar::OpportunitiesCell).(:index)%>
 					</div>
 				</div>
 
