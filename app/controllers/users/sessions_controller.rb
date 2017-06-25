@@ -2,6 +2,7 @@ class Users::SessionsController < Devise::SessionsController
   include DeviseReturnToConcern
   prepend_before_filter :force_reset_session, only: :destroy
 
+	layout "wide"
   def new
     @failed = params[:failed]
     @provider = params[:provider]
