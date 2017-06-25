@@ -46,6 +46,7 @@ Rails.application.routes.draw do
   devise_scope :user do
     get "#{devise_prefix}/after" => 'users/registrations#after_auth', as: 'user_root'
 		get '/preferences' => 'users/registrations#user_preferences', as: 'user_preferences'
+		get '/profile' => 'users/registrations#user_profile', as: 'user_profile'
   end
   get devise_prefix => redirect('/a/signup')
 

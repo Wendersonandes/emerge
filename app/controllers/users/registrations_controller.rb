@@ -15,7 +15,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
 																						:notify_on_closing_opportunities, 
 																						:send_weekly_email, 
 																						:send_monthly_email, 
-																						:never_notify_me ]].freeze
+																						:never_notify_me ],
+											:person_attributes =>[:id, 
+																						:user_id, 
+																						:fullname, 
+																						:short_bio, 
+																						:art_statment, 
+																						:website, 
+																						:profile_type_list, 
+																						:profile_skill_list => []]].freeze
 
   # GET /resource/sign_up
   def new
@@ -85,8 +93,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
 	def user_preferences
-		@user = User.find(current_user.id)
+		@user = current_user
 	end
+
+	def user_profile
+		@user = current_user
+	end
+
 
   # GET /resource/cancel
   # Forces the session data which is usually expired after sign
