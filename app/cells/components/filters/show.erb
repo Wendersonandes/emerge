@@ -1,1 +1,2 @@
-<%= link_to name, opportunities_path(tag: name), :class => "btn btn-sm btn-default mb2"%>
+<h3 class="f4 fw3 mt0"> <span class="glyphicon glyphicon-filter"></span> Filtros:</h3>
+<%= cell(Components::FiltersCell, :collection => ActsAsTaggableOn::Tag.most_used).(:filter) %>

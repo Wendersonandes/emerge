@@ -1,7 +1,7 @@
 <div class="col-sm-12 col-md-6 col-lg-4">
 	<div class="thumbnail pa0">
 		<%= link_to model do %>
-			<div class="card__opportunities relative h5 h5-l bg-top cover bg-black" style="background-image: url(<%= image_path(featured_image_url(:thumb) || "alone-clouds-hills-1909-527x350.jpg")%>);">
+			<div class="card__opportunities relative h6 h5-l bg-top cover bg-black" style="background-image: url(<%= image_path(featured_image_url(:thumb) || "alone-clouds-hills-1909-527x350.jpg")%>);">
 			</div>
 		<% end %>
 		<div class="caption">
@@ -13,9 +13,12 @@
 			<p class="f4 measure avenir">
 				<%= summary %>
 			</p>
+			<p class="f4 measure avenir">
+				<%= category_list_formated %>
+			</p>
 			<a href="#" class="btn btn-primary btn-xs" role="button">
 				<i class="glyphicon glyphicon-bookmark"></i>
-				<%= follow_count %>
+				<%= followers_count %>
 			</a> 
 			<a href="#" class="btn btn-default btn-xs" role="button">
 				<i class="glyphicon glyphicon-heart-empty"></i>
