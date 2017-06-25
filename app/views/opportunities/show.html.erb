@@ -1,18 +1,18 @@
 <div class="col-md-8 col-sm-12">
-	<%= cell(OpportunityCell::HeaderCell, @opportunity) %>
+	<%= cell(Components::Opportunity::HeaderCell, @opportunity) %>
 	<div class="row">
 		<div class="col-sm-8 opportunity__text__container f4">
-			<div class="well well-sm">
-				<%= cell(OpportunityCell::BodyCell, @opportunity) %>
+			<div>
+				<%= cell(Components::Opportunity::BodyCell, @opportunity) %>
 			</div>
 		</div>
 		<div class="col-sm-4">
 			<ul class="list-group">
-				<%= cell(OpportunityCell::EntryCell, :collection => @opportunity.entry_manners) %>
-				<%= cell(OpportunityCell::GrantsCell, @opportunity.grants).(:index) %>
-				<%= cell(OpportunityCell::TaxesCell, @opportunity.taxes).(:index) %>
+				<%= cell(Components::Opportunity::EntryCell, @opportunity.entry_manners) %>
+				<%= cell(Components::Opportunity::GrantsCell, @opportunity.grants) %>
+				<%= cell(Components::Opportunity::TaxesCell, @opportunity.taxes) %>
 				<li class="list-group-item">
-					<%= cell(LeftbarCell::AddsCell)%>
+					<%= cell(Components::Leftbar::AddsCell)%>
 				</li>
 			</ul>
 		</div>

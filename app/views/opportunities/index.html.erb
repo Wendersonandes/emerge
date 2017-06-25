@@ -5,7 +5,7 @@
 		</div>
 	</div>
 	<div class="row card__container">
-		<%= cell(OpportunityCell::CardCell, :collection => @opportunities) %>
+		<%= cell(Components::Opportunity::CardCell, :collection => @opportunities) %>
 		<div class="col-md-12">
 			<%= paginate @opportunities %>
 		</div>

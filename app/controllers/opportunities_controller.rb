@@ -6,7 +6,7 @@ class OpportunitiesController < ApplicationController
 
   def index
     if params[:tag].present?
-      @opportunities = Opportunity.open.tagged_with(params[:tag]).page(params[:page]).per(5)
+      @opportunities = Opportunity.tagged_with(params[:tag]).page(params[:page]).per(5)
 		else
 			@opportunities = Opportunity.order('created_at DESC').page(params[:page]).per(5)
 		end
