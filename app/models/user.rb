@@ -157,6 +157,4 @@ class User < ActiveRecord::Base
    authorization.user
   end
 
-
-
 end

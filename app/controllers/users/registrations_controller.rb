@@ -1,6 +1,5 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   include DeviseReturnToConcern
-	respond_to :html, :js
 
   before_action :set_vars
   before_action :permit_params, only: [:create, :update]
@@ -85,6 +84,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # PUT /resource
   def update
     super
+		head :ok
   end
 
   # DELETE /resource
