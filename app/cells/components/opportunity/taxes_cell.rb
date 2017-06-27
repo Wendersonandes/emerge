@@ -24,9 +24,6 @@ module Components
 				humanized_money_with_symbol(value)
 			end
 
-			def model_name_formatted
-				"Taxa".pluralize(model.count)
-			end
 		end
 	end
 end

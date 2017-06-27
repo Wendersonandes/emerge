@@ -16,11 +16,6 @@ module Components
 			def has_entries?
 				model.count > 0
 			end
-
-			def model_name_formatted
-				"Inscrição".pluralize(model.count)
-			end
-
 		end
 	end
 end

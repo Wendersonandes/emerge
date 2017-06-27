@@ -44,7 +44,7 @@ module Components
 			def category_list_formated
 				if category_list.present?
 					category_list.map{ |tag|
-						link_to tag, :class => "label label-info mr2" do
+						link_to opportunities_path(tag: tag), :class => "label label-info mr2" do
 							"<span class=\"glyphicon glyphicon-tag mr1\"></span>" + tag
 						end
 					}

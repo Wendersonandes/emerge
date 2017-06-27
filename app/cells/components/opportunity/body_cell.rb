@@ -4,6 +4,9 @@ module Components
 			include ApplicationHelper
 
 			property :content
+			property :entry_manners
+			property :grants
+			property :taxes
 
 			def show
 				render
