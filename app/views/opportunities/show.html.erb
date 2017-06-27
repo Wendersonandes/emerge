@@ -1,28 +1,4 @@
-<div class="col-md-8 col-sm-12">
-	<%= cell(Components::Opportunity::HeaderCell, @opportunity) %>
-	<div class="row">
-		<div class="col-sm-8 opportunity__text__container f4">
-			<div>
-				<%= cell(Components::Opportunity::BodyCell, @opportunity) %>
-			</div>
-		</div>
-		<div class="col-sm-4">
-			<ul class="list-group">
-				<%= cell(Components::Opportunity::EntryCell, @opportunity.entry_manners) %>
-				<%= cell(Components::Opportunity::GrantsCell, @opportunity.grants) %>
-				<%= cell(Components::Opportunity::TaxesCell, @opportunity.taxes) %>
-				<li class="list-group-item">
-					<%= cell(Components::Leftbar::AddsCell)%>
-				</li>
-			</ul>
-		</div>
-	</div>
-	<div class="row comment_container">
-		<div class="comment_container col-sm-8">
-		</div>
-	</div>
-</div>
-<%= render 'opportunity_quest_modal'%>
+<%= cell(Components::Opportunity::BodyCell, @opportunity) %>
 <% content_for :on_ready do %>
 	renderHumanDates();
 <% end %>
