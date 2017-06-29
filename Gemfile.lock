@@ -398,9 +398,18 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 4.2.8)
       sprockets-rails
-    rails-assets-jquery (3.2.1)
-    rails-assets-vide (0.5.1)
-      rails-assets-jquery
+    rails-assets-desandro-matches-selector (2.0.2)
+    rails-assets-ev-emitter (1.1.0)
+    rails-assets-fizzy-ui-utils (2.0.5)
+      rails-assets-desandro-matches-selector (>= 2.0.0, < 3)
+    rails-assets-get-size (2.0.2)
+    rails-assets-masonry (4.2.0)
+      rails-assets-get-size (>= 2.0.2, < 3)
+      rails-assets-outlayer (>= 2.1.0, < 3)
+    rails-assets-outlayer (2.1.1)
+      rails-assets-ev-emitter (>= 1.0.0, < 2)
+      rails-assets-fizzy-ui-utils (>= 2.0.0, < 3)
+      rails-assets-get-size (>= 2.0.2, < 3)
     rails-deprecated_sanitizer (1.0.3)
       activesupport (>= 4.2.0.alpha)
     rails-dom-testing (1.0.8)
@@ -630,7 +639,7 @@ DEPENDENCIES
   quiet_assets
   rack-timeout (~> 0.1.0beta4)
   rails (~> 4.2.8)
-  rails-assets-vide!
+  rails-assets-masonry!
   rails_12factor
   rails_admin
   ranked-model

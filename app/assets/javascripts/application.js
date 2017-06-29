@@ -13,7 +13,6 @@
 //= require jquery_2
 //= require jquery_ujs
 //= require bootstrap
-
 //= require jquery.turbolinks
 //= require turbolinks
 //= require nprogress
@@ -28,10 +27,13 @@
 //= require avatar.errors
 //= require moment
 //= require moment-with-locales
+//= require masonry.pkgd.min
 //= require opportunity/header
+//= require opportunity/card
 
 //= require rails.validations
 //= require rails.validations.simple_form
+
 window.ClientSideValidations.callbacks.element.fail = function(element, message, callback) {
   $('.submit').prop("disabled",true);
   callback();
