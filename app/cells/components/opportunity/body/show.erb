@@ -2,20 +2,14 @@
 	<%= cell(Components::Opportunity::HeaderCell, model) %>
 	<div class="row">
 		<div class="col-sm-8 f4">
-			<div>
-				<%= content_formatted %>
-			</div>
+			<%= content_formatted %>
 		</div>
 		<div class="col-sm-4">
 			<ul class="list-group">
-				<%= cell(Components::Opportunity::EntryCell, entry_manners) %>
+				<%= cell(Components::Opportunity::EntriesCell, entry_manners) %>
 				<%= cell(Components::Opportunity::GrantsCell, grants) %>
 				<%= cell(Components::Opportunity::TaxesCell, taxes) %>
 			</ul>
-		</div>
-	</div>
-	<div class="row">
-		<div class="comment_container col-sm-8">
 		</div>
 	</div>
 </div>
