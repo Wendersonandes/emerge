@@ -28,6 +28,8 @@
 //= require moment
 //= require moment-with-locales
 //= require masonry.pkgd.min
+//= require imagesloaded.pkgd.min
+//= require jquery.infinitescroll
 //= require opportunity/header
 //= require opportunity/card
 
