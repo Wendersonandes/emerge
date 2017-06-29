@@ -1,6 +1,7 @@
 class AuthenticationsController < ApplicationController
 	load_and_authorize_resource :user
   load_and_authorize_resource only: :destroy
+	layout "wide"
 
   def index
     @failed = params[:failed]

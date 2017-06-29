@@ -4,7 +4,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   before_action :set_vars
   before_action :permit_params, only: [:create, :update]
   after_action :cleanup_oauth, only: [:create, :update]
-	layout "wide", :only => [:new]
+	layout "wide", :only => [:new, :create]
 
   # Additional resource fields to permit
   # Devise already permits email, password, etc.
