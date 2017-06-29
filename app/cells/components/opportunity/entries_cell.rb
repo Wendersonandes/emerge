@@ -1,6 +1,6 @@
 module Components
 	module Opportunity
-		class EntryCell < Cell::ViewModel
+		class EntriesCell < Cell::ViewModel
 
 			property :entry_type
 			property :content
