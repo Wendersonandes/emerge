@@ -16,7 +16,7 @@
 		<%= render 'layouts/airbrake' %>
 	</head>
   <body class="controller__<%= controller_name %> action__<%= action_name %> courier bg-near-white">
-		<%= render 'layouts/navigation' %>
+		<%= cell(Components::NavigationCell, nil, {:context => {:current_user => current_user}} ) %>
 		<div class="container pt6">
 			<div class="errors__container">
 				<%= render 'layouts/messages' %>
@@ -32,14 +32,7 @@
 
 				<%= yield %>
 			</div>
-
-      <footer class="page__footer">
-        <% if content_for? :footer %>
-          <%= yield :footer %>
-        <% else %>
-          <%= render 'layouts/footer' %>
-        <% end %>
-      </footer>
+			<%= cell(Components::FooterCell) %>
 		</div>
 		<%= render 'layouts/analytics' %>
     <%= render 'layouts/javascripts' %>

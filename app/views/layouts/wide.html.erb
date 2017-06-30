@@ -22,13 +22,7 @@
 			<%= render 'layouts/messages' %>
 		</div>
 		<%= yield %>
-		<footer class="page__footer">
-			<% if content_for? :footer %>
-				<%= yield :footer %>
-			<% else %>
-				<%= render 'layouts/footer' %>
-			<% end %>
-		</footer>
+		<%= cell(Components::FooterCell) %>
 		<%= render 'layouts/analytics' %>
 		<%= render 'layouts/javascripts' %>
 	</body>
