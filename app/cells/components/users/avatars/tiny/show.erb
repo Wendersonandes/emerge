@@ -1,0 +1,8 @@
+<a class="dropdown-toggle" href="#" data-toggle="dropdown">
+	<div class="<%= size.to_s %> avatar">
+		<%= image_tag current_user.image_url(size: size, ssl: request.ssl?), alt: alt %>
+		<i class="default glyphicon glyphicon-user"></i>
+	</div>
+	<b class="caret"></b>
+</a>
+
