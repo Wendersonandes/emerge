@@ -1,7 +1,0 @@
-<div class="auth__providers__provider">
-	<%= link_to provider_auth_path(model, flow: flow), data: {flow: flow, provider: model}, class: css_class do %>
-		<i class="sico-<%= model %> sico-fixed"></i>
-		<%= Authentication.provider_name(model) %>
-	<% end %>
-</div>
-

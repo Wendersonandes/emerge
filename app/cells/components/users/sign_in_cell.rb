@@ -1,6 +1,6 @@
 module Components
 	module Users
-		class SignUpCell < Cell::ViewModel
+		class SignInCell < Cell::ViewModel
 			include ActionView::RecordIdentifier
 			include SimpleForm::ActionViewExtensions::FormHelper
 			include Devise::Controllers::UrlHelpers
@@ -23,6 +23,18 @@ module Components
 				@devise_mapping ||= Devise.mappings[:user]
 			end
 			
+			def flow
+				'login'
+			end
+
+			def css_class
+				'btn btn-primary'
+			end
+
+			def providers
+				Authentication.providers
+			end
+
 		end
 	end
 end
