@@ -1,0 +1,21 @@
+<div class="col-sm-8">
+	<div class="row">
+		<div class="container-fluid pb3">
+			<%= cell(Components::FiltersCell) %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="container-fluid">
+			<div class="grid">
+				<div class="grid-sizer col-sm-12 col-md-6 col-lg-4"></div>
+				<%= cell(Components::Opportunity::CardCell, :collection => @opportunities) %>
+			</div>
+		</div>
+		<div class="col-xs-12">
+			<%= paginate @opportunities %>
+		</div>
+	</div>
+</div>
+<% content_for :on_ready do %>
+	applyGrid();
+<% end %>
