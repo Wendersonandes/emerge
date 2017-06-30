@@ -13,10 +13,10 @@ function applyGrid(){
     nextSelector : 'nav.pagination a[rel=next]',  // selector for the NEXT link (to page 2)
     itemSelector : '.grid-item',     // selector for all items you'll retrieve
     loading: {
-        finishedMsg: 'Isso é tudo, em breve novas oportunidades estarão disponíveis',
-        img: 'http://i.imgur.com/6RMhx.gif'
-      },
-    loadingText  : "Carregando mais oportunidades...",
+			selector: '.loading-message', 
+			finishedMsg: 'Isso é tudo, em breve novas oportunidades estarão disponíveis',
+			img: 'http://i.imgur.com/6RMhx.gif'
+      }
     },
     // trigger Masonry as a callback
     function( newElements ) {
