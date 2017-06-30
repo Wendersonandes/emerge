@@ -17,7 +17,9 @@
 		<%= render 'layouts/airbrake' %>
 	</head>
 	<body class="controller__<%= controller_name %> action__<%= action_name %> courier">
-		<%= render 'layouts/navigation' %>
+
+		<%= cell(Components::NavigationCell, nil, {:context => {:current_user => current_user}} ) %>
+
 		<div class="errors__container">
 			<%= render 'layouts/messages' %>
 		</div>
