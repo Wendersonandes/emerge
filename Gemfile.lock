@@ -23,7 +23,6 @@ GIT
 
 GEM
   remote: https://rubygems.org/
-  remote: https://rails-assets.org/
   specs:
     actionmailer (4.2.8)
       actionpack (= 4.2.8)
@@ -398,9 +397,6 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 4.2.8)
       sprockets-rails
-    rails-assets-jquery (3.2.1)
-    rails-assets-vide (0.5.1)
-      rails-assets-jquery
     rails-deprecated_sanitizer (1.0.3)
       activesupport (>= 4.2.0.alpha)
     rails-dom-testing (1.0.8)
@@ -630,7 +626,6 @@ DEPENDENCIES
   quiet_assets
   rack-timeout (~> 0.1.0beta4)
   rails (~> 4.2.8)
-  rails-assets-vide!
   rails_12factor
   rails_admin
   ranked-model
