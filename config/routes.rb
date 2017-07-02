@@ -26,6 +26,9 @@ Rails.application.routes.draw do
   resources :opportunities do
     resources :follow_opportunities, :only => [:create, :destroy]
     resources :likes, only: [:create, :destroy]
+		collection do
+			get :following
+		end
   end
 
   resources :contacts, only: [:new, :create]
@@ -57,13 +60,11 @@ Rails.application.routes.draw do
   end
   get '/home' => 'users#show', as: 'user_home'
 
-  get '/following' => 'collection#person_following_opportunities', as: 'following'
 
   # Dummy preview pages for testing.
   get '/p/test' => 'pages#test', as: 'test'
   get '/p/email' => 'pages#email' if ENV['ALLOW_EMAIL_PREVIEW'].present?
 
   get 'robots.:format' => 'robots#index'
-
 
 end

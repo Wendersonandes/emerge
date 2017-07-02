@@ -99,6 +99,10 @@ class OpportunitiesController < ApplicationController
     @opportunities = Opportunity.open.search(params[:query])
   end
 
+	def following
+		@opportunities = current_user.person.following_by_type("Opportunity").page(params[:page]).per(6)
+	end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_opportunity
