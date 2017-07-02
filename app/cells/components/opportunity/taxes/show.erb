@@ -1,6 +1,0 @@
-<% if has_tax? %>
-	<li class="list-group-item pb4 bg-white">
-		<h3 class="f4 fw3 mt0"> <span class="glyphicon glyphicon-usd f5"></span> Taxas: </h3>
-		<%= cell(Components::Opportunity::TaxesCell, :collection => model).(:tax) %>
-	</li>
-<% end %>

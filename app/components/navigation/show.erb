@@ -18,8 +18,8 @@
 					<%= link_to "Contato", new_contact_path %>
 				</li>
 				<% if user_signed_in? %>
-					<%= cell(Components::Navigation::OpportunityMenuCell,nil, {:context => {:current_user => current_user}}) %>
-					<%= cell(Components::Navigation::AcountMenuCell,nil, {:context => {:current_user => current_user}}) %>
+					<%= cell(Navigation::OpportunityMenuCell,nil, {:context => {:current_user => current_user}}) %>
+					<%= cell(Navigation::AcountMenuCell,nil, {:context => {:current_user => current_user}}) %>
 				<% end %>
 				<% unless user_signed_in? %>
 					<li>

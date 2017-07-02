@@ -93,11 +93,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
 	def user_preferences
-		@user = current_user
 	end
 
 	def user_profile
-		@user = current_user
 	end
 
 

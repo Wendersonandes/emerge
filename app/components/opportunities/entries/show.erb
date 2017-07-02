@@ -1,0 +1,6 @@
+<% if has_entries? %>
+	<li class="list-group-item pb0 bg-white">
+		<h3 class="f4 fw3 mt0"> <span class="glyphicon glyphicon-send f5 mr2"></span>Inscrições: </h3>
+		<%= cell(Opportunities::EntriesCell, :collection => model).(:entry) %>
+	</li>
+<% end %>

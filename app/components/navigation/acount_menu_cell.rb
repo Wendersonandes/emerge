@@ -1,11 +1,9 @@
-module Components
-	module Navigation
-		class AcountMenuCell < Cell::ViewModel
+module Navigation
+	class AcountMenuCell < Cell::ViewModel
 
-			def current_user
-				options[:context][:current_user]
-			end
-
+		def current_user
+			options[:context][:current_user]
 		end
+
 	end
 end

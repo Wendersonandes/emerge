@@ -1,5 +1,5 @@
 <li class="dropdown">
-	<%= cell(Components::Users::Avatars::TinyCell, nil, {:context => {:current_user => current_user}}) %>
+	<%= cell(Users::Avatars::TinyCell, nil, {:context => {:current_user => current_user}}) %>
 	<ul class="dropdown-menu">
 		<li>
 			<%= link_to user_profile_path do %>

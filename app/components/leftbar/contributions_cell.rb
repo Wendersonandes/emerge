@@ -1,9 +1,7 @@
-module Components
-	module Leftbar
-		class ContributionsCell < Cell::ViewModel
-			def show
-				render
-			end
+module Leftbar
+	class ContributionsCell < Cell::ViewModel
+		def show
+			render
 		end
 	end
 end

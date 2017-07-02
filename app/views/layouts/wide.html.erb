@@ -18,13 +18,13 @@
 	</head>
 	<body class="controller__<%= controller_name %> action__<%= action_name %> courier">
 
-		<%= cell(Components::NavigationCell, nil, {:context => {:current_user => current_user}} ) %>
+		<%= cell(NavigationCell, nil, {:context => {:current_user => current_user}} ) %>
 
 		<div class="errors__container">
 			<%= render 'layouts/messages' %>
 		</div>
 		<%= yield %>
-		<%= cell(Components::FooterCell) %>
+		<%= cell(FooterCell) %>
 		<%= render 'layouts/analytics' %>
 		<%= render 'layouts/javascripts' %>
 	</body>

@@ -1,0 +1,16 @@
+<div class="col-md-8 col-sm-12">
+	<%= cell(Opportunities::HeaderCell, model) %>
+	<div class="row">
+		<div class="col-sm-8 f4">
+			<%= content_formatted %>
+		</div>
+		<div class="col-sm-4">
+			<ul class="list-group">
+				<%= cell(Opportunities::EntriesCell, entry_manners) %>
+				<%= cell(Opportunities::GrantsCell, grants) %>
+				<%= cell(Opportunities::TaxesCell, taxes) %>
+			</ul>
+		</div>
+	</div>
+</div>
+

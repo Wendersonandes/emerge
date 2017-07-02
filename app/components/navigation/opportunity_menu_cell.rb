@@ -1,11 +1,9 @@
-module Components
-	module Navigation
-		class OpportunityMenuCell < Cell::ViewModel
+module Navigation
+	class OpportunityMenuCell < Cell::ViewModel
 
-			def current_user
-				options[:context][:current_user]
-			end
-
+		def current_user
+			options[:context][:current_user]
 		end
+
 	end
 end

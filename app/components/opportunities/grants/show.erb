@@ -1,0 +1,6 @@
+<% if has_grants? %>
+	<li class="list-group-item pb0 bg-white pb4">
+		<h3 class="f4 fw3 mt0"> <span class="glyphicon glyphicon-usd f5"></span> Premiações:</h3>
+		<%= cell(Opportunities::GrantsCell, :collection => model).(:grant) %>
+	</li>
+<% end %>
