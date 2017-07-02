@@ -44,6 +44,7 @@ gem 'acts-as-taggable-on', '~> 3.4.2'
 gem 'acts_as_follower', '~> 0.2.1'
 gem 'local_time', '~> 1.0', '>= 1.0.3'
 gem 'redcarpet', '~> 3.3', '>= 3.3.4'
+# Admin
 gem 'activeadmin', '~> 1.0'
 gem 'activeadmin-select2', github: 'mfairburn/activeadmin-select2'
 gem 'draper', '~> 2.1'
@@ -73,10 +74,6 @@ gem 'omniauth-twitter'
 # gem 'omniauth-persona'
 # gem 'omniauth-google-oauth2'
 gem 'omniauth-linkedin'
-
-# Admin
-gem 'rails_admin'
-
 # Workers
 gem 'devise-async'
 gem 'sinatra', require: false
