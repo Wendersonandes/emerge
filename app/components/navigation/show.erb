@@ -1,0 +1,38 @@
+<nav class="navbar navbar-default navbar-fixed-top shadow-1" role="navigation">
+	<div class="container">
+		<div class="navbar-header">
+			<button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="sr-only"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<%= link_to image_tag("logo-brand.png"), root_path, class: 'navbar-brand' %>
+		</div>
+		<div class="collapse navbar-collapse">
+			<ul class="nav navbar-nav navbar-right">
+				<li>
+					<%= link_to "Artistas", "#" %>
+				</li>
+				<li>
+					<%= link_to "Contato", new_contact_path %>
+				</li>
+				<% if user_signed_in? %>
+					<%= cell(Components::Navigation::OpportunityMenuCell,nil, {:context => {:current_user => current_user}}) %>
+					<%= cell(Components::Navigation::AcountMenuCell,nil, {:context => {:current_user => current_user}}) %>
+				<% end %>
+				<% unless user_signed_in? %>
+					<li>
+						<%= link_to "Oportunidades", opportunities_path %>
+					</li>
+					<li>
+						<%= link_to I18n.t('auth.signup.link'), new_user_registration_path %>
+					</li>
+					<li>
+						<%= link_to I18n.t('auth.login.link'), new_user_session_path %>
+					</li>
+				<% end %>
+			</ul>
+		</div>
+	</div>
+</nav>
