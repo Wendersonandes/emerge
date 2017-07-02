@@ -175,11 +175,6 @@ GEM
     diff-lcs (1.3)
     docile (1.1.5)
     down (3.2.0)
-    draper (2.1.0)
-      actionpack (>= 3.0)
-      activemodel (>= 3.0)
-      activesupport (>= 3.0)
-      request_store (~> 1.0)
     erbse (0.1.1)
       temple
     erubis (2.7.0)
@@ -196,8 +191,6 @@ GEM
     ffi (1.9.18)
     figaro (1.0.0)
       thor (~> 0.14)
-    font-awesome-rails (4.7.0.2)
-      railties (>= 3.2, < 5.2)
     formatador (0.2.5)
     formtastic (3.1.5)
       actionpack (>= 3.2.13)
@@ -316,7 +309,6 @@ GEM
     multi_xml (0.6.0)
     multipart-post (2.0.0)
     nenv (0.3.0)
-    nested_form (0.3.2)
     newrelic_rpm (4.2.0.334)
     nokogiri (1.8.0)
       mini_portile2 (~> 2.2.0)
@@ -378,9 +370,6 @@ GEM
     quiet_assets (1.1.0)
       railties (>= 3.1, < 5.0)
     rack (1.6.8)
-    rack-pjax (1.0.0)
-      nokogiri (~> 1.5)
-      rack (>= 1.1)
     rack-protection (1.5.3)
       rack
     rack-test (0.6.3)
@@ -408,19 +397,6 @@ GEM
     rails_12factor (0.0.3)
       rails_serve_static_assets
       rails_stdout_logging
-    rails_admin (1.2.0)
-      builder (~> 3.1)
-      coffee-rails (~> 4.0)
-      font-awesome-rails (>= 3.0, < 5)
-      haml (>= 4.0, < 6)
-      jquery-rails (>= 3.0, < 5)
-      jquery-ui-rails (~> 5.0)
-      kaminari (>= 0.14, < 2.0)
-      nested_form (~> 0.3)
-      rack-pjax (>= 0.7)
-      rails (>= 4.0, < 6)
-      remotipart (~> 1.3)
-      sass-rails (>= 4.0, < 6)
     rails_serve_static_assets (0.0.5)
     rails_stdout_logging (0.0.5)
     railties (4.2.8)
@@ -445,8 +421,6 @@ GEM
     redcarpet (3.4.0)
     redis (3.3.3)
     regexp_parser (0.4.3)
-    remotipart (1.3.1)
-    request_store (1.3.2)
     responders (2.4.0)
       actionpack (>= 4.2.0, < 5.3)
       railties (>= 4.2.0, < 5.3)
@@ -590,7 +564,6 @@ DEPENDENCIES
   database_cleaner
   devise
   devise-async
-  draper (~> 2.1)
   factory_girl_rails
   fastimage
   ffaker
@@ -627,7 +600,6 @@ DEPENDENCIES
   rack-timeout (~> 0.1.0beta4)
   rails (~> 4.2.8)
   rails_12factor
-  rails_admin
   ranked-model
   rb-fsevent
   redcarpet (~> 3.3, >= 3.3.4)

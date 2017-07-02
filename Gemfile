@@ -11,7 +11,6 @@ gem 'rb-fsevent', group: [:development, :test]        # monitor file changes wit
 gem 'terminal-notifier-guard', group: [:development]  # notify terminal when specs run
 gem 'terminal-notifier', group: [:development]
 
-
 # Monitoring
 gem 'rack-timeout', '~> 0.1.0beta4'
 gem 'newrelic_rpm'
@@ -47,18 +46,14 @@ gem 'redcarpet', '~> 3.3', '>= 3.3.4'
 # Admin
 gem 'activeadmin', '~> 1.0'
 gem 'activeadmin-select2', github: 'mfairburn/activeadmin-select2'
-gem 'draper', '~> 2.1'
 
 #SEO stuff
 gem 'meta-tags'
 # Pagination
 gem 'kaminari', '~> 1.0', '>= 1.0.1'
-
 gem 'coffee-rails'
-
 # Design
 gem 'bootstrap-sass'
-
 # Email
 gem 'premailer-rails'
 gem 'mail_form', '~> 1.5.0'
@@ -71,8 +66,6 @@ gem 'cancancan', '~> 1.9'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
-# gem 'omniauth-persona'
-# gem 'omniauth-google-oauth2'
 gem 'omniauth-linkedin'
 # Workers
 gem 'devise-async'
@@ -82,9 +75,7 @@ gem 'sidekiq'
 # Utils
 gem 'addressable'
 gem 'settingslogic'
-
 gem 'pg_search', '~> 0.7.8'
-
 gem 'fastimage'
 gem 'image_processing'
 gem 'mini_magick'
@@ -95,53 +86,31 @@ gem 'roda'
 gem 'responders', '~> 2.3'
 gem 'active_model_serializers', '~> 0.10.5'
 gem 'money-rails'
-
 gem 'figaro', '~> 1.0.0'
 gem 'rolify', '~> 5.0'
 gem 'sucker_punch', '~> 2.0'
 gem 'ranked-model'
-
 gem 'trailblazer-cells'
 gem 'cells-erb'
 gem 'cells-rails'
 
-
 group :development do
   # Docs
   gem 'sdoc', require: false    # bundle exec rake doc:rails
-
   # Errors
 	gem 'better_errors'
-  # gem 'binding_of_caller'     # extra features for better_errors
-  # gem 'meta_request'          # for rails_panel chrome extension
-
-  # Deployment
-  # gem 'capistrano'
-
   # Guard
   gem 'guard-rspec'
-  # gem 'guard-livereload'
-  # gem 'rack-livereload'
 end
 
 group :development, :test do
   # Use spring or zeus
   gem 'spring'                  # keep application running in the background
   gem 'spring-commands-rspec'
-  # gem 'zeus'                  # required in gemfile for guard
-
   # Debugging
-  # gem 'pry'                   # better than irb
-  # gem 'byebug'                # ruby 2.0 debugger with built-in pry
   gem 'pry-rails'               # adds rails specific commands to pry
   gem 'pry-byebug'              # add debugging commands to pry
   gem 'pry-stack_explorer'      # navigate call stack
-  # gem 'pry-rescue'            # start pry session on uncaught exception
-  # gem 'pry-doc'               # browse docs from console
-  # gem 'pry-git'               # add git support to console
-  # gem 'pry-remote'            # connect remotely to pry console
-  # gem 'coolline'              # sytax highlighting as you type
-  # gem 'coderay'               # use with coolline
   gem 'awesome_print'           # pretty pring debugging output
 
   # Testing
@@ -149,10 +118,6 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'ffaker'
   gem 'capybara-webkit'
-  # gem 'poltergeist'           # alternative to capybara-webkit
-  # gem 'capybara-firebug'
-  # gem 'launchy'               # save_and_open_page support for rspec
-  # gem 'zeus-parallel_tests'   # speed up lengthy tests
 
   # Logging
   gem 'quiet_assets'
@@ -164,12 +129,9 @@ group :test do
   # Helpers
   gem 'shoulda-matchers'
   gem 'database_cleaner'
-  # gem 'timecop'               # Mock Time
 
   # Coverage
   gem 'simplecov', require: false
-  # gem 'coveralls', :require => false
-
   gem 'rspec-sidekiq'
   gem 'rspec-activemodel-mocks'
 end
@@ -179,4 +141,3 @@ group :production do
   gem 'unicorn'
   gem 'rails_12factor'          # https://devcenter.heroku.com/articles/rails4
 end
-
