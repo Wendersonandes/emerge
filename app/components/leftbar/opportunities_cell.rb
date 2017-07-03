@@ -5,10 +5,6 @@ module Leftbar
 		property :featured_image_url
 		property :value_of_awards
 
-		def show
-			render
-		end
-
 		def index
 			render
 		end
