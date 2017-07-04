@@ -107,7 +107,7 @@ class Users::OauthController < ApplicationController
   end
 
   def default_redirect_path
-    user_root_path flow: @flow
+    root_path flow: @flow
   end
 
   def set_vars

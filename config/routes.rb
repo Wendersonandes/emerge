@@ -8,6 +8,10 @@ Rails.application.routes.draw do
     end
   end
 
+  authenticated :user do
+    root to: 'opportunities#index', as: :authenticated_root
+  end
+
 	root 'pages#home'
 
 	#Shrine uploader endpoints
