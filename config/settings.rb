@@ -2,7 +2,7 @@ require 'settingslogic'
 
 module Rails::Application::Config
   class Settings < Settingslogic
-    source File.expand_path('../application.yml', __FILE__)
+    source File.expand_path('../settings.yml', __FILE__)
     namespace Rails.env
     load!
   end
