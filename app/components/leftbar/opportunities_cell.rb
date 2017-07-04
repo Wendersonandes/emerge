@@ -5,8 +5,12 @@ module Leftbar
 		property :featured_image_url
 		property :value_of_awards
 
-		def index
+		def item
 			render
+		end
+
+		def current_user
+			options[:context][:current_user]
 		end
 
 		def image_path_small
