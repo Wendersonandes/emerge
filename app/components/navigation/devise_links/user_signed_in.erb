@@ -1,0 +1,19 @@
+<% disable_login ||= false %>
+<% disable_signup ||= false %>
+<% disable_forgot ||= false %>
+<div class="auth__links">
+	<label>
+		<%= I18n.t 'auth.links.title' %>
+	</label>
+	<ul>
+		<% if devise_mapping.confirmable? and controller.controller_name != 'confirmations' and not resource.confirmed? %>
+			<li>
+				<%= link_to I18n.t('auth.confirm.link'), new_confirmation_path(resource_name) %>
+			</li>
+		<% end %>
+		<% destroy_modal_id = 'destroy-user-modal' %>
+		<li>
+			<%= link_to I18n.t('account.destroy.link'), registration_path(resource_name), data: { confirm: I18n.t('account.destroy.prompt'), confirm_modal: "##{destroy_modal_id}" }, method: :delete %>
+		</li>
+	</ul>
+</div>
