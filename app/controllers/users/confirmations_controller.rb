@@ -1,4 +1,6 @@
 class Users::ConfirmationsController < Devise::ConfirmationsController
+	layout "wide"
+
   def new
     self.resource = (current_user or resource_class.new)
   end
