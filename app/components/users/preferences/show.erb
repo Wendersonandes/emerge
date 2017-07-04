@@ -1,0 +1,32 @@
+<div class="col-sm-8">
+	<%= cell(Navigation::AcountTabsCell, nil, {:context => {:current_user => current_user}} ) %>	
+	<%= simple_form_for current_user, :remote => true, url: registration_path(current_user) do |f| %>
+		<%= f.simple_fields_for :user_preferences do |f| %>
+			<div class="row">
+				<div class="col-md-12">
+					<span>Enviar email sugerindo novas oportunidades: </span>
+					<%= f.collection_radio_buttons :notify_on_new_opportunity, [[true, 'Yes'] ,[false, 'No']], :first, :last %>
+				</div>
+				<div class="col-md-12">
+					<span>Enviar email alertando sobre oportunidades próximas do encerramento:</span>
+					<%= f.collection_radio_buttons :notify_on_closing_opportunities, [[true, 'Yes'] ,[false, 'No']], :first, :last %>
+				</div>
+				<div class="col-md-12">
+					<span>Enviar email semanal com novidades:</span>
+					<%= f.collection_radio_buttons :send_weekly_email, [[true, 'Yes'] ,[false, 'No']], :first, :last %>
+				</div>
+				<div class="col-md-12">
+					<span>Enviar email mensal com novidades sobre o Emerge:</span>
+					<%= f.collection_radio_buttons :send_monthly_email, [[true, 'Yes'] ,[false, 'No']], :first, :last %>
+				</div>
+				<div class="col-md-12">
+					<span>Por favor, não me envie nenhuma notificação:</span>
+					<%= f.collection_radio_buttons :never_notify_me, [[true, 'Yes'] ,[false, 'No']], :first, :last %>
+				</div>
+				<div class="col-md-12">
+					<%= f.button :submit, class: 'btn-primary' %>
+				</div>
+			</div>
+		<% end %>
+	<% end %>
+</div>
