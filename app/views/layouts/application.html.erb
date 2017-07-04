@@ -22,14 +22,7 @@
 				<%= render 'layouts/messages' %>
 			</div>
 			<div class="row">
-				<div class="col-md-4 col-sm-12">
-					<div class="pa3 ba b--black-10 hidden-xs"> 
-						<%= cell(Leftbar::ContributionsCell)%>
-						<%= cell(Leftbar::AddsCell)%>
-						<%= cell(Leftbar::OpportunitiesCell).(:index)%>
-					</div>
-				</div>
-
+				<%= cell(LeftbarCell, nil, {:context => {:current_user => current_user}} ) %>
 				<%= yield %>
 			</div>
 			<%= cell(Navigation::FooterCell) %>
