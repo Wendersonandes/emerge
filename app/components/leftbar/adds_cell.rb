@@ -5,6 +5,10 @@ module Leftbar
 			options[:context][:current_user]
 		end
 
+		def show
+			current_user ? render : ""
+		end
+
 		def website_add
 			if current_user.person.website.present? 
 				render :website 

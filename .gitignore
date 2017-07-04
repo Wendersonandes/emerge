@@ -20,9 +20,5 @@
 *.swp
 *.swo
 
-# Ignore bundler config.
-app/assets/javascripts/bundle.js
-
-
 /node_modules
 

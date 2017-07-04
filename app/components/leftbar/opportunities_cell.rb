@@ -5,6 +5,10 @@ module Leftbar
 		property :featured_image_url
 		property :value_of_awards
 
+		def show
+			current_user ? render : ""
+		end
+
 		def item
 			render
 		end
