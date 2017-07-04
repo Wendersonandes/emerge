@@ -36,11 +36,6 @@ class Address < ActiveRecord::Base
 	    where(:addressable_type => type.to_s.capitalize).joins(type).includes(:addressable)
   	end
 
-    geocoded_by :formatted_address
-    after_validation :geocode, :if => :formatted_address_changed?
-
-  	reverse_geocoded_by :latitude, :longitude
-
     before_validation :sanitize_data
 
   private
