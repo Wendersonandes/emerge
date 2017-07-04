@@ -1,5 +1,6 @@
 class Users::PasswordsController < Devise::PasswordsController
   prepend_before_action :force_logout, only: :edit
+	layout "wide"
 
   protected
 
