@@ -1,7 +1,7 @@
 module Opportunities
 	class TaxesCell < Cell::ViewModel
-
 		include ActionView::Helpers::TextHelper
+		include MoneyRails::ActionViewExtension
 
 		property :value
 		property :description

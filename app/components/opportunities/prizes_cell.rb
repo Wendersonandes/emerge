@@ -1,5 +1,6 @@
 module Opportunities
 	class PrizesCell < Cell::ViewModel
+		include MoneyRails::ActionViewExtension
 
 		property :prize_type_list
 		property :exact_value

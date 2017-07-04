@@ -4,6 +4,7 @@ module Opportunities
 		include ERB::Util
 		include ActionView::Helpers::TranslationHelper
 		include ActsAsFollower::Follower::InstanceMethods
+		include MoneyRails::ActionViewExtension
 
 		property :end_subscription
 		property :id
@@ -22,18 +23,27 @@ module Opportunities
 		property :impressionist_count
 		property :followers_count
 
-		def show
-			render
-		end
-
 		def start_date
 			handle_date(end_subscription)
 		end
+
 		def end_date
 			handle_date(end_subscription)
 		end
+
 		def result_date
 			handle_date(end_subscription)
+		end
+
+		def opportunity_status
+			if end_subscription.present?
+				case 
+				when end_subscription >= Date.today then display_status_label("Aberto", "label label-success")
+				when end_subscription < Date.today then display_status_label("Encerrado", "label label-danger")
+				else 
+					 "Não informado"
+				end
+			end
 		end
 
 		def category_list_formated
@@ -86,5 +96,8 @@ module Opportunities
 			end
 		end
 
+		def display_status_label(value, icon_class)
+			content_tag(:span,"#{value}", :class => icon_class)
+		end
 	end
 end

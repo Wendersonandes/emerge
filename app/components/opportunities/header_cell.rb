@@ -5,6 +5,7 @@ module Opportunities
 		include ActionView::Helpers::TranslationHelper
 		include SocialShareButton::Helper
 		include Devise::Controllers::Helpers
+		include MoneyRails::ActionViewExtension
 
 		property :end_subscription
 		property :id
