@@ -12,7 +12,7 @@
 <% if @failed %>
 	<%= render 'users/registrations/failed', provider: @provider %>
 <% end %>
-	<div class="auth__form">
+	<div class="auth__form pa3 pt6">
 		<% unless @auth %>
 			<h3 class="title">
 				<%= I18n.t('auth.signup.title').html_safe %>
