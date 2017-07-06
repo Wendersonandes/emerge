@@ -16,6 +16,7 @@ class ApplicationController < ActionController::Base
 
   # Devise, require authenticate by default
   before_filter :authenticate_user!
+	before_action :prepare_meta_tags, if: "request.get?"
 
   # CanCan, check authorization unless authorizing with devise
   #check_authorization unless: :skip_check_authorization?
@@ -40,6 +41,7 @@ class ApplicationController < ActionController::Base
       site:        site,
       title:       title,
       description: description,
+			icon: [{:href => view_context.asset_url('favicon.ico'), :type => 'image/png'}],
       keywords:    %w[arte contemporaneo artista editais edital residencia visual editais premios oportunidades artes plásticas salões bolsa],
 
       og:          {url: current_url,
