@@ -33,6 +33,9 @@ Rails.application.routes.draw do
 		collection do
 			get :following
 		end
+		member do
+			post :recomend
+		end
   end
 
   resources :contacts, only: [:new, :create]

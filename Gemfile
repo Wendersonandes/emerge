@@ -49,6 +49,9 @@ gem 'activeadmin-select2', github: 'mfairburn/activeadmin-select2'
 
 #SEO stuff
 gem 'meta-tags'
+
+#Reputation System
+gem 'activerecord-reputation-system', github: 'twitter/activerecord-reputation-system', :branch => "master"
 # Pagination
 gem 'kaminari', '~> 1.0', '>= 1.0.1'
 gem 'coffee-rails'

@@ -872,12 +872,12 @@ ALTER SEQUENCE roles_id_seq OWNED BY roles.id;
 
 CREATE TABLE rs_evaluations (
     id integer NOT NULL,
-    reputation_name character varying(255),
+    reputation_name character varying,
     source_id integer,
-    source_type character varying(255),
+    source_type character varying,
     target_id integer,
-    target_type character varying(255),
-    value double precision DEFAULT 0,
+    target_type character varying,
+    value double precision DEFAULT 0.0,
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
     data text
@@ -910,9 +910,9 @@ ALTER SEQUENCE rs_evaluations_id_seq OWNED BY rs_evaluations.id;
 CREATE TABLE rs_reputation_messages (
     id integer NOT NULL,
     sender_id integer,
-    sender_type character varying(255),
+    sender_type character varying,
     receiver_id integer,
-    weight double precision DEFAULT 1,
+    weight double precision DEFAULT 1.0,
     created_at timestamp without time zone,
     updated_at timestamp without time zone
 );
@@ -943,11 +943,11 @@ ALTER SEQUENCE rs_reputation_messages_id_seq OWNED BY rs_reputation_messages.id;
 
 CREATE TABLE rs_reputations (
     id integer NOT NULL,
-    reputation_name character varying(255),
-    value double precision DEFAULT 0,
-    aggregated_by character varying(255),
+    reputation_name character varying,
+    value double precision DEFAULT 0.0,
+    aggregated_by character varying,
     target_id integer,
-    target_type character varying(255),
+    target_type character varying,
     active boolean DEFAULT true,
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
@@ -3706,4 +3706,24 @@ INSERT INTO schema_migrations (version) VALUES ('20170508182547');
 INSERT INTO schema_migrations (version) VALUES ('20170511223137');
 
 INSERT INTO schema_migrations (version) VALUES ('20170516185117');
+
+INSERT INTO schema_migrations (version) VALUES ('20170706043428');
+
+INSERT INTO schema_migrations (version) VALUES ('20170706044434');
+
+INSERT INTO schema_migrations (version) VALUES ('20170706044435');
+
+INSERT INTO schema_migrations (version) VALUES ('20170706044436');
+
+INSERT INTO schema_migrations (version) VALUES ('20170706044437');
+
+INSERT INTO schema_migrations (version) VALUES ('20170706044438');
+
+INSERT INTO schema_migrations (version) VALUES ('20170706044439');
+
+INSERT INTO schema_migrations (version) VALUES ('20170706044440');
+
+INSERT INTO schema_migrations (version) VALUES ('20170706044441');
+
+INSERT INTO schema_migrations (version) VALUES ('20170706044442');
 

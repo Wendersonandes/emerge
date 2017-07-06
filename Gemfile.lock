@@ -21,6 +21,13 @@ GIT
   specs:
     client_side_validations-formtastic (2.2.0)
 
+GIT
+  remote: git://github.com/twitter/activerecord-reputation-system.git
+  revision: df77666a5d61ce74781b11a84c1a8944cff10779
+  branch: master
+  specs:
+    activerecord-reputation-system (3.0.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -544,6 +551,7 @@ DEPENDENCIES
   active_model_serializers (~> 0.10.5)
   activeadmin (~> 1.0)
   activeadmin-select2!
+  activerecord-reputation-system!
   acts-as-taggable-on (~> 3.4.2)
   acts_as_follower (~> 0.2.1)
   addressable

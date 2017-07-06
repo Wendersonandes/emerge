@@ -1,7 +1,7 @@
 class OpportunitiesController < ApplicationController
   skip_authorization_check
   skip_before_action :authenticate_user!
-  before_action :set_opportunity, only: [:show, :edit, :update, :destroy, :publish]
+  before_action :set_opportunity, only: [:show, :edit, :update, :destroy, :publish, :recomend]
   impressionist :actions=>[:show]
 
   def index
@@ -101,6 +101,12 @@ class OpportunitiesController < ApplicationController
 
 	def following
 		@opportunities = current_user.person.following_by_type("Opportunity").page(params[:page]).per(6)
+	end
+
+	def recomend
+		value = params[:type] == "up" ? 1 : -1
+		@opportunity.add_or_update_evaluation(:recomendation, value, current_user)
+		redirect_to :back, :notice => "Thank you for voting"
 	end
 
   private
