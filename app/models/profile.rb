@@ -22,17 +22,18 @@
 #
 
 class Profile < ActiveRecord::Base
+
+	PROFILE_TYPES = ["Artista", "Crítico", "Curador", "Galerista", "Merchant", "Colecionador", "Professor de Arte", "Estudante de Arte", "Apreciador de arte", "Outro" ] 
+
 	scope :without_address, -> { joins(%Q{LEFT JOIN addresses ON addresses.addressable_id=profiles.id AND addresses.addressable_type='Profile'}).
   where('addresses.id IS NULL') }
 	include PgSearch
 	pg_search_scope :search,
 	:against => [:name, :content],
 	:using => {
-		tsearch: {
-                    dictionary: 'portuguese'
-                  },
-        :trigram => {:threshold => 0.2}
-                  },
+		tsearch: { dictionary: 'portuguese' },
+								:trigram => {:threshold => 0.2}
+							},
     :ignoring => :accents
 
 	has_many :attachments, :as => :attachable, :dependent => :destroy

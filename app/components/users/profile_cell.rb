@@ -1,6 +1,8 @@
 module Users
 	class ProfileCell < Cell::ViewModel
 		include ActionView::RecordIdentifier
+		include ActionView::Helpers::FormHelper
+		include ActionView::Helpers::FormOptionsHelper
 		include SimpleForm::ActionViewExtensions::FormHelper
 		include Devise::Controllers::UrlHelpers
 		include Rails.application.routes.url_helpers

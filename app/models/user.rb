@@ -39,7 +39,6 @@ class User < ActiveRecord::Base
 
   has_many :authorizations
 
-
   after_create :send_welcome_emails
 
   def display_name
@@ -90,6 +89,15 @@ class User < ActiveRecord::Base
     # UserMailer.delay_for(5.days).find_more_friends_email(self.id)
   end
 
+  def assign_default_role
+    add_role(:user)
+  end
+
+  def assign_tester_role
+    add_role(:beta_tester)
+  end
+
+
   def build_default_person
     build_person(:fullname => self.full_name)
     true
@@ -105,14 +113,6 @@ class User < ActiveRecord::Base
 
   def username=(value)
     super(value.to_s.strip)
-  end
-
-  def assign_default_role
-    add_role(:user)
-  end
-
-  def assign_tester_role
-    add_role(:beta_tester)
   end
 
   def subscribe_to_mailchimp
