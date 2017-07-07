@@ -22,7 +22,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 																						:art_statment, 
 																						:website, 
 																						:profile_type_list, 
-																						:profile_skill_list => []]].freeze
+																						:profile_skill_list ]].freeze
 
   # GET /resource/sign_up
   def new
