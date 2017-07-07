@@ -22,6 +22,7 @@ module Opportunities
 		property :entry_manners
 		property :impressionist_count
 		property :followers_count
+		property :evaluators_for
 
 		def start_date
 			handle_date(end_subscription)

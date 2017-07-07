@@ -13,6 +13,10 @@ module Leftbar
 			render
 		end
 
+		def recomended
+			render
+		end
+
 		def current_user
 			options[:context][:current_user]
 		end
