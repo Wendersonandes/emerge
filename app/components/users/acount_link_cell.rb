@@ -5,5 +5,9 @@ module Users
 		property :email
 		property :person
 
+		def show
+			model ? render : ""
+		end
+
 	end
 end
