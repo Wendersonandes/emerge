@@ -1,7 +1,7 @@
 class OpportunitiesController < ApplicationController
   skip_authorization_check
   skip_before_action :authenticate_user!
-  before_action :set_opportunity, only: [:show, :edit, :update, :destroy, :publish, :recomend]
+  before_action :set_opportunity, only: [:show, :edit, :update, :destroy, :publish, :recommend,:destroy_recommendation, :export_opportunity]
   impressionist :actions=>[:show]
 
   def index
@@ -103,10 +103,35 @@ class OpportunitiesController < ApplicationController
 		@opportunities = current_user.person.following_by_type("Opportunity").page(params[:page]).per(6)
 	end
 
-	def recomend
-		value = params[:type] == "up" ? 1 : -1
-		@opportunity.add_or_update_evaluation(:recomendation, value, current_user)
+	def user_recommended
+		@opportunities = Opportunity.evaluated_by(:recommendation, current_user).page(params[:page]).per(6)
+	end
+
+	def recommend
+		value = 1
+		@opportunity.add_or_update_evaluation(:recommendation, value, current_user)
 		redirect_to :back, :notice => "Thank you for voting"
+	end
+
+	def destroy_recommendation
+		@opportunity.delete_evaluation(:recommendation, current_user)
+		redirect_to :back, :notice => "Thank you for voting"
+
+	end
+
+	def export_opportunity
+		@calendar = Icalendar::Calendar.new
+		event = Icalendar::Event.new
+		event.dtstart = @opportunity.beginning
+		event.dtend = @opportunity.end_subscription
+		event.summary = @opportunity.title
+		event.description = @opportunity.summary
+		@calendar.add_event(event)
+		@calendar.publish
+    headers["Content-Type"] = "text/calendar; charset=UTF-8;"
+    headers["Content-Disposition"] = "attachment;" \
+        "filename = #{@opportunity.title.tr(' ', '_')}.ics"
+    render text: @calendar.to_ical
 	end
 
   private
