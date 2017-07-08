@@ -1,0 +1,23 @@
+<div class="col-sm-8">
+	<div class="row">
+		<%= simple_form_for @opportunity, remote: true, :validate => true do |f| %>
+			<div class="modal-body">
+				<%= f.input :title %>
+				<%= f.input :url_source %>
+				<div class="row">
+					<div class="col-sm-6">
+						<%= f.input :beginning, as: :date, html5: true %>
+					</div>
+					<div class="col-sm-6">
+						<%= f.input :end_subscription, as: :date, html5: true %>
+					</div>
+				</div>
+				<%= f.input :content, :as => :text, :input_html => { 'rows' => 8 } %>
+			</div>
+			<div class="modal-footer">
+				<%= link_to "Cancelar", :back, :class => "btn btn-default" %>
+				<%= f.button :submit, class: 'submit btn btn-primary' %>
+			</div>
+		<% end %>
+	</div>
+</div>
