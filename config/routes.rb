@@ -32,9 +32,12 @@ Rails.application.routes.draw do
     resources :likes, only: [:create, :destroy]
 		collection do
 			get :following
+			get :user_recommended
 		end
 		member do
-			post :recomend
+			post :recommend
+			post :destroy_recommendation
+			get :export_opportunity
 		end
   end
 

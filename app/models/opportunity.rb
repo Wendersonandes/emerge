@@ -135,7 +135,7 @@ class Opportunity < ActiveRecord::Base
   has_many :likes, as: :likeable, dependent: :destroy
   #has_many :likers, through: :likes, source: :user
 
-  has_reputation :recomendation, source: :user, aggregated_by: :sum
+  has_reputation :recommendation, source: :user, aggregated_by: :sum
   
   enum local_restriction: { nenhuma: 0, país: 1, estado: 2, município: 3}
 
