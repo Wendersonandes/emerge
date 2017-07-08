@@ -241,6 +241,7 @@ GEM
     htmlentities (4.3.4)
     httpclient (2.8.3)
     i18n (0.8.4)
+    icalendar (2.4.1)
     image_processing (0.4.4)
     impressionist (1.5.1)
       httpclient (~> 2.2)
@@ -580,6 +581,7 @@ DEPENDENCIES
   guard-rspec
   haml-rails
   headjs-rails
+  icalendar
   image_processing
   impressionist (<= 1.5.1)
   jquery-rails

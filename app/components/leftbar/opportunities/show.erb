@@ -2,5 +2,5 @@
 <%= cell(Leftbar::OpportunitiesCell, :collection => current_user.person.following_by_type("Opportunity").last_days).(:item) %>
 
 <h3 class="f4 fw3 mt0">Oportunidades mais recomendadas</h3>
-<%= cell(Leftbar::OpportunitiesCell, :collection => Opportunity.find_with_reputation(:recomendation, :all, { :order => 'recomendation DESC', :conditions => ["recomendation >= ?", 1] }).limit(3)).(:recomended) %>
+<%= cell(Leftbar::OpportunitiesCell, :collection => Opportunity.find_with_reputation(:recommendation, :all, { :order => 'recommendation DESC', :conditions => ["recommendation >= ?", 1] }).limit(3)).(:recommended) %>
 

@@ -52,6 +52,7 @@ gem 'meta-tags'
 
 #Reputation System
 gem 'activerecord-reputation-system', github: 'twitter/activerecord-reputation-system', :branch => "master"
+gem "icalendar"
 # Pagination
 gem 'kaminari', '~> 1.0', '>= 1.0.1'
 gem 'coffee-rails'
