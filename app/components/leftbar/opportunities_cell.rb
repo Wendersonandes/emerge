@@ -13,7 +13,7 @@ module Leftbar
 			render
 		end
 
-		def recomended
+		def recommended
 			render
 		end
 
