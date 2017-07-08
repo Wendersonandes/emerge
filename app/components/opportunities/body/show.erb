@@ -10,7 +10,8 @@
 		</div>
 		<div class="col-sm-4">
 			<ul class="list-group">
-				<%= cell(Opportunities::RecomendationsCell, model) %>
+				<%=link_to 'Baixar calendario', export_opportunity_opportunity_url(model, :format => :ics), :title => "A generic .ics file you can open in most calendar programs.", :target => :blank %>
+				<%= cell(Opportunities::RecommendationsCell, model) %>
 				<%= cell(Opportunities::EntriesCell, entry_manners) %>
 				<%= cell(Opportunities::GrantsCell, grants) %>
 				<%= cell(Opportunities::TaxesCell, taxes) %>
