@@ -2,10 +2,14 @@
 	<%= cell(Opportunities::HeaderCell, model) %>
 	<div class="row">
 		<div class="col-sm-8 f4">
-			<h6>
-				Enviado por:
-				<%= cell(Users::AcountLinkCell, model.author) %>
-			</h6>
+			<div class="row pb3">
+				<div class="col-sm-12">
+					<div class="f4 fl pr2">
+						Enviado por:
+					</div>
+					<%= cell(Users::AcountLinkCell, model.author) %>
+				</div>
+			</div>
 			<%= content_formatted %>
 		</div>
 		<div class="col-sm-4">

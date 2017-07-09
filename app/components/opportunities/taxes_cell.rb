@@ -8,15 +8,11 @@ module Opportunities
 		property :tax_type
 
 		def show
-			render
+			model ? render : ""
 		end
 		
 		def tax
 			render
-		end
-
-		def has_tax?
-			model.count > 0
 		end
 
 		def value_formatted
