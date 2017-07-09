@@ -1,2 +1,5 @@
 $('#opportunitySugestModal').modal('hide');
-$(".errors__container").html('<%= j render partial: "layouts/messages" %>');
+<% if @opportunity.errors[:url_source].present? %>
+		$("#duplicated_message").html('<%= j render partial: "duplicated_opportunity_message", :locals => {:message => @opportunity.errors.full_messages_for(:url_source)} %>');
+<%end%>
+

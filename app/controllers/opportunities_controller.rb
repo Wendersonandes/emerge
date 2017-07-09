@@ -57,6 +57,8 @@ class OpportunitiesController < ApplicationController
       else
         format.html { render :new }
         format.json { render json: @opportunity.errors, status: :unprocessable_entity }
+				binding.pry
+				format.js
       end
     end
   end

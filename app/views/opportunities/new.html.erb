@@ -1,6 +1,7 @@
 <div class="col-sm-8">
 	<div class="row">
-		<%= simple_form_for @opportunity, remote: true, :validate => true do |f| %>
+		<%= simple_form_for @opportunity, remote: true do |f| %>
+			<div id="duplicated_message"></div>
 			<div class="modal-body">
 				<%= f.input :title %>
 				<%= f.input :url_source %>
