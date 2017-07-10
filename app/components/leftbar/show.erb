@@ -3,6 +3,9 @@
 		<%= cell(Leftbar::Contributions::CallCell, nil, {:context => {:current_user => current_user}} ) %>
 		<%= cell(Leftbar::AddsCell, nil, {:context => {:current_user => current_user}} ) %>
 		<%= cell(Leftbar::OpportunitiesCell, nil, {:context => {:current_user => current_user}} ) %>
+	</div>
+
+	<div class="pa3 ba b--black-10 hidden-xs mt2"> 
 		<%= cell(Navigation::SidebarLinksCell) %>
 	</div>
 </div>
