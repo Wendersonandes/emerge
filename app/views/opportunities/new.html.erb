@@ -6,10 +6,10 @@
 				<%= f.input :url_source %>
 				<div class="row">
 					<div class="col-sm-6">
-						<%= f.input :beginning, as: :date, html5: true %>
+						<%= f.input :beginning, as: :datepicker, :input_html => {:data => {:orientation => 'bottom'}} %>
 					</div>
 					<div class="col-sm-6">
-						<%= f.input :end_subscription, as: :date, html5: true %>
+						<%= f.input :end_subscription, as: :datepicker %>
 					</div>
 				</div>
 				<%= f.input :content, :as => :text, :input_html => { 'rows' => 8 } %>
