@@ -2,7 +2,6 @@
 	<div class="row">
 		<%= simple_form_for @opportunity, remote: true do |f| %>
 			<div id="duplicated_message"></div>
-			<div class="modal-body">
 				<%= f.input :title %>
 				<%= f.input :url_source %>
 				<div class="row">
@@ -14,11 +13,8 @@
 					</div>
 				</div>
 				<%= f.input :content, :as => :text, :input_html => { 'rows' => 8 } %>
-			</div>
-			<div class="modal-footer">
-				<%= link_to "Cancelar", :back, :class => "btn btn-default" %>
 				<%= f.button :submit, class: 'submit btn btn-primary' %>
-			</div>
+				<%= link_to "Cancelar", :back, :class => "btn btn-default" %>
 		<% end %>
 	</div>
 </div>

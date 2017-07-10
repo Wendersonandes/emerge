@@ -57,7 +57,6 @@ class OpportunitiesController < ApplicationController
       else
         format.html { render :new }
         format.json { render json: @opportunity.errors, status: :unprocessable_entity }
-				binding.pry
 				format.js
       end
     end
@@ -103,6 +102,7 @@ class OpportunitiesController < ApplicationController
 
 	def following
 		@opportunities = current_user.person.following_by_type("Opportunity").page(params[:page]).per(6)
+    respond_with(@opportunities)
 	end
 
 	def user_recommended

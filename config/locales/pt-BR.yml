@@ -93,6 +93,8 @@ pt-BR:
               blank: 'O campo %{attribute} não pode ficar vazio'
         opportunity:
           attributes:
+            already_posted_opportunity:
+              recently_added_opportunity: 'Uma oportunidade com este mesmo link foi adicionada nos últimos %{recent_days} dias <a href="%{link}">logging in</a>'
             title: 'título'
             summary: 'resumo'
             end_subscription: 'encerramento das inscrições'
