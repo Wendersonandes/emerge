@@ -5,7 +5,7 @@
 
 			<%= f.input :website %>
 			<%= f.input :profile_type_list, :collection => Profile::PROFILE_TYPES, prompt: "Qual sua principal área de atuação?" %>
-			<%= f.input :profile_skill_list, :collection => ActsAsTaggableOn::Tagging.where(:context => :categories).joins(:tag).select('DISTINCT tags.name').map{ |x| x.name}, prompt: "Quais práticas em artes te interessam?" %>
+			<%= f.input :profile_skill_list, as: :selectize, :collection => ActsAsTaggableOn::Tagging.where(:context => :categories).joins(:tag).select('DISTINCT tags.name').map{ |x| x.name}, prompt: "Quais práticas em artes te interessam?" %>
 			<%= f.input :short_bio, :as => :text , input_html: { :rows => 5,:maxlength => 255 } %>
 			<%= f.button :submit, class: 'btn-primary' %>
 		<% end %>
