@@ -1,0 +1,62 @@
+pt-BR:
+  simple_form:
+    # Collections: selects, radios
+    'yes': 'Sim'
+    'no': 'Não'
+
+    required:
+      text: 'required'
+      mark: '*'
+      # You can uncomment the line below if you need to overwrite the whole required html.
+      # When using html, text and mark won't be used.
+      # html: '<abbr title="required">*</abbr>'
+    error_notification:
+      default_message: "Please review the problems below:"
+
+    placeholders:
+      user:
+        email: 'you@example.com'
+        password: 'password'
+
+    labels:
+      user:
+        edit:
+          password: 'New password'
+      opportunity:
+        title: 'Título'
+        beginning: 'Início das inscrições'
+        end_subscription: 'Encerramento das inscrições'
+        url_source: 'Link onde você encontrou esta oportunidade'
+        content: 'Descrição sobre esta oportunidade'
+
+    helpers:
+      submit:
+        opportunity:
+          new: 'Adicionar %{model}'
+          update: 'Salvar alterações'
+        person:
+          update: 'Salvar alterações'
+
+    hints:
+      user:
+        edit:
+          password: 'Leave blank unless updating password'
+
+  date:
+    formats:
+      default: "%d-%m-%Y"
+      long: "%B %d, %Y"
+      short: "%b %d"
+    # Labels and hints examples
+    # labels:
+    #   defaults:
+    #     password: 'Password'
+    #   user:
+    #     new:
+    #       email: 'E-mail to sign in.'
+    #     edit:
+    #       email: 'E-mail.'
+    # hints:
+    #   defaults:
+    #     username: 'User name to sign in.'
+    #     password: 'No special characters, please.'

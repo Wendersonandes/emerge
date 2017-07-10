@@ -30,6 +30,12 @@
 //= require masonry.pkgd.min
 //= require imagesloaded.pkgd.min
 //= require jquery.infinitescroll
+//= require switchery
+//= require jquery.maskedinput
+//= require bootstrap-datepicker
+//= require bootstrap-datepicker/locales/bootstrap-datepicker.pt-BR
+//= require simple_form_custom_inputs
+//= require simple_form_extension
 //= require opportunity/header
 //= require opportunity/card
 

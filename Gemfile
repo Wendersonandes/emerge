@@ -26,6 +26,8 @@ gem 'dalli'                     # memcached
 gem 'sass-rails'
 gem 'haml-rails'
 gem 'simple_form'
+gem 'simple_form_custom_inputs'
+gem 'simple_form_extension'
 gem 'uglifier'
 gem 'headjs-rails'
 gem 'social-share-button'
@@ -58,6 +60,12 @@ gem 'kaminari', '~> 1.0', '>= 1.0.1'
 gem 'coffee-rails'
 # Design
 gem 'bootstrap-sass'
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-switchery'
+  gem 'rails-assets-jquery.maskedinput'
+  gem 'rails-assets-bootstrap-datepicker'
+end
 # Email
 gem 'premailer-rails'
 gem 'mail_form', '~> 1.5.0'
@@ -145,3 +153,5 @@ group :production do
   gem 'unicorn'
   gem 'rails_12factor'          # https://devcenter.heroku.com/articles/rails4
 end
+
+gem 'redactor-rails', github: 'glyph-fr/redactor-rails'
