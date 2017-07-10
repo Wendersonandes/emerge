@@ -3,6 +3,7 @@
 		<%= cell(Leftbar::Contributions::CallCell, nil, {:context => {:current_user => current_user}} ) %>
 		<%= cell(Leftbar::AddsCell, nil, {:context => {:current_user => current_user}} ) %>
 		<%= cell(Leftbar::OpportunitiesCell, nil, {:context => {:current_user => current_user}} ) %>
+		<%= cell(Navigation::SidebarLinksCell) %>
 	</div>
 </div>
 
