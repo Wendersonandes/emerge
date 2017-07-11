@@ -6,11 +6,11 @@ module Leftbar
 		end
 
 		def show
-			current_user ? render : ""
+			render
 		end
 
 		def website_add
-			if current_user.person.website.present? 
+			if current_user.present? &&  current_user.person.website.present?
 				render :website 
 			else
 				render :no_website

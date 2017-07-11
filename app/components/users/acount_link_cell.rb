@@ -13,7 +13,7 @@ module Users
 		def profile_skill_list_formated
 			if person.profile_skill_list.present?
 				person.profile_skill_list.map{ |tag|
-					content_tag(:span, tag, :class => "label label-info mr2")  
+					content_tag(:span, tag, :class => "label label-info mr2 dib")  
 				}
 			end
 		end

@@ -17,7 +17,10 @@
 		<%=link_to I18n.t('auth.edit.link'), user_authentications_path(current_user)%>
 	</li>
 	<li class="<%=request.original_fullpath == user_preferences_path ? 'active' : ''%>">
-		<%=link_to "Preferências", user_preferences_path %>
+		<%=link_to user_preferences_path do %>
+			<i class="ion-ios-settings-strong"></i>
+			Preferências
+		<% end %>
 	</li>
 
 </ul>

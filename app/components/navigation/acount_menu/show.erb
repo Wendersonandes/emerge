@@ -20,7 +20,10 @@
 		</li>
 
 		<li>
-			<%=link_to "Preferências", user_preferences_path %>
+			<%=link_to user_preferences_path do %>
+				<i class="ion-ios-settings"></i>
+				Preferências
+			<% end %>
 		</li>
 
 		<li>

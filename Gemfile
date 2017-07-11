@@ -60,7 +60,7 @@ gem 'kaminari', '~> 1.0', '>= 1.0.1'
 gem 'coffee-rails'
 # Design
 gem 'bootstrap-sass'
-
+gem 'ionicons-rails'
 source 'https://rails-assets.org' do
   gem 'rails-assets-switchery'
   gem 'rails-assets-jquery.maskedinput'
