@@ -1,5 +1,6 @@
 <div class="col-sm-8">
 	<div class="row">
+		<h1 class ="pt0 mt0">Testando nova contribuição</h1>
 		<%= simple_form_for @opportunity, remote: true do |f| %>
 			<div id="duplicated_message"></div>
 				<%= f.input :title %>
@@ -9,9 +10,11 @@
 						<%= f.input :beginning, as: :datepicker, :input_html => {:data => {:orientation => 'bottom'}} %>
 					</div>
 					<div class="col-sm-6">
-						<%= f.input :end_subscription, as: :datepicker %>
+						<%= f.input :end_subscription, as: :datepicker, :input_html => {:data => {:orientation => 'top'}} %>
 					</div>
 				</div>
+
+				<%= f.input :category_list, as: :selectize, :collection => ActsAsTaggableOn::Tagging.where(:context => :categories).joins(:tag).select('DISTINCT tags.name').map{ |x| x.name}, prompt: "Quais práticas em artes te interessam?" %>
 				<%= f.input :content, :as => :text, :input_html => { 'rows' => 8 } %>
 				<%= f.button :submit, class: 'submit btn btn-primary' %>
 				<%= link_to "Cancelar", :back, :class => "btn btn-default" %>

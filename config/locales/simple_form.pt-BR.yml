@@ -28,6 +28,7 @@ pt-BR:
         end_subscription: 'Encerramento das inscrições'
         url_source: 'Link onde você encontrou esta oportunidade'
         content: 'Descrição sobre esta oportunidade'
+        category_list: 'Categorias'
 
     helpers:
       submit:
