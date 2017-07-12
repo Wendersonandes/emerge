@@ -71,7 +71,7 @@ class Opportunity < ActiveRecord::Base
         if self.new_record? && (s = Opportunity.find_similar_by_url(self.url_source))
           self.already_posted_opportunity = s
           if s.is_recent?
-            errors.add(:already_posted_opportunity, :recently_added_opportunity, :recent_days => RECENT_DAYS, :link => Rails.application.routes.url_helpers.opportunity_path(s))
+						errors.add(:already_posted_opportunity,	Opportunities::AlertCell.(s).())
           end
         end
       else
