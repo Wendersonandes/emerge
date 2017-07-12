@@ -50,7 +50,10 @@ module Opportunities
 		def category_list_formated
 			if category_list.present?
 				category_list.map{ |tag|
-					link_to tag, opportunities_path(tag: tag), :class => "mb2 mr2"
+					link_to opportunities_path(tag: tag), :class => "btn btn-xs btn-default mb2 mr2" do
+						"<i class=\"ion-ios-pricetags-outline mr2\"></i>" + 
+						tag
+					end
 				}
 			end
 		end

@@ -25,10 +25,11 @@ var initMasks = function() {
 var initDatepicker = function() {
   try {
     $(".datepicker input").datepicker({
+			format: 'dd/mm/yyyy',
       autoclose: true,
       todayHighlight: true,
       language: $(".datepicker input").data("locale"),
-      orientation: $(".datepicker input").data("orientation")
+      orientation: 'bottom'
     });
   }
 

@@ -1,8 +1,5 @@
 module Opportunities
 	class AlertCell < Cell::ViewModel
-		include ActionView::Helpers::UrlHelper
-		include ActionController::UrlFor
-		include Rails.application.routes.url_helpers
 
 		property :id
 		property :title
@@ -13,7 +10,7 @@ module Opportunities
 		end
 
 		def opportunity_link
-			link_to model
+			link_to(title, Rails.application.routes.url_helpers.opportunity_path(model), :class => "btn btn-xs btn-default")
 		end
 	end
 end

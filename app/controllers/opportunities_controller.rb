@@ -51,7 +51,7 @@ class OpportunitiesController < ApplicationController
 
     respond_to do |format|
       if @opportunity.save
-        format.js { flash[:notice] = "Obrigado por compartilhar! Sua colaboração em breve estará disponível para outros usuários." }
+        format.js 
 				format.html { render :nothing => true } 
         format.json { head :ok }
       else
