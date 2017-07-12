@@ -8,11 +8,7 @@ Rails.application.routes.draw do
     end
   end
 
-  authenticated :user do
-    root to: 'opportunities#index', as: :authenticated_root
-  end
 
-	root 'pages#home'
 
 	#Shrine uploader endpoints
   mount AvatarUploader::UploadEndpoint, at: "/attachments/avatars"
@@ -57,6 +53,12 @@ Rails.application.routes.draw do
       passwords: 'users/passwords', confirmations: 'users/confirmations', unlocks: 'users/unlocks'},
     path_names: {sign_up: 'signup', sign_in: 'login', sign_out: 'logout'}
   devise_scope :user do
+		authenticated :user do
+			root to: 'opportunities#index', as: :authenticated_root
+		end
+		unauthenticated do
+			root 'users/registrations#new'
+		end
     get "#{devise_prefix}/after" => 'users/registrations#after_auth', as: 'user_root'
 		get '/preferences' => 'users/registrations#user_preferences', as: 'user_preferences'
 		get '/profile' => 'users/registrations#user_profile', as: 'user_profile'
