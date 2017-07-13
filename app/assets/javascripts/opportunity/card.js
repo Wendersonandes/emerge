@@ -14,6 +14,7 @@ function applyGrid(){
     itemSelector : '.grid-item',     // selector for all items you'll retrieve
     loading: {
 			selector: '.loading-message', 
+			msgText: '<em>Carregando mais oportunidades...</em>',
 			finishedMsg: 'Isso é tudo, em breve novas oportunidades estarão disponíveis',
 			img: 'http://i.imgur.com/6RMhx.gif'
       }
