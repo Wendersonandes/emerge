@@ -13,8 +13,7 @@
 	<%= render 'users/registrations/failed', provider: @provider %>
 <% end %>
 <div class="container pt6">
-	<div class="col-md-7 hidden-xs"></div>
-	<div class="col-md-5">
+	<div class="col-md-5 col-md-offset-7">
 		<% unless @auth %>
 			<h3 class="title">
 				<%= I18n.t('auth.signup.title').html_safe %>
