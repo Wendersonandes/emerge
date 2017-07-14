@@ -15,13 +15,14 @@ pt-BR:
 
     placeholders:
       user:
-        email: 'you@example.com'
+        email: 'voce@exemplo.com'
         password: 'password'
 
     labels:
       user:
         edit:
-          password: 'New password'
+          password: 'Mudar senha'
+        password: 'Senha'
       opportunity:
         title: 'Título'
         beginning: 'Início das inscrições'
@@ -41,7 +42,8 @@ pt-BR:
     hints:
       user:
         edit:
-          password: 'Leave blank unless updating password'
+          password: 'Deixe este campo em branco, a não ser quando desejar alterar sua senha'
+        email: 'Usamos seu email para enviar novidades e notificações'
 
   date:
     formats:
