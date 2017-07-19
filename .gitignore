@@ -16,7 +16,6 @@
 # Ignore Sublime Text workspace files
 /*.sublime-workspace
 config/application.yml
-config/settings.yml
 
 #Ignore vim backup files
 *.swp

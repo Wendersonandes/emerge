@@ -1,0 +1,72 @@
+# Application settings available as Rails.application.config.settings
+#
+# All values in this file are namespaced under Rails.application.config.settings
+# and will not conflict with other configuration values in Rails.application.config.
+# Settings are manually applied to the correct config var as needed in specific initializers.
+# e.g. config/initializers/devise.rb
+
+common: &common
+  # Downcased and trimmed app name for namespaces.
+  # Safest to start with a letter rather than a number.
+  # See locales/en.yml for setting your app's user facing brand name.
+  app_name: 'starterkit'
+
+  social:
+    facebook: 'https://www.facebook.com/simple10'
+    twitter: 'https://twitter.com/joejohnston'
+    google_plus: 'https://plus.google.com/+JoeJohnstonSF'
+    linkedin: 'http://www.linkedin.com/in/startupjoe'
+
+  contact:
+    email: 'joe@example.com'
+    phone: '555-555-5555'
+
+  session:
+    key: '_starterkit_session'
+    expire_after: <%= 30.days %>
+
+  rack:
+    # Timeout request after 20 seconds
+    timeout: 20
+
+  mail:
+    layout: 'emails/email'
+    from: 'contato@emerge.art.br'
+
+
+# Default ENV vars.
+# Set to development values for convenience and override in production by setting ENV on the server.
+# As a best practice, do not put production values in this file for security reasons.
+default_env: &default_env
+  # From address to use when sending email
+  MAIL_HOST: 'localhost:3000'
+
+  # Host used to determine direct requests vs CDN.
+  # See RobotsController.
+  CANONICAL_HOST: 'gorgeous-arches-48928.herokuapp.com/'
+
+
+  # Redis server used by Sidekiq, cache, etc.
+  REDIS_URL: 'redis://localhost:6379/0'
+
+development:
+  <<: *common
+  env:
+    <<: *default_env
+    ALLOW_EMAIL_PREVIEW: true
+
+test:
+  <<: *common
+  env:
+    <<: *default_env
+
+staging:
+  <<: *common
+  env:
+    <<: *default_env
+
+production:
+  <<: *common
+  env:
+    # Set dummy key so rake assets:precompile succeeds
+    DEVISE_SECRET_KEY: ''
