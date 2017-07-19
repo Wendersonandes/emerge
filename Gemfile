@@ -81,6 +81,7 @@ gem 'omniauth-twitter'
 gem 'omniauth-linkedin'
 # Workers
 gem 'devise-async'
+gem 'sucker_punch', '~> 2.0'
 gem 'sinatra', require: false
 gem 'sidekiq'
 
