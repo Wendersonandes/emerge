@@ -43,7 +43,7 @@ pt-BR:
       user:
         edit:
           password: 'Deixe este campo em branco, a não ser quando desejar alterar sua senha'
-        email: 'Usamos seu email para enviar novidades e notificações'
+        email: 'Usaremos seu email para enviar novidades e notificações'
 
   date:
     formats:
