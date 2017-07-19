@@ -85,7 +85,7 @@ class User < ActiveRecord::Base
   end
 
   def send_welcome_emails
-    # UserMailer.delay.welcome_email(self.id)
+		# WelcomeMessageJob.perform_async(self.id)
     # UserMailer.delay_for(5.days).find_more_friends_email(self.id)
   end
 
