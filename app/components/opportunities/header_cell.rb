@@ -130,7 +130,7 @@ module Opportunities
 		def handle_date(value, message="Data não informada")
 			if value.present? 
 				content_tag(:span, :class => "ml2") do
-					value.to_s +
+					I18n.l(value).to_s +
 					content_tag(:span,nil, :class => "cronogram ml2", :data => {:datetime => value})
 				end
 			else
