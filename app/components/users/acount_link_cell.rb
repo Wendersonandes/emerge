@@ -5,9 +5,15 @@ module Users
 		property :email
 		property :person
 		property :profile_skill_list
+		property :first_name
+		property :last_name
 
 		def show
 			model ? render : ""
+		end
+
+		def full_name
+			person.fullname.present? ? person.fullname : "#{first_name} #{last_name}"
 		end
 
 		def profile_skill_list_formated
