@@ -13,12 +13,16 @@ module Navigation
 			end
 		end
 
+		def current_user
+			options[:context][:current_user]
+		end
+
 		def resource_name
 			:user
 		end
 
 		def resource
-			@resource ||= User.new
+			current_user ||= User.new
 		end
 
 		def devise_mapping

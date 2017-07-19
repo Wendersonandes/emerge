@@ -6,7 +6,7 @@
 		<%= I18n.t 'auth.links.title' %>
 	</label>
 	<ul>
-		<% if devise_mapping.confirmable? and controller.controller_name != 'confirmations' and not resource.confirmed? %>
+		<% if devise_mapping.confirmable? and controller.controller_name != 'confirmations' and not current_user.confirmed? %>
 			<li>
 				<%= link_to I18n.t('auth.confirm.link'), new_confirmation_path(resource_name) %>
 			</li>
