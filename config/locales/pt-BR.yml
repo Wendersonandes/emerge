@@ -122,7 +122,7 @@ pt-BR:
     submit:
       user:
         # Submit button used by simple_form in users/registrations#edit
-        update: 'Update Account'
-        create: 'Sign Up'
+        update: 'Atualizar dados'
+        create: 'Criar conta'
       contact:
         create: 'Enviar mensagem'
