@@ -17,6 +17,7 @@
 			<% if current_user.password_required? %>
 				<%= f.input :current_password, autocomplete: 'off' %>
 			<% end %>
+			<%=image_tag(f.object.image_url(size: :thumb, ssl: request.ssl?), alt: "TEste") %>
 			<%= f.input :first_name %>
 			<%= f.input :last_name %>
 		<%= f.button :submit, class: 'btn-primary' %>
