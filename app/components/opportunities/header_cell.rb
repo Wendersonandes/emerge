@@ -125,6 +125,10 @@ module Opportunities
 			end
 		end
 
+		def formated_url_source
+			url_source ? link_to("Fonte online", url_source, :target => :_blank) : "Não informado"
+		end
+
 		private
 
 		def handle_date(value, message="Data não informada")

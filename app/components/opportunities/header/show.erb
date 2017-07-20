@@ -49,11 +49,7 @@
 
 			<h6>
 				<span class="glyphicon glyphicon-link" aria-hidden="true"></span>
-					<% if url_source.present? %>
-						<a href="<%= url_source %>">Fonte online</a>
-					<% else %>
-						Não informado
-				<% end %>
+				<%= formated_url_source %>
 			</h6>
 
 			<h6>
@@ -75,7 +71,7 @@
 				<div class="social__buttons absolute left-1 top-1">
 					<div class="btn-group">
 						<span class="f5">Compartilhe:</span>
-						<%= social_share_button_tag(title, :url => background_image_path_large) %>
+						<%= social_share_button_tag(title) %>
 					</div>
 				</div>
 				<div class="follow__like__buttons absolute right-1 top-1">
