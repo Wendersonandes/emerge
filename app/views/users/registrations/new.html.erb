@@ -13,7 +13,12 @@
 	<%= render 'users/registrations/failed', provider: @provider %>
 <% end %>
 <div class="container pt6">
-	<div class="col-md-5 col-md-offset-7">
+	<div class="col-md-7">
+		<h1>Conecte-se a infinitas oportunidades em artes</h1>
+		<p>No Emerge você encontra oportunidades para artistas em vários estágios de carreira. Mostre seu trabalho ao mundo, se organize melhor e tenha mais tempo para sua produção</p>
+		<p>Crie uma conta gratuita</p>
+	</div>
+	<div class="col-md-5">
 		<% unless @auth %>
 			<h3 class="title">
 				<%= I18n.t('auth.signup.title').html_safe %>
