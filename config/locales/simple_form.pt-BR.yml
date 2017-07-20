@@ -25,7 +25,6 @@ pt-BR:
         content: 'Vivemos na cidade a redescoberta do espaço público como espaço político e de jogo. A ocupação do espaço da cidade, tradicionalmente cerceado por mecanismos opressivos, tem sido uma forma de resistência e uma bandeira importante para diferentes movimentos sociais, festas populares e para o circuito de arte independente. Limpa, higiênica, chuvosa e rica. Curitiba escondeu a pobreza e marginalizou ainda mais populações desviantes.'
         category_list: 'Fotografia, Gravura, Desenho, Performance'
 
-
     labels:
       user:
         edit:
@@ -39,10 +38,10 @@ pt-BR:
         content: 'Descrição sobre esta oportunidade'
         category_list: 'Categorias'
       contact:
-        first_name: 'nome'
-        email: 'email'
-        message_subject: 'assunto da mensagem'
-        message: 'mensagem'
+        first_name: 'Nome'
+        email: 'Email'
+        message_subject: 'Assunto da mensagem'
+        message: 'Mensagem'
 
     helpers:
       submit:
@@ -56,10 +55,8 @@ pt-BR:
       user:
         edit:
           password: 'Deixe este campo em branco, a não ser quando desejar alterar sua senha'
-        email: 'Usaremos seu email para enviar novidades e notificações'
-
-  date:
-    formats:
-      default: "%d-%m-%Y"
-      long: "%B %d, %Y"
-      short: "%b %d"
+        new:
+          email: 'Usaremos seu email para enviar novidades e notificações'
+      oauth:
+        forgot:
+          email: 'Enviaremos um link para que você possa recuperar'

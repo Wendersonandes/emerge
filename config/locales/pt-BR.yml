@@ -13,7 +13,7 @@ pt-BR:
       link_with: 'Entrar com %{provider}'
     signup:
       title: 'Criar Conta'
-      link: 'Criar Conta'
+      link: 'crie uma conta'
       help: 'Já tem uma conta? %{login_link}'
       email_taken: 'Já existe uma conta registrada com seu email. %{login_link}'
       terms_agree_message: 'Quando cria uma conta, você concorda com nossos %{terms_with_link} e %{privacy_with_link}'
@@ -126,3 +126,5 @@ pt-BR:
         create: 'Criar conta'
       contact:
         create: 'Enviar mensagem'
+      opportunity:
+        create: 'Enviar oportunidade'
