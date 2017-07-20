@@ -17,15 +17,15 @@
 		<%= render 'layouts/airbrake' %>
 	</head>
 	<body class="controller__<%= controller_name %> action__<%= action_name %> courier">
-
-		<%= cell(Navigation::NavbarCell, nil, {:context => {:current_user => current_user}} ) %>
-
-		<div class="errors__container">
-			<%= render 'layouts/messages' %>
+		<div class="wrapper w-100 vh-100">
+			<%= cell(Navigation::NavbarCell, nil, {:context => {:current_user => current_user}} ) %>
+			<div class="errors__container">
+				<%= render 'layouts/messages' %>
+			</div>
+			<%= yield %>
+			<%= cell(Navigation::FooterCell) %>
+			<%= render 'layouts/analytics' %>
+			<%= render 'layouts/javascripts' %>
 		</div>
-		<%= yield %>
-		<%= cell(Navigation::FooterCell) %>
-		<%= render 'layouts/analytics' %>
-		<%= render 'layouts/javascripts' %>
 	</body>
 </html>

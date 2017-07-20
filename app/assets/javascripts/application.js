@@ -32,6 +32,7 @@
 //= require jquery.infinitescroll
 //= require switchery
 //= require jquery.maskedinput
+//= require jquery.vide
 //= require bootstrap-datepicker
 //= require bootstrap-datepicker/locales/bootstrap-datepicker.pt-BR
 //= require simple_form_custom_inputs
@@ -51,3 +52,8 @@ window.ClientSideValidations.callbacks.element.pass = function(element, callback
   $('.submit').prop("disabled",false);
   callback();
 };
+
+$('.wrapper').vide({
+	poster: "http://payload508.cargocollective.com/1/22/725810/12476799/20-11-15-1_1500.jpg"
+});
+
