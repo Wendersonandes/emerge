@@ -1,11 +1,9 @@
 pt-BR:
   brand:
     name: 'Emerge'
-
   emails:
     welcome:
       subject: 'Bem vindo ao Emerge'
-
   auth:
     login:
       title: 'Acesse sua conta Emerge, ou %{signup_link}'

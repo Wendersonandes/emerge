@@ -17,6 +17,8 @@ pt-BR:
       user:
         email: 'voce@exemplo.com'
         password: 'password'
+        first_name: 'Camille'
+        last_name: 'Claudel'
       opportunity:
         title: 'Grande premio brasileiro de arte internacional'
         beginning: '06/09/1979'
