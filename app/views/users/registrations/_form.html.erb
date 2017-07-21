@@ -8,10 +8,8 @@
 			<%= f.input :current_password, autocomplete: 'off' %>
 		<% end %>
 	<% end %>
-	<% if resource.try(:first_name).present? or resource.try(:last_name).present? %>
-		<%= f.input :first_name %>
-		<%= f.input :last_name %>
-	<% end %>
+	<%= f.input :first_name %>
+	<%= f.input :last_name %>
 	<%= f.button :submit, class: 'btn-primary' %>
 <% end %>
 
