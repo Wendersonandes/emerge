@@ -1,14 +1,6 @@
-<article class="pb6">
-	<div class="center vh-50 dt w-100 tc bg-dark-gray bg-center white cover" style="background-image:url(https://s-media-cache-ak0.pinimg.com/originals/39/8c/06/398c0675ec121e60de21569ab2cc6a2a.jpg);">
-		<div class="dtc v-mid">
-			<span class="f1 f-headline-l fw1 i white-60">
-				Conecte-se a Infintas possibilidades em artes
-			</span>
-		</div>
-	</div>
-<div class="center measure-wide f3 pv5 lh-copy ph2">
-	<h1 class="f1 lh-title">Uma startup baseada em Belo Horizonte</h1>
-	<p>
+<% title = "Uma startup baseada em Belo Horizonte" %>
+<% image = "https://s-media-cache-ak0.pinimg.com/originals/39/8c/06/398c0675ec121e60de21569ab2cc6a2a.jpg" %>
+<% text = "<p>
 			The choice of paper size is one of the  first of any given work to be printed. There are two basic paper size systems in the world: the international A sizes, and the American sizes.
 	</p>
 	<p>
@@ -22,6 +14,6 @@
 	</p>
 	<p>
 			This does not happen with the American basic size which leads to nothing. I counted 28 different standard sizes in USA!. The only reason we use it is because everybody in USA uses it, all stationary in USA is that size, so are manilla folders,  les and of ce equipment! The repercussion of ugliness is endless.
-	</p>
- </div>
-</article>
+	</p>" %>
+
+<%= cell(PagesCell, nil, {:content => {:image => image, :text => text, :title => title}}) %>
