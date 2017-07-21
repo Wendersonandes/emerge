@@ -1,27 +1,32 @@
-<div class="auth__form">
-	<% if resource_has_error? resource, :reset_password_token, :invalid %>
-		<div class="alert alert-warning alert-dismissable">
-			<button aria-hidden="<%= true %>" class="close" data-dismiss="alert">&times;</button>
-			<h4>
-				<%= I18n.t 'auth.reset.invalid_title' %>
-			</h4>
-			<p>
-				<%= I18n.t 'auth.reset.invalid_message' %>
-			</p>
+<div class="image_background relative w-100 vh-100 bg-top cover bg-black" style="background-image: url(http://payload508.cargocollective.com/1/22/725810/12476799/23-11-15-2_3507.jpg);">
+	<div class="wrapper w-100 vh-100 bg-black-80">
+		<div class="auth__form">
+			<% if resource_has_error? resource, :reset_password_token, :invalid %>
+				<div class="alert alert-warning alert-dismissable">
+					<button aria-hidden="<%= true %>" class="close" data-dismiss="alert">&times;</button>
+					<h4>
+						<%= I18n.t 'auth.reset.invalid_title' %>
+					</h4>
+					<p>
+						<%= I18n.t 'auth.reset.invalid_message' %>
+					</p>
+				</div>
+				<p>
+					<%= link_to I18n.t('auth.forgot.submit'), new_password_path(resource_name), class: 'btn btn-primary' %>
+				</p>
+			<% else %>
+				<h2>
+					<%= I18n.t 'auth.reset.link' %>
+				</h2>
+				<%= simple_form_for resource, as: resource_name, url: password_path(resource_name), method: :put do |f| %>
+					<%= devise_error_messages! %>
+					<%= f.hidden_field :reset_password_token %>
+					<%= f.input :password, autofocus: true, required: true, hint: false %>
+					<%= f.button :submit, I18n.t('auth.reset.submit'), class: 'btn-primary' %>
+				<% end %>
+			<% end %>
+			<%= render "users/shared/links" %>
 		</div>
-		<p>
-			<%= link_to I18n.t('auth.forgot.submit'), new_password_path(resource_name), class: 'btn btn-primary' %>
-		</p>
-	<% else %>
-		<h2>
-			<%= I18n.t 'auth.reset.link' %>
-		</h2>
-		<%= simple_form_for resource, as: resource_name, url: password_path(resource_name), method: :put do |f| %>
-			<%= devise_error_messages! %>
-			<%= f.hidden_field :reset_password_token %>
-			<%= f.input :password, autofocus: true, required: true, hint: false %>
-			<%= f.button :submit, I18n.t('auth.reset.submit'), class: 'btn-primary' %>
-		<% end %>
-	<% end %>
-	<%= render "users/shared/links" %>
+	</div>
 </div>
+

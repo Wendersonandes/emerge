@@ -1,12 +1,22 @@
-<div class="container pt6">
-	<div class="col-md-5 col-md-offset-7">
-		<h2>
-			<%= I18n.t 'auth.forgot.link' %>
-		</h2>
-		<%= simple_form_for resource, as: resource_name, url: password_path(resource_name), method: :post do |f| %>
-			<%= f.input :email, autofocus: true, required: true %>
-			<%= f.button :submit, I18n.t('auth.forgot.submit'), class: 'btn-primary' %>
-		<% end %>
-		<%= render "users/shared/links" %>
+<div class="image_background relative w-100 vh-100 bg-top cover bg-black" style="background-image: url(http://payload508.cargocollective.com/1/22/725810/12476799/23-11-15-2_3507.jpg);">
+	<div class="wrapper w-100 vh-100 bg-black-80">
+		<div class="container pt6">
+			<div class="col-md-7 light-silver">
+				<h1>Conecte-se a infinitas oportunidades em artes</h1>
+				<p>No Emerge você encontra oportunidades para artistas em vários estágios de carreira. Mostre seu trabalho ao mundo, se organize melhor e tenha mais tempo para sua produção</p>
+				<p>Crie uma conta gratuita</p>
+			</div>
+			<div class="col-md-5 light-silver">
+				<h2>
+					<%= I18n.t 'auth.forgot.link' %>
+				</h2>
+				<%= simple_form_for resource, as: resource_name, url: password_path(resource_name), method: :post do |f| %>
+					<%= f.input :email, autofocus: true, required: true %>
+					<%= f.button :submit, I18n.t('auth.forgot.submit'), class: 'btn-primary' %>
+				<% end %>
+				<%= render "users/shared/links" %>
+			</div>
+		</div>
 	</div>
 </div>
+

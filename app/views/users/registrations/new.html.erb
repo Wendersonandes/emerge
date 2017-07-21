@@ -12,65 +12,66 @@
 <% if @failed %>
 	<%= render 'users/registrations/failed', provider: @provider %>
 <% end %>
-<div class="container pt6">
-	<div class="col-md-7">
-		<h1>Conecte-se a infinitas oportunidades em artes</h1>
-		<p>No Emerge você encontra oportunidades para artistas em vários estágios de carreira. Mostre seu trabalho ao mundo, se organize melhor e tenha mais tempo para sua produção</p>
-		<p>Crie uma conta gratuita</p>
-	</div>
-	<div class="col-md-5">
-		<% unless @auth %>
-			<h3 class="title">
-				<%= I18n.t('auth.signup.title').html_safe %>
-				<div class="help-block">
-					<%= I18n.t('auth.signup.help', login_link: login_link).html_safe %>
-				</div>
-			</h3>
 
-			<%= render 'authentications/providers', flow: 'signup', icons: true, color: true %>
-			<div class="auth__or">
-				<hr/>
-				<span>or</span>
+
+<div class="header__opportunity relative w-100 vh-100 bg-top cover bg-black" style="background-image: url(http://payload508.cargocollective.com/1/22/725810/12476799/23-11-15-2_3507.jpg);">
+	<div class="wrapper w-100 vh-100 bg-black-80">
+		<div class="container pt6">
+			<div class="col-md-7 light-silver">
+				<h1 class="f-subheadline fw1">Infinitas possibilidades <br> em artes</h1>
+				<p class="f2">No Emerge você encontra oportunidades para artistas em vários estágios de carreira. Mostre seu trabalho ao mundo, se organize melhor e tenha mais tempo para sua produção. <br> Crie uma conta gratuita.</p>
 			</div>
-			<% else # @auth %>
-				<h2>
-					<%= render 'users/avatar', size: :thumb, user: @auth %>
-					Hi,
-					<%= @auth.display_name %>
-				</h2>
-				<p>
-					Not you?
-					<%= link_to 'Reset', destroy_user_session_path, rel: :nofollow, class: 'btn btn-default btn-xs' %>
-				</p>
-				<% unless @existing_account %>
-					<p>
-						We filled in some of your details from
-						Please confirm and sign up.
-					</p>
-				<% end %>
-			<% end %>
-			<% if @existing_account %>
-				<% if provider = @existing_account.authentications.first.try(:provider) %>
-					<% url = provider_auth_path(provider, flow: 'login') %>
-					<% login_with_link = link_to I18n.t('auth.login.link_with', provider: Authentication.provider_name(provider)), url %>
-				<% else %>
-					<% login_with_link = login_link %>
-				<% end %>
-				<div class="alert alert-warning">
-					<%= I18n.t('auth.signup.email_taken', login_link: login_with_link).html_safe %>
-				</div>
-			<% end %>
-
-			<%= render 'users/registrations/form', hide_password: @auth.present? %>
-			<div class="auth__links">
-				<% terms_with_link = link_to 'Termos de Uso', terms_path%>
-				<% privacy_with_link = link_to 'Privacidade', privacy_path%>
-				<%= I18n.t('auth.signup.terms_agree_message', :terms_with_link => terms_with_link,:privacy_with_link => privacy_with_link).html_safe %>
+			<div class="col-md-5 light-silver">
+				<h3>
+					<%= I18n.t('auth.signup.title').html_safe %>
+					<div class="help-block">
+						<%= I18n.t('auth.signup.help', login_link: login_link).html_safe %>
+					</div>
+				</h3>
+				<%= render 'users/registrations/form', hide_password: @auth.present? %>
+				<% unless @auth %>
+					<div class="auth__or">
+						<hr/>
+						<span>ou</span>
+					</div>
+					<%= render 'authentications/providers', flow: 'signup', icons: true, color: true %>
+					<% else # @auth %>
+						<h2>
+							<%= render 'users/avatar', size: :thumb, user: @auth %>
+							Hi,
+							<%= @auth.display_name %>
+						</h2>
+						<p>
+							Not you?
+							<%= link_to 'Reset', destroy_user_session_path, rel: :nofollow, class: 'btn btn-default btn-xs' %>
+						</p>
+						<% unless @existing_account %>
+							<p>
+								We filled in some of your details from
+								Please confirm and sign up.
+							</p>
+						<% end %>
+					<% end %>
+					<% if @existing_account %>
+						<% if provider = @existing_account.authentications.first.try(:provider) %>
+							<% url = provider_auth_path(provider, flow: 'login') %>
+							<% login_with_link = link_to I18n.t('auth.login.link_with', provider: Authentication.provider_name(provider)), url %>
+						<% else %>
+							<% login_with_link = login_link %>
+						<% end %>
+						<div class="alert alert-warning">
+							<%= I18n.t('auth.signup.email_taken', login_link: login_with_link).html_safe %>
+						</div>
+					<% end %>
+					<div class="auth__links">
+						<% terms_with_link = link_to 'Termos de Uso', terms_path %>
+						<% privacy_with_link = link_to 'Privacidade', privacy_path %>
+						<%= I18n.t('auth.signup.terms_agree_message', :terms_with_link => terms_with_link,:privacy_with_link => privacy_with_link).html_safe %>
+						<%= I18n.t('auth.signup.email_used') %>
+					</div>
+				<%= render 'users/social/facepile'  %>
 			</div>
-		<%= render 'users/social/facepile'  %>
+		</div>
 	</div>
-
 </div>
-<% content_for :on_ready do %>
-<% end %>
 
