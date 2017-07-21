@@ -1,15 +1,6 @@
-<article class="pb6">
-	<div class="center vh-50 dt w-100 tc bg-dark-gray white cover" style="background-image: url(http://mrmrs.io/photos/display.jpg);">
-		<div class="dtc v-mid">
-			<span class="f1 f-headline-l fw1 i black-60">
-				Anuncie produtos e serviços <br>diretamente para seu público
-			</span>
-		</div>
-	</div>
-	<div class="center measure-wide f3 pv5 lh-copy ph2">
-		<h1 class="f1 lh-title">Encontre artistas, designers e pessoas envolvidas diretamente com o universo das artes</h1>
-		<p>
-				The choice of paper size is one of the  first of any given work to be printed. There are two basic paper size systems in the world: the international A sizes, and the American sizes.
+<% title = "Anuncie produtos e serviços <br>diretamente para seu público" %>
+<% image = "https://s-media-cache-ak0.pinimg.com/originals/39/8c/06/398c0675ec121e60de21569ab2cc6a2a.jpg" %>
+<% text = "<p> The choice of paper size is one of the  first of any given work to be printed. There are two basic paper size systems in the world: the international A sizes, and the American sizes.
 		</p>
 		<p>
 			The international Standard paper sizes, called the A series, is based on a golden rectangle, the divine proportion. It is extremely handsome and practical as well. It is adopted by many countries around the world and is based on the German DIN metric Standards. The United States uses a basic letter size (8 1/2 x 11”) of ugly proportions, and results in complete chaos with an endless amount of paper sizes. It is a by-product of the culture of free enterprise, competition and waste. Just another example of the misinterpretations of freedom.
@@ -22,6 +13,6 @@
 		</p>
 		<p>
 				This does not happen with the American basic size which leads to nothing. I counted 28 different standard sizes in USA!. The only reason we use it is because everybody in USA uses it, all stationary in USA is that size, so are manilla folders,  les and of ce equipment! The repercussion of ugliness is endless.
-		</p>
-	</div>
-</article>
+		</p>"%>
+
+<%= cell(PagesCell, nil, {:content => {:image => image, :text => text, :title => title}}) %>

@@ -1,13 +1,10 @@
-<article class="pb6">
-	<div class="center vh-50 dt w-100 bg-dark-gray bg-bottom white cover" style="background-image:url(http://payload508.cargocollective.com/1/22/725810/12476799/20-11-15-2_3468.jpg);">
-	</div>
-	<div class="center measure-wide f3 pv5 lh-copy ph2">
-		<h1 class="f1 lh-title">Termos de Uso</h1>
-    <p>
+<% title = "Termos de Uso" %>
+<% image = "http://payload508.cargocollective.com/1/22/725810/12476799/20-11-15-2_3468.jpg" %>
+<% text = "<p>
 			O Emerge fornece o website http://www.emerge.art.br como um serviço gratuito para o público.
 		</p>
     <p>
-			O site é fornecido "como está". Todos os dados e informações fornecidos neste site são apenas para fins informativos.
+			O site é fornecido \"como está\". Todos os dados e informações fornecidos neste site são apenas para fins informativos.
     </p>
     <p>
 			O Emerge não é responsável e, expressamente, se isenta de qualquer responsabilidade por danos de qualquer tipo decorrentes de uso, referência ou dependência de qualquer informação contida no site. Embora as informações contidas no site sejam periodicamente atualizadas, não é garantida que as informações fornecidas neste site da Web sejam corretas, completas e atualizadas.
@@ -20,7 +17,6 @@
     </p>
     <p>
 			Nem o Emerge nem seus fornecedores, garante que o site seja livre de erros ou que o acesso seja contínuo ou ininterrupto.
-    </p>
+    </p>"%>
 
-  </div>
-</article>
+<%= cell(PagesCell, nil, {:content => {:image => image, :text => text, :title => title}}) %>
