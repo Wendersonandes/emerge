@@ -30,6 +30,8 @@ pt-BR:
         edit:
           password: 'Mudar senha'
         password: 'Senha'
+        first_name: 'Primeiro nome'
+        last_name: 'Sobrenome'
       opportunity:
         title: 'Título'
         beginning: 'Início das inscrições'
@@ -56,7 +58,7 @@ pt-BR:
         edit:
           password: 'Deixe este campo em branco, a não ser quando desejar alterar sua senha'
         new:
-          email: 'Usaremos seu email para enviar novidades e notificações'
+          email: ''
       oauth:
         forgot:
           email: 'Enviaremos um link para que você possa recuperar'

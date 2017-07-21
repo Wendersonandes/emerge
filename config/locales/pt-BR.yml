@@ -8,15 +8,16 @@ pt-BR:
 
   auth:
     login:
-      title: 'Por favor, faça Log In, ou %{signup_link}'
+      title: 'Acesse sua conta Emerge, ou %{signup_link}'
       link: 'Entrar'
       link_with: 'Entrar com %{provider}'
     signup:
       title: 'Criar Conta'
-      link: 'crie uma conta'
+      link: 'Crie uma conta'
       help: 'Já tem uma conta? %{login_link}'
       email_taken: 'Já existe uma conta registrada com seu email. %{login_link}'
-      terms_agree_message: 'Quando cria uma conta, você concorda com nossos %{terms_with_link} e %{privacy_with_link}'
+      terms_agree_message: 'Quando cria uma conta no Emerge, você concorda com nossos %{terms_with_link} e %{privacy_with_link}.'
+      email_used: 'Usaremos seu email para enviar novidades e notificações.'
     logout:
       link: 'Sair'
     forgot:
