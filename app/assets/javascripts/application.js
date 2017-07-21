@@ -1,15 +1,3 @@
-// This is a manifest file that'll be compiled into application.js, which will include all the files
-// listed below.
-//
-// Any JavaScript/Coffee file within this directory, lib/assets/javascripts, vendor/assets/javascripts,
-// or vendor/assets/javascripts of plugins, if any, can be referenced here using a relative path.
-//
-// It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
-// compiled file.
-//
-// Read Sprockets README (https:#github.com/sstephenson/sprockets#sprockets-directives) for details
-// about supported directives.
-//
 //= require jquery_2
 //= require jquery_ujs
 //= require bootstrap
@@ -20,7 +8,6 @@
 //= require social-share-button
 //= require rails_confirm_dialog
 //= require jquery.scrollto
-//= require local_time
 // Add error class to .avatar images if they fail to load
 // See avatar.scss and _avatar.html.haml
 //= require imagesloaded
@@ -32,7 +19,6 @@
 //= require jquery.infinitescroll
 //= require switchery
 //= require jquery.maskedinput
-//= require jquery.vide
 //= require bootstrap-datepicker
 //= require bootstrap-datepicker/locales/bootstrap-datepicker.pt-BR
 //= require simple_form_custom_inputs
@@ -52,8 +38,3 @@ window.ClientSideValidations.callbacks.element.pass = function(element, callback
   $('.submit').prop("disabled",false);
   callback();
 };
-
-$('.wrapper').vide({
-	poster: "http://payload508.cargocollective.com/1/22/725810/12476799/20-11-15-1_1500.jpg"
-});
-
