@@ -12,11 +12,6 @@
 				<h3 class="title">
 					<%= I18n.t('auth.login.title', signup_link: signup_link).html_safe %>
 				</h3>
-				<%= render 'authentications/providers', flow: 'login', icons: true, color: true %>
-				<div class="auth__or">
-					<hr/>
-					<span>or</span>
-				</div>
 				<%= simple_form_for resource, as: resource_name, url: session_path(resource_name), :validate => true do |f| %>
 					<% if devise_mapping.rememberable? %>
 						<%= f.input :remember_me, as: :hidden, input_html: {value: true} %>
@@ -30,6 +25,11 @@
 					<% end %>
 					<%= f.button :submit, I18n.t('auth.login.link'), class: 'btn-primary' %>
 				<% end %>
+				<div class="auth__or">
+					<hr/>
+					<span>ou</span>
+				</div>
+				<%= render 'authentications/providers', flow: 'login', icons: true, color: true %>
 				<%= render 'users/shared/links', disable_signup: true %>
 			</div>
 		</div>
