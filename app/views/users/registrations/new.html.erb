@@ -17,16 +17,13 @@
 <div class="header__opportunity relative w-100 vh-100 bg-top cover bg-black" style="background-image: url(http://payload508.cargocollective.com/1/22/725810/12476799/23-11-15-2_3507.jpg);">
 	<div class="wrapper w-100 vh-100 bg-black-80">
 		<div class="container pt6">
-			<div class="col-md-7 light-silver">
+			<div class="col-md-7 light-silver hidden-xs">
 				<h1 class="f-subheadline fw1">Infinitas possibilidades <br> em artes</h1>
 				<p class="f2">No Emerge você encontra oportunidades para artistas em vários estágios de carreira. Mostre seu trabalho ao mundo, se organize melhor e tenha mais tempo para sua produção. <br> Crie uma conta gratuita.</p>
 			</div>
 			<div class="col-md-5 light-silver">
 				<h3>
 					<%= I18n.t('auth.signup.title').html_safe %>
-					<div class="help-block">
-						<%= I18n.t('auth.signup.help', login_link: login_link).html_safe %>
-					</div>
 				</h3>
 				<%= render 'users/registrations/form', hide_password: @auth.present? %>
 				<% unless @auth %>
@@ -64,6 +61,10 @@
 						</div>
 					<% end %>
 					<div class="auth__links">
+					<div class="help-block">
+						<%= I18n.t('auth.signup.help', login_link: login_link).html_safe %>
+					</div>
+
 						<% terms_with_link = link_to 'Termos de Uso', terms_path %>
 						<% privacy_with_link = link_to 'Privacidade', privacy_path %>
 						<%= I18n.t('auth.signup.terms_agree_message', :terms_with_link => terms_with_link,:privacy_with_link => privacy_with_link).html_safe %>

@@ -17,7 +17,7 @@
 	</head>
   <body class="controller__<%= controller_name %> action__<%= action_name %> courier bg-near-white">
 		<%= cell(Navigation::NavbarCell, nil, {:context => {:current_user => current_user}} ) %>
-		<div class="container pt6-l pt5">
+		<div class="container pt6">
 			<div class="errors__container">
 				<%= render 'layouts/messages' %>
 			</div>
