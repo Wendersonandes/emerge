@@ -1,11 +1,12 @@
 <% flow        ||= 'login' %>
 <% css_class   ||= 'btn btn-primary btn-block' %>
 <% providers   ||= Authentication.providers %>
-<div class="auth__providers">
+<div class="auth__providers ph3">
 	<% providers.each do |provider| %>
 		<div>
 			<%= link_to provider_auth_path(provider, flow: flow), data: {flow: flow, provider: provider}, class: css_class do %>
 				<i class="sico-<%= provider %> sico-fixed"></i>
+				Acessar usando o 
 				<%= Authentication.provider_name(provider) %>
 			<% end %>
 		</div>
