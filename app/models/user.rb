@@ -8,6 +8,9 @@ class User < ActiveRecord::Base
   after_create :assign_default_role, :subscribe_to_mailchimp, :assign_tester_role
   before_create :build_default_person, :build_user_preferences_on_create
 
+	validates :first_name, :presence => true
+	validates :last_name, :presence => true
+
   rolify
 
   acts_as_follower
@@ -39,7 +42,7 @@ class User < ActiveRecord::Base
 
   has_many :authorizations
 
-  after_create :send_welcome_emails
+  # after_create :send_welcome_emails
 
   def display_name
     first_name.presence || email.split('@')[0]
@@ -96,7 +99,6 @@ class User < ActiveRecord::Base
   def assign_tester_role
     add_role(:beta_tester)
   end
-
 
   def build_default_person
     build_person(:fullname => self.full_name)
