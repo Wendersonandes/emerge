@@ -10,11 +10,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # Devise already permits email, password, etc.
   SANITIZED_PARAMS = [:first_name, 
 											:last_name, 
-											:user_preferences_attributes => [:notify_on_new_opportunity, 
-																						:notify_on_closing_opportunities, 
-																						:send_weekly_email, 
-																						:send_monthly_email, 
-																						:never_notify_me ],
+											:user_preferences_attributes =>[:notify_on_new_opportunity, 
+																											:notify_on_closing_opportunities, 
+																											:send_weekly_email, 
+																											:send_monthly_email, 
+																											:never_notify_me ],
 											:person_attributes =>[:id, 
 																						:user_id, 
 																						:fullname, 
@@ -26,7 +26,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/sign_up
   def new
-		prepare_meta_tags
     check_for_existing_account
     super
   end
@@ -64,6 +63,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
+		binding.pry
     check_for_existing_account
     super
     @auth.save! if @auth.present? && resource.persisted?

@@ -25,8 +25,8 @@
 				<h3>
 					<%= I18n.t('auth.signup.title').html_safe %>
 				</h3>
-				<%= render 'users/registrations/form', hide_password: @auth.present? %>
 				<% unless @auth %>
+					<%= render 'users/registrations/form', hide_password: @auth.present? %>
 					<div class="auth__or">
 						<hr/>
 						<span>ou</span>
@@ -35,19 +35,20 @@
 					<% else # @auth %>
 						<h2>
 							<%= render 'users/avatar', size: :thumb, user: @auth %>
-							Hi,
+							Oi,
 							<%= @auth.display_name %>
 						</h2>
 						<p>
-							Not you?
-							<%= link_to 'Reset', destroy_user_session_path, rel: :nofollow, class: 'btn btn-default btn-xs' %>
+							Não é você?
+							<%= link_to 'Resetar', destroy_user_session_path, rel: :nofollow, class: 'btn btn-default btn-xs' %>
 						</p>
 						<% unless @existing_account %>
 							<p>
-								We filled in some of your details from
-								Please confirm and sign up.
+								Preenchemos o formulário com alguns dados da sua conta no facebook.
+								Confirme os dados e prossiga.
 							</p>
 						<% end %>
+						<%= render 'users/registrations/form', hide_password: @auth.present? %>
 					<% end %>
 					<% if @existing_account %>
 						<% if provider = @existing_account.authentications.first.try(:provider) %>
