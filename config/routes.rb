@@ -54,6 +54,7 @@ Rails.application.routes.draw do
     path_names: {sign_up: 'signup', sign_in: 'login', sign_out: 'logout'}
   devise_scope :user do
 		authenticated :user do
+			delete "logout" => "devise/sessions#destroy", :as => "logout"
 			root to: 'opportunities#index', as: :authenticated_root
 		end
 		unauthenticated do
