@@ -17,9 +17,12 @@ module Opportunities
 		property :featured_image_url
 		property :category_list
 		property :value_of_awards
-		property :docs
 		property :grants
 		property :entry_manners
+		
+		def current_user
+			options[:context][:current_user]
+		end
 
 		def show
 			render
@@ -77,50 +80,6 @@ module Opportunities
 			else
 				content_tag(:h6) do
 					"<span class=\"glyphicon glyphicon-envelope mr2\"></span> Forma de Inscrição: Não informada"
-				end
-			end
-		end
-
-		def render_docs_button_formatted
-			if docs.present? 
-				content_tag(:button, :type => "button", :class => "btn btn-sm btn-primary", :"dropdown-toggle" => nil, :data => {:toggle => "dropdown"}) do
-					"<span class=\"glyphicon glyphicon-folder-open mr2\"></span>" +
-					"Downloads" +
-					"<span class=\"caret\"></span>"
-				end
-			else
-				content_tag(:button, :type => "button", :class => "btn btn-sm btn-default") do
-					"<span class=\"glyphicon glyphicon-folder-open mr2\"></span> " + "Não existe documento" 
-				end
-			end
-		end
-
-		def render_docs_button_menu
-			if docs.present? 
-				content_tag(:ul, :class => "dropdown-menu") do
-					result = ""
-					docs.each do |doc|
-						result << content_tag(:li) do
-							link_to doc.doc_url do 
-								"<span class=\"glyphicon glyphicon-save\"></span> #{doc.doc_type}"
-							end
-						end
-					end
-					result
-				end
-			end
-		end
-
-		def render_follow_button
-			if user_signed_in? 
-				if model.followed_by?(current_user.person)
-					link_to opportunity_follow_opportunity_path(model.to_param, current_user.person.get_follow(model).id), :class => "btn btn-sm btn-success", :method => :delete, :remote => true do
-						"<span class=\"glyphicon glyphicon-bookmark mr2\" aria-hidden=\"true\"></span>Seguindo"
-					end
-				else
-					link_to opportunity_follow_opportunities_path(model.to_param), :class => "btn btn-sm btn-default", :remote => true, method: :post do
-						"<span class=\"glyphicon glyphicon-bookmark mr2\" aria-hidden=\"true\"></span>Seguir"
-					end
 				end
 			end
 		end

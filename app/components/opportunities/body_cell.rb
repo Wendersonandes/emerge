@@ -10,8 +10,13 @@ module Opportunities
 		def show
 			render
 		end
+
 		def content_formatted
 			markdown(content)
+		end
+
+		def current_user
+			options[:context][:current_user]
 		end
 
 	end
