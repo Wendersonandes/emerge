@@ -65,7 +65,6 @@ class OpportunitiesController < ApplicationController
   # PATCH/PUT /opportunity/1
   # PATCH/PUT /opportunity/1.json
   def update
-
     if params[:publish]
 			@opportunity.publish
     end
@@ -112,13 +111,16 @@ class OpportunitiesController < ApplicationController
 	def recommend
 		value = 1
 		@opportunity.add_or_update_evaluation(:recommendation, value, current_user)
-		redirect_to :back, :notice => "Thank you for voting"
+		respond_to do |format|
+			format.js
+		end
 	end
 
 	def destroy_recommendation
 		@opportunity.delete_evaluation(:recommendation, current_user)
-		redirect_to :back, :notice => "Thank you for voting"
-
+		respond_to do |format|
+			format.js
+		end
 	end
 
 	def export_opportunity
