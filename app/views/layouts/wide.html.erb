@@ -18,9 +18,6 @@
 	</head>
 	<body class="controller__<%= controller_name %> action__<%= action_name %> courier">
 		<%= cell(Navigation::NavbarCell, nil, {:context => {:current_user => current_user}} ) %>
-		<div class="errors__container">
-			<%= render 'layouts/messages' %>
-		</div>
 		<%= yield %>
 		<%= cell(Navigation::FooterCell) %>
 		<%= render 'layouts/analytics' %>
