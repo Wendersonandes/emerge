@@ -1,0 +1,4 @@
+<%= link_to opportunity_follow_opportunity_path(model.to_param, current_user.person.get_follow(model).id), :class => "btn btn-sm btn-success", :method => :delete, :remote => true do %>					
+	<span class="glyphicon glyphicon-bookmark mr2" aria-hidden="true"></span>Seguindo
+<% end %>	
+
