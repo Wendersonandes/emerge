@@ -53,6 +53,8 @@ gem 'meta-tags'
 
 #Reputation System
 gem 'activerecord-reputation-system', github: 'twitter/activerecord-reputation-system', :branch => "master"
+
+gem 'acts_as_commentable_with_threading', '~> 2.0', '>= 2.0.1'
 gem "icalendar"
 # Pagination
 gem 'kaminari', '~> 1.0', '>= 1.0.1'
