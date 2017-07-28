@@ -12,6 +12,7 @@ class Authorization < ActiveRecord::Base
 		graph = Koala::Facebook::API.new(self.token)
 		facebook_data = graph.get_object("me")
 		self.username = facebook_data['username']
+		self.image_url = facebook_data['image']
 		self.save
 	end
 

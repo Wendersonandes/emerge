@@ -131,9 +131,6 @@ class Opportunity < ActiveRecord::Base
 	has_many :entry_manners, :dependent => :delete_all
 	accepts_nested_attributes_for :entry_manners, :reject_if => :all_blank, :allow_destroy => true
 
-  has_many :likes, as: :likeable, dependent: :destroy
-  #has_many :likers, through: :likes, source: :user
-
   has_reputation :recommendation, source: :user, aggregated_by: :sum
   
   enum local_restriction: { nenhuma: 0, país: 1, estado: 2, município: 3}
@@ -201,9 +198,5 @@ class Opportunity < ActiveRecord::Base
 	def unpublish
 		self.published_at = nil
 	end
-
-  def likes_count
-    likes.count
-  end
 
 end
