@@ -1,0 +1,3 @@
+$('.comments-container').prepend("<%= escape_javascript(cell(CommentsCell, @comment).(:reply)) %>")
+$('#comments_count').html("<%= escape_javascript(cell(CommentsCell, @commentable).(:comments_count)) %>")
+$('#reset_button').trigger("click");

@@ -2,12 +2,13 @@ class CommentsController < ApplicationController
 
 	def create
 		commentable = commentable_type.constantize.find(commentable_id)
+		@commentable = commentable
 		@comment = Comment.build_from(commentable, current_user.id, body)
 
 		respond_to do |format|
 			if @comment.save
-				make_child_comment
-				format.html {redirect_to(:back, :notice => 'Your comment was successfully created')}
+				format.html {redirect_to(:back)}
+				format.js
 			else
 				format.html {render :action => "new"}
 			end
@@ -36,10 +37,4 @@ class CommentsController < ApplicationController
 		comment_params[:body]
 	end
 
-	def make_child_comment
-		return "" if comment_id.blank?
-
-		parent_comment = Comment.find(comment_id)
-		@comment.move_to_child_of(parent_comment)
-	end
 end
