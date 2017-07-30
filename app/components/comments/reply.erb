@@ -1,0 +1,26 @@
+	<div class="comments-show ml5">
+		<div class="comment">
+			<p>
+				<%= cell(Users::AcountLinkCell, user) %>
+			</p>
+			<p>
+			<%= body %>
+			</p>
+			<div class="comment-nav">
+				<a href="#" class="comment-reply">reply</a>
+				<div class="reply-form">
+					<%= form_for @new_comment do |f| %>
+						<%= f.hidden_field :commentable_id, value: @new_comment.commentable_id %>
+						<%= f.hidden_field :commentable_type, value: @new_comment.commentable_type %>
+						<%= f.hidden_field :comment_id, value: id %>
+						<div class="field form-group">
+							<%= f.text_area :body, class: 'form-control' %>
+						</div>
+						<div class="field form-group">
+							<%= submit_tag "Post reply" %>
+						</div>
+					<%end%>
+				</div>
+			</div>
+		</div>
+	</div>
