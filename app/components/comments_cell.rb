@@ -20,7 +20,10 @@ class CommentsCell < Cell::ViewModel
 	end
 
 	def reply
-		@new_comment = Comment.build_from(model, current_user.id, "")
+		render
+	end
+
+	def comments_count
 		render
 	end
 

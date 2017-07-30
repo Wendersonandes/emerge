@@ -1,11 +1,8 @@
-<div class="comments-header">
-	<h4>
-		<%= comment_threads_count %>
-		comments
-	</h4>
+<div class="comments-header pb6">
+	<%= cell(CommentsCell, model).(:comments_count) %>
 	<%= cell(CommentsCell, model).(:form) %>
 
 	<div class="comments-container">
-		<%= cell(CommentsCell, :collection => root_comments).(:reply) %>
+		<%= cell(CommentsCell, :collection => model.root_comments).(:reply) %>
 	</div>
 </div>
