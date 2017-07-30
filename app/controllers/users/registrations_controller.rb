@@ -63,7 +63,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-		binding.pry
     check_for_existing_account
     super
     @auth.save! if @auth.present? && resource.persisted?
