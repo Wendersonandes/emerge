@@ -111,6 +111,8 @@ class Opportunity < ActiveRecord::Base
 	acts_as_taggable
   acts_as_taggable_on :categories
 
+	acts_as_commentable
+
 	belongs_to :author, :class_name => "User", :foreign_key => "author_id"
 
   has_one :opportunity_email_notification, :dependent => :destroy

@@ -37,6 +37,8 @@ Rails.application.routes.draw do
 		end
   end
 
+	resources :comments
+
   resources :contacts, only: [:new, :create]
 
   # OAuth
