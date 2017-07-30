@@ -18,7 +18,6 @@ class OpportunitiesController < ApplicationController
 
   def show
 		@opportunity = Opportunity.find(params[:id])
-		@new_comment = Comment.build_from(@opportunity, current_user.id, "")
     impressionist(@opportunity)
     prepare_meta_tags title: @opportunity.title, 
 											description: @opportunity.summary || view_context.truncate_html(@opportunity.content, length: 150, omission: "..."), 
