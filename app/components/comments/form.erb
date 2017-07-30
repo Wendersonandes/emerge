@@ -1,0 +1,11 @@
+<%= form_for @new_comment, :remote => true do |f| %>
+	<%= f.hidden_field :commentable_id, :value => @new_comment.commentable_id %>
+	<%= f.hidden_field :commentable_type, :value => @new_comment.commentable_type %>
+	<div class="field form-group">
+		<%= f.text_area :body, :class => 'form-control', :rows => 3 %>
+	</div>
+	<div class="field form-group">
+		<%= f.submit "Comentar", :class => 'btn btn-primary btn-xs' %>
+		<%= submit_tag("Limpar comentário", { :name => 'reset', :id => 'reset_button', :type => "reset", :class => 'btn btn-default btn-xs ml2' }) %>
+	</div>
+<% end %>

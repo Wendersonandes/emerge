@@ -1,0 +1,8 @@
+<div class="comments-header pb6">
+	<%= cell(CommentsCell, model).(:comments_count) %>
+	<%= cell(CommentsCell, model).(:form) %>
+
+	<div class="comments-container">
+		<%= cell(CommentsCell, :collection => model.root_comments).(:reply) %>
+	</div>
+</div>

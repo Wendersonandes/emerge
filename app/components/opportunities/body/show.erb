@@ -11,6 +11,7 @@
 				</div>
 			</div>
 			<%= content_formatted %>
+			<%= cell(CommentsCell, model, {:context => {:current_user => current_user}}) %>	
 		</div>
 		<div class="col-sm-4">
 			<ul class="list-group">
@@ -22,5 +23,6 @@
 			</ul>
 		</div>
 	</div>
+
 </div>
 

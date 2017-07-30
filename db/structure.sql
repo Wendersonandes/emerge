@@ -245,6 +245,45 @@ ALTER SEQUENCE avatars_id_seq OWNED BY avatars.id;
 
 
 --
+-- Name: comments; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE comments (
+    id integer NOT NULL,
+    commentable_id integer,
+    commentable_type character varying,
+    title character varying,
+    body text,
+    subject character varying,
+    user_id integer NOT NULL,
+    parent_id integer,
+    lft integer,
+    rgt integer,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+--
+-- Name: comments_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE comments_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: comments_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE comments_id_seq OWNED BY comments.id;
+
+
+--
 -- Name: docs; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -1213,6 +1252,13 @@ ALTER TABLE ONLY avatars ALTER COLUMN id SET DEFAULT nextval('avatars_id_seq'::r
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY comments ALTER COLUMN id SET DEFAULT nextval('comments_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY docs ALTER COLUMN id SET DEFAULT nextval('docs_id_seq'::regclass);
 
 
@@ -1422,6 +1468,14 @@ ALTER TABLE ONLY authorizations
 
 ALTER TABLE ONLY avatars
     ADD CONSTRAINT avatars_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: comments_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY comments
+    ADD CONSTRAINT comments_pkey PRIMARY KEY (id);
 
 
 --
@@ -1713,6 +1767,20 @@ CREATE INDEX index_authorizations_on_user_id ON authorizations USING btree (user
 --
 
 CREATE INDEX index_avatars_on_profile_id ON avatars USING btree (profile_id);
+
+
+--
+-- Name: index_comments_on_commentable_id_and_commentable_type; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_comments_on_commentable_id_and_commentable_type ON comments USING btree (commentable_id, commentable_type);
+
+
+--
+-- Name: index_comments_on_user_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_comments_on_user_id ON comments USING btree (user_id);
 
 
 --
@@ -2629,4 +2697,6 @@ INSERT INTO schema_migrations (version) VALUES ('20170706044441');
 INSERT INTO schema_migrations (version) VALUES ('20170706044442');
 
 INSERT INTO schema_migrations (version) VALUES ('20170721215407');
+
+INSERT INTO schema_migrations (version) VALUES ('20170728194906');
 
