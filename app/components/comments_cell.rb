@@ -15,8 +15,13 @@ class CommentsCell < Cell::ViewModel
 	end
 
 	def form
-		@new_comment = Comment.build_from(model, current_user.id, "")
-		render
+		if current_user 
+			@new_comment = Comment.build_from(model, current_user.id, "")
+			render :logged_in_user_form
+		else
+			@new_comment = Comment.build_from(model, nil, "")
+			render :not_logged_in_user_form
+		end
 	end
 
 	def reply
