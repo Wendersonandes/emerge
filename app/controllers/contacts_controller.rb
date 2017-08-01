@@ -15,6 +15,9 @@ class ContactsController < ApplicationController
     user = @contact
     if @contact.deliver
       ContactResponseMailer.thanks_contact(user).deliver
+			respond_to do |format| 
+				format.js
+			end
     else
       flash.now[:error] = 'Cannot send message.'
       render :new

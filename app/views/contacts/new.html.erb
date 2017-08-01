@@ -1,18 +1,18 @@
-<div class="image_background relative w-100 vh-100 bg-top cover bg-black" style="background-image: url(http://payload508.cargocollective.com/1/22/725810/12476799/23-11-15-2_3507.jpg);">
-	<div class="wrapper w-100 vh-100 bg-black-80">
+<div class="image_background relative w-100 vh-100-l bg-top cover bg-black" style="background-image: url(http://payload508.cargocollective.com/1/22/725810/12476799/23-11-15-2_3507.jpg);">
+	<div class="wrapper w-100 vh-100-l bg-black-80 pb7 pb0-ns">
 		<div class="container pt6">
-			<div class="col-md-7 light-silver hidden-xs">
+			<div class="col-md-7 light-silver hidden-xs contact">
 				<h1 class="f-subheadline fw1">Entre em contato</h1>
 				<p class="f2">Alguma dúvida ou sugestão? Envie uma mensagem usando o formulário de contato, ou diretamente no email contato@emerge.art.br</p>
 			</div>
 			<div class="col-md-5 light-silver">
 				<h2>Preencha os campos abaixos</h2>
-				<%= simple_form_for @contact, :validate => true do |f| %>
+				<%= simple_form_for @contact, :remote => true do |f| %>
 					<%= f.input  :first_name %>
 					<%= f.input  :email %>
 					<%= f.input  :message_subject, collection: ["Sugerir oportunidade", "Solicitar informação", "Dificuldades para criar conta", "Outros"], :prompt => "Escolha o assunto da sua mensagem" %>
 					<%= f.input  :message, as: :text,:input_html => {:rows => "5"} %>
-					<%= f.button :submit, :class => "btn btn-primary" %>
+					<%= f.button :submit, :class => 'button button-rounded button-primary w-100' %>
 				<% end %>
 			</div>
 		</div>
