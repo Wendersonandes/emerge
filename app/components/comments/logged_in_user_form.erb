@@ -5,7 +5,11 @@
 		<%= f.text_area :body, :class => 'form-control', :rows => 3, :placeholder => "Comente aqui" %>
 	</div>
 	<div class="field form-group">
-		<%= f.submit "Comentar", :class => 'btn btn-primary btn-xs' %>
-		<%= submit_tag("Limpar comentário", { :name => 'reset', :id => 'reset_button', :type => "reset", :class => 'btn btn-default btn-xs ml2' }) %>
+		<div class="btn-group">
+			<%= f.submit "Comentar", :class =>  "button button-rounded button-primary button-small" %>
+		</div>
+		<div class="btn-group">
+			<%= submit_tag("Limpar comentário", { :name => 'reset', :id => 'reset_button', :type => "reset", :class => "button button-small ml1" }) %>
+		</div>
 	</div>
 <% end %>
