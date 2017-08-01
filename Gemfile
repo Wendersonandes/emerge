@@ -62,6 +62,7 @@ gem 'coffee-rails'
 # Design
 gem 'bootstrap-sass'
 gem 'ionicons-rails'
+gem 'sass-buttons', '~> 0.1.3'
 source 'https://rails-assets.org' do
   gem 'rails-assets-switchery'
   gem 'rails-assets-jquery.maskedinput'
