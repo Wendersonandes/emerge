@@ -1,8 +1,8 @@
 <% resource.email = params[:email] unless resource.email.present? %>
-<div class="image_background relative w-100 vh-100 bg-top cover bg-black" style="background-image: url(http://payload508.cargocollective.com/1/22/725810/12476799/23-11-15-2_3507.jpg);">
-	<div class="wrapper w-100 vh-100 bg-black-80">
+<div class="image_background relative w-100 vh-100-l bg-top cover bg-black" style="background-image: url(http://payload508.cargocollective.com/1/22/725810/12476799/23-11-15-2_3507.jpg);">
+	<div class="wrapper w-100 vh-100-l bg-black-80 pb6 pb0-ns">
 		<div class="container pt6">
-			<div class="col-md-7 light-silver">
+			<div class="col-md-7 light-silver hidden-xs">
 				<h1>Conecte-se a infinitas oportunidades em artes</h1>
 				<p>No Emerge você encontra oportunidades para artistas em vários estágios de carreira. Mostre seu trabalho ao mundo, se organize melhor e tenha mais tempo para sua produção</p>
 				<p>Crie uma conta gratuita</p>
@@ -23,12 +23,8 @@
 						<% end %>
 						<%= f.input_field :password, required: true, autocomplete: 'off' %>
 					<% end %>
-					<%= f.button :submit, I18n.t('auth.login.link'), class: 'btn-primary' %>
+					<%= f.button :submit, I18n.t('auth.login.link'), class: 'button button-rounded button-primary w-100' %>
 				<% end %>
-				<div class="auth__or">
-					<hr/>
-					<span>ou</span>
-				</div>
 				<%= render 'authentications/providers', flow: 'login', icons: true, color: true %>
 				<%= render 'users/shared/links', disable_signup: true %>
 			</div>

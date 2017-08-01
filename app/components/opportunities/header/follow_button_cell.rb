@@ -1,6 +1,7 @@
 module Opportunities
 	module Header
 		class FollowButtonCell < Cell::ViewModel
+			include Escaped
 
 			def show
 				render
@@ -22,6 +23,14 @@ module Opportunities
 						render :follow
 					end
 				end
+			end
+
+			def stop_following_link
+				opportunity_follow_opportunity_path(model.to_param, current_user.person.get_follow(model).id)
+			end
+
+			def start_following_link
+				opportunity_follow_opportunities_path(model.to_param.to_s)
 			end
 
 			def current_user

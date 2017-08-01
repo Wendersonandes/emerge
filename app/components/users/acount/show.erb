@@ -20,7 +20,7 @@
 			<%=image_tag(f.object.image_url(size: :thumb, ssl: request.ssl?), alt: "TEste") %>
 			<%= f.input :first_name %>
 			<%= f.input :last_name %>
-		<%= f.button :submit, class: 'btn-primary' %>
+			<%= f.button :submit, :class => "button button-rounded button-primary" %>
 	<% end %>
 	<%= cell(Navigation::DeviseLinksCell, nil, {:context => {:current_user => current_user}} ) %>	
 </div>
