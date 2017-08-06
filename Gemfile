@@ -54,6 +54,9 @@ gem 'meta-tags'
 #Reputation System
 gem 'activerecord-reputation-system', github: 'twitter/activerecord-reputation-system', :branch => "master"
 
+#Notifications
+gem 'public_activity', '~> 1.5'
+
 gem 'acts_as_commentable_with_threading', '~> 2.0', '>= 2.0.1'
 gem "icalendar"
 # Pagination
@@ -62,7 +65,6 @@ gem 'coffee-rails'
 # Design
 gem 'bootstrap-sass'
 gem 'ionicons-rails'
-gem 'sass-buttons', '~> 0.1.3'
 source 'https://rails-assets.org' do
   gem 'rails-assets-switchery'
   gem 'rails-assets-jquery.maskedinput'
