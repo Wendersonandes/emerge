@@ -9,7 +9,13 @@ common: &common
   # Downcased and trimmed app name for namespaces.
   # Safest to start with a letter rather than a number.
   # See locales/en.yml for setting your app's user facing brand name.
-  app_name: 'starterkit'
+  app_name: 'Emerge'
+  company_name: "Emerge"
+  address: "Belo Horizonte, Minas Gerais"
+  email_contact: "contato@emerge.art.br"
+  logo_square_red: "https://s3-us-west-2.amazonaws.com/layoutassets/images/perfil_04.png"
+  logo_full: "https://s3-us-west-2.amazonaws.com/layoutassets/images/logo-brand.png"
+  logo_full_inverted: "https://s3-us-west-2.amazonaws.com/layoutassets/images/logo-brand-invert.png"
 
   social:
     facebook: 'https://www.facebook.com/simple10'
@@ -18,8 +24,8 @@ common: &common
     linkedin: 'http://www.linkedin.com/in/startupjoe'
 
   contact:
-    email: 'joe@example.com'
-    phone: '555-555-5555'
+    email: 'contato@emerge.art.br'
+    phone: '031991001675'
 
   session:
     key: '_starterkit_session'
@@ -44,6 +50,7 @@ default_env: &default_env
   # Host used to determine direct requests vs CDN.
   # See RobotsController.
   CANONICAL_HOST: 'gorgeous-arches-48928.herokuapp.com/'
+  FULL_URL: 'http://localhost:3000'
 
 
   # Redis server used by Sidekiq, cache, etc.
@@ -70,3 +77,4 @@ production:
   env:
     # Set dummy key so rake assets:precompile succeeds
     DEVISE_SECRET_KEY: ''
+    FULL_URL: 'http://www.gorgeous-arches-48928.herokuapp.com'
