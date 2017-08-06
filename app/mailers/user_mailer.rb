@@ -1,6 +1,6 @@
 class UserMailer < ActionMailer::Base
-  default from: Rails.application.config.settings.mail.from
-  layout 'emails/email'
+  layout 'emails/testing'
+  default from: "contato@emerge.art.br"
 
   def welcome_email(user)
     return false unless load_user(user).present?

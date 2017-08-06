@@ -1,0 +1,14 @@
+<%= Emails::Partials::HeadersCell.(Settings).(:logo_left) %>
+<%= Emails::Partials::WrapperCell.().(){ 
+			Emails::Partials::HerosCell.(Opportunity.find(352)).(:background_image_text_overlay)
+	} 
+%>
+
+<%= Emails::Partials::WrapperCell.().(){ 
+			Emails::Partials::ContainerCell.().(){
+				Emails::Partials::BlockCell.(:collection => @recent_opportunities, :count => @recent_opportunities.count).() 
+		} 
+	} 
+%>
+<%= Emails::Partials::ContentPanelsCell.().(:social_media) %>
+<%= Emails::Partials::FooterCell.(Settings).() %>

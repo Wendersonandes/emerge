@@ -1,6 +1,6 @@
 class ContactResponseMailer < ActionMailer::Base
-	layout 'transactional_email'
-  default from: "contato@emerge.art.br"
+  layout 'emails/testing'
+  default from: "\"Emerge\" <contato@emerge.art.br>"
 
   def thanks_contact(user)
   	@user = user
