@@ -29,6 +29,7 @@
 #
 
 class Opportunity < ActiveRecord::Base
+	include PublicActivity::Common
 
   before_create :build_default_opportunity_email_notification
   before_save :create_summary

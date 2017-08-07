@@ -9,6 +9,7 @@ class CommentsController < ApplicationController
 			if @comment.save
 				format.html {redirect_to(:back)}
 				format.js
+				ActivityJob.perform_async(current_user.id, commentable_type, commentable_id, @comment.id)
 			else
 				format.html {render :action => "new"}
 			end
