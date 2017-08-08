@@ -1,0 +1,13 @@
+<div class="dt w-100 fl ba b--black-05 bg-white pb1 mt2 pl3">
+	<% if activity.trackable %>
+		<div class="dtc w2 w4-ns">
+			<%= image_tag activity.trackable.featured_image_url(:email_thumb), :class => "ba b--black-10 db br2 w2 w4-ns h2 h4-ns" %>
+		</div>
+		<div class="dtc v-mid pa1 pl3">
+			Você está seguindo uma oportunidade que encerra em breve...
+			Comentou <%= link_to activity.trackable.title, activity.trackable %>
+		</div>
+	<% else %>
+		which has since been removed
+	<% end %>
+</div>

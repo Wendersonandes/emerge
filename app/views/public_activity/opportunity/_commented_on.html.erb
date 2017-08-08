@@ -1,0 +1,16 @@
+<div class="dt w-100 fl ba b--black-05 bg-white pb1 mt2 pl3">
+	<% if activity.trackable %>
+		<div class="dtc w2 w4-ns">
+			<%= image_tag activity.trackable.featured_image_url(:email_thumb), :class => "ba b--black-10 db br2 w2 w4-ns h2 h4-ns" %>
+		</div>
+		<div class="dtc v-mid pa1 pl3">
+			<%= cell(Users::AcountLinkCell, activity.owner) %>
+			Comentou <%= link_to activity.trackable.title, activity.trackable %>
+			<p>
+				<%= activity.parameters[:comment] %>
+			</p>
+		</div>
+	<% else %>
+		which has since been removed
+	<% end %>
+</div>
