@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     end
   end
 
-
+	mount Crono::Web, at: '/crono'
 
 	#Shrine uploader endpoints
   mount AvatarUploader::UploadEndpoint, at: "/attachments/avatars"
@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   get '/privacy' => 'pages#privacy', as: 'privacy'
   # get '/opportunity' => 'pages#opportunity', as: 'opportunity'
   # get '/opportunity_index' => 'pages#opportunity_index', as: 'opportunity_index'
-
+	get "/feed" => "activities#feed", as: :feed
   resources :opportunities do
     resources :follow_opportunities, :only => [:create, :destroy]
     resources :likes, only: [:create, :destroy]
@@ -57,7 +57,7 @@ Rails.application.routes.draw do
   devise_scope :user do
 		authenticated :user do
 			delete "logout" => "devise/sessions#destroy", :as => "logout"
-			root to: 'opportunities#index', as: :authenticated_root
+			root to: 'activities#feed', as: :authenticated_root
 		end
 		unauthenticated do
 			root 'users/registrations#new'
