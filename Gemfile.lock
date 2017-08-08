@@ -177,6 +177,9 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
     connection_pool (2.2.1)
+    crono (1.1.2)
+      activerecord (>= 4.0)
+      activesupport (>= 4.0)
     css_parser (1.5.0)
       addressable
     dalli (2.7.6)
@@ -606,6 +609,7 @@ DEPENDENCIES
   client_side_validations-formtastic!
   client_side_validations-simple_form (~> 3.4)
   coffee-rails
+  crono (~> 1.1, >= 1.1.2)
   dalli
   database_cleaner
   devise
@@ -616,6 +620,7 @@ DEPENDENCIES
   figaro (~> 1.0.0)
   gibbon!
   guard-rspec
+  haml
   haml-rails
   headjs-rails
   icalendar

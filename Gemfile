@@ -88,6 +88,8 @@ gem 'devise-async'
 gem 'sucker_punch', '~> 2.0'
 gem 'sinatra', require: false
 gem 'sidekiq'
+gem 'crono', '~> 1.1', '>= 1.1.2'
+gem 'haml'
 
 # Utils
 gem 'addressable'

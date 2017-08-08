@@ -322,6 +322,40 @@ ALTER SEQUENCE comments_id_seq OWNED BY comments.id;
 
 
 --
+-- Name: crono_jobs; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE crono_jobs (
+    id integer NOT NULL,
+    job_id character varying NOT NULL,
+    log text,
+    last_performed_at timestamp without time zone,
+    healthy boolean,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: crono_jobs_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE crono_jobs_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: crono_jobs_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE crono_jobs_id_seq OWNED BY crono_jobs.id;
+
+
+--
 -- Name: docs; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -1304,6 +1338,13 @@ ALTER TABLE ONLY comments ALTER COLUMN id SET DEFAULT nextval('comments_id_seq':
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY crono_jobs ALTER COLUMN id SET DEFAULT nextval('crono_jobs_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY docs ALTER COLUMN id SET DEFAULT nextval('docs_id_seq'::regclass);
 
 
@@ -1529,6 +1570,14 @@ ALTER TABLE ONLY avatars
 
 ALTER TABLE ONLY comments
     ADD CONSTRAINT comments_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: crono_jobs_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY crono_jobs
+    ADD CONSTRAINT crono_jobs_pkey PRIMARY KEY (id);
 
 
 --
@@ -1855,6 +1904,13 @@ CREATE INDEX index_comments_on_commentable_id_and_commentable_type ON comments U
 --
 
 CREATE INDEX index_comments_on_user_id ON comments USING btree (user_id);
+
+
+--
+-- Name: index_crono_jobs_on_job_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE UNIQUE INDEX index_crono_jobs_on_job_id ON crono_jobs USING btree (job_id);
 
 
 --
@@ -2775,4 +2831,6 @@ INSERT INTO schema_migrations (version) VALUES ('20170721215407');
 INSERT INTO schema_migrations (version) VALUES ('20170728194906');
 
 INSERT INTO schema_migrations (version) VALUES ('20170806063902');
+
+INSERT INTO schema_migrations (version) VALUES ('20170808025854');
 
