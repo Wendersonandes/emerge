@@ -1,3 +1,4 @@
 <div class="col-sm-6">
-	<%= render_activities(@activities) %>
+	<div class="f3">Atividades relacionadas à sua conta Emerge</div>
+	<%= cell(ActivitiesCell, @activities).() %>
 </div>
